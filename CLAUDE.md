@@ -44,8 +44,13 @@ This repo was moved from the claude.ai Project "Album Analysis Cross Studios" on
 - Style: Eden's Deck Style Guide https://claude.ai/code/artifact/987682ea-ee39-493c-b5f8-4c28be9b2f0a — dark charcoal #212121, Oswald, gold #FFDF85 for the key concept, red #FF0B47 for problems, blue table headers #4285F4, footer "SuperPlay 2026".
 - `claude/deck_v2_*.py` and `claude/deck_gen_x3.py` are the generator scripts used to build earlier versions.
 
+## Docs added from the claude.ai Project (2026-10-20)
+- `claude/claims-register.md` — what is valid / superseded / rejected (updated 2026-10-18). `claude/evidence-recheck-2026-10-18.md` wins where they conflict; its finisher numbers use the old rule (144 before the close day).
+- `claude/album-analysis-v3-2026-10-15.md` — superseded by v4; history only.
+- `claude/benchmark-queries.md` — Topic 4 rare-progression SQL for the three games + the Disney album-end ratio query; old payer rule (spend before the close day).
+
 ## Not in this repo
-These docs are still only in the claude.ai Project (download them from there if needed): `claims-register.md`, `agent-analysis-2026-10-14.md`, `album-analysis-v3-2026-10-15.md` (superseded), `benchmark-queries.md`.
+`agent-analysis-2026-10-14.md` is here but not in `claude/`.
 `domino album onboarding.md` is here without its two embedded images.
 Docs were copied text-for-text from the Project, not as original files; small differences are possible.
 
