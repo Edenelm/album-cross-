@@ -320,3 +320,11 @@ FROM (SELECT grp, ROUND(100 * SAFE_DIVIDE(SUM(rin) - SUM(bought), SUM(staked)), 
 JOIN (SELECT grp, dk, ROUND(100 * SAFE_DIVIDE(SUM(rin) - SUM(bought), SUM(staked)), 1) AS payout FROM x WHERE dk BETWEEN -3 AND 3 GROUP BY 1,2) dd USING (grp)
 GROUP BY 1,2 ORDER BY 1
 ;
+
+-- ===== DICE 61/63 — total daily payout by end status (Eden 2026-10-20: "all rolls received ÷ all rolls spent") — RAN, 16.6 GB =====
+-- 30_intermediate.user_daily_rolls_in_out: rolls_in_sum = all rolls received (purchases included); rolls_out_sum = all rolls spent incl. ante
+-- (bet_mult + prime_cost, same as the Mixpanel stake). Total payout = SUM(rolls_in_sum) / SUM(rolls_out_sum); free payout = (rolls_in_sum −
+-- rolls_amount_from_purchase) / rolls_out_sum. Players whose roll balance went above 1.2M in the window left out (Mixpanel cohort rule).
+-- Same population / groups as above; mid album = close−18..close−5; days close−3..close+7.
+-- (SQL text identical to the free-rolls query above with r = user_daily_rolls_in_out columns rolls_in_sum, rolls_amount_from_purchase,
+--  rolls_out_sum, rolls_max; group-level sums.)
