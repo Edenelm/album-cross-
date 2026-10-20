@@ -4,7 +4,7 @@ Eden's cross-studio sticker-album analysis for Superplay: Dice Dreams, Domino Dr
 This repo was moved from the claude.ai Project "Album Analysis Cross Studios" on 2026-10-20.
 
 ## Start here
-1. `claude/next-session-prompt-2026-10-19.md` — the latest handoff: what is done, where we stand, what is open.
+1. `claude/next-session-prompt-2026-10-20.md` — the latest handoff: what is done, where we stand, what is open (older: `claude/next-session-prompt-2026-10-19.md`).
 2. `INDEX.md` — the map of every doc by topic, with status (current / superseded) and where the SQL is. Check it before starting any new check.
 3. `decisions-definitions-register.md` — the source of truth for definitions. When it conflicts with an older doc, it wins.
 4. The latest results: `claude/payer-close-day-2026-10-20.md`, `claude/remaining-recounts-2026-10-20.md`, `claude/finisher-recount-2026-10-19.md`.
@@ -40,7 +40,7 @@ This repo was moved from the claude.ai Project "Album Analysis Cross Studios" on
 - That MCP's guardrail reads `alias.struct.field` as a table name: flatten STRUCT fields in a separate CTE. It blocks `SELECT *`.
 
 ## The deck
-- Live deck (claude.ai Slides artifact, version 67): https://claude.ai/artifact/6UUb91x2vHULkaM4g73uQr — it stays in claude.ai; Claude Code cannot edit it directly.
+- Live deck (claude.ai Slides artifact, version 72): https://claude.ai/artifact/6UUb91x2vHULkaM4g73uQr — Claude Code reads and publishes it with the Artifact tool (`project/deck.json` + `project/slides/<id>.html`); re-read before every publish.
 - Style: Eden's Deck Style Guide https://claude.ai/code/artifact/987682ea-ee39-493c-b5f8-4c28be9b2f0a — dark charcoal #212121, Oswald, gold #FFDF85 for the key concept, red #FF0B47 for problems, blue table headers #4285F4, footer "SuperPlay 2026".
 - `claude/deck_v2_*.py` and `claude/deck_gen_x3.py` are the generator scripts used to build earlier versions.
 
