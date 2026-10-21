@@ -28,7 +28,7 @@ This repo was moved from the claude.ai Project "Album Analysis Cross Studios" on
 - **Dice "album segment"** = final-prize code `album_reward_code` 1–7 (not Easy/Medium/Hard/Extreme).
 - Dice album IDs jump by 2 (61, 63, …); the previous album = id − 2.
 - Comparison albums: Dice 61/63, Domino 19/20 (17 where noted), Disney 14/15.
-- Eden's target: about 10% of payers finish and finishers bring at least 30% of album revenue; stronger players should finish more.
+- Eden's target: about 10% of payers finish and finishers bring about 20–24% of total game purchase revenue during the album (= 30% of the old standard-population album revenue; restated 2026-10-21: Dice 20%, Domino 23%, Disney 24%); stronger players should finish more.
 
 ## Data (BigQuery)
 - Projects: `dice-dreams-dbt`, `domino-dreams-dbt`, `solitaire-dreams-411507` (Disney). Pass the project on every call; write tables as `project.dataset.table`.
@@ -40,7 +40,7 @@ This repo was moved from the claude.ai Project "Album Analysis Cross Studios" on
 - That MCP's guardrail reads `alias.struct.field` as a table name: flatten STRUCT fields in a separate CTE. It blocks `SELECT *`.
 
 ## The deck
-- Live deck (claude.ai Slides artifact, version 79): https://claude.ai/artifact/6UUb91x2vHULkaM4g73uQr — Claude Code reads and publishes it with the Artifact tool (`project/deck.json` + `project/slides/<id>.html`); re-read before every publish.
+- Live deck (claude.ai Slides artifact, version 80): https://claude.ai/artifact/6UUb91x2vHULkaM4g73uQr — Claude Code reads and publishes it with the Artifact tool (`project/deck.json` + `project/slides/<id>.html`); re-read before every publish.
 - Style: Eden's Deck Style Guide https://claude.ai/code/artifact/987682ea-ee39-493c-b5f8-4c28be9b2f0a — dark charcoal #212121, Oswald, gold #FFDF85 for the key concept, red #FF0B47 for problems, blue table headers #4285F4, footer "SuperPlay 2026".
 - `claude/deck_v2_*.py` and `claude/deck_gen_x3.py` are the generator scripts used to build earlier versions.
 
