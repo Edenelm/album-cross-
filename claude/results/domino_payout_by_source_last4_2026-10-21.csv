@@ -1,0 +1,38 @@
+album_id,period,src,won_units,pct_of_won,payout_points,payout_pct_total,players,days
+19,a_mid,level completed,72387992,64.1,50.7,79.1,116561,14
+19,a_mid,other,33893975,30.0,23.7,79.1,116561,14
+19,a_mid,album set completed,5457766,4.8,3.8,79.1,116561,14
+19,a_mid,album set pixie retro,1207819,1.1,0.8,79.1,116561,14
+19,a_mid,album completed,33961,0.0,0.0,79.1,116561,14
+19,a_mid,sets_mania,11214,0.0,0.0,79.1,116561,14
+19,a_mid,deluxe tier completed,1,0.0,0.0,79.1,116561,14
+19,b_last4,level completed,16824825,59.7,47.4,79.3,106581,4
+19,b_last4,other,8801461,31.2,24.8,79.3,106581,4
+19,b_last4,album set completed,1349149,4.8,3.8,79.3,106581,4
+19,b_last4,album completed,1174362,4.2,3.3,79.3,106581,4
+19,b_last4,deluxe grand prize,23916,0.1,0.1,79.3,106581,4
+19,b_last4,deluxe tier completed,592,0.0,0.0,79.3,106581,4
+19,c_close,level completed,4082086,61.7,47.8,77.5,88241,1
+19,c_close,other,1759121,26.6,20.6,77.5,88241,1
+19,c_close,album completed,498037,7.5,5.8,77.5,88241,1
+19,c_close,album set completed,256497,3.9,3.0,77.5,88241,1
+19,c_close,deluxe grand prize,22526,0.3,0.3,77.5,88241,1
+19,c_close,deluxe tier completed,246,0.0,0.0,77.5,88241,1
+20,a_mid,level completed,57494689,64.9,50.6,78.0,104629,14
+20,a_mid,other,26375084,29.8,23.2,78.0,104629,14
+20,a_mid,album set completed,4717927,5.3,4.2,78.0,104629,14
+20,a_mid,album completed,52856,0.1,0.0,78.0,104629,14
+20,a_mid,sets_mania,2311,0.0,0.0,78.0,104629,14
+20,a_mid,deluxe tier completed,16,0.0,0.0,78.0,104629,14
+20,b_last4,level completed,18211986,60.8,49.2,80.8,97323,4
+20,b_last4,other,7481062,25.0,20.2,80.8,97323,4
+20,b_last4,album set completed,2024152,6.8,5.5,80.8,97323,4
+20,b_last4,album completed,1852898,6.2,5.0,80.8,97323,4
+20,b_last4,deluxe grand prize,369796,1.2,1.0,80.8,97323,4
+20,b_last4,deluxe tier completed,547,0.0,0.0,80.8,97323,4
+20,c_close,level completed,4315090,63.9,48.4,75.7,83186,1
+20,c_close,other,1608047,23.8,18.0,75.7,83186,1
+20,c_close,album completed,450682,6.7,5.1,75.7,83186,1
+20,c_close,album set completed,216007,3.2,2.4,75.7,83186,1
+20,c_close,deluxe grand prize,168241,2.5,1.9,75.7,83186,1
+20,c_close,deluxe tier completed,66,0.0,0.0,75.7,83186,1
