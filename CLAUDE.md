@@ -40,7 +40,7 @@ This repo was moved from the claude.ai Project "Album Analysis Cross Studios" on
 - That MCP's guardrail reads `alias.struct.field` as a table name: flatten STRUCT fields in a separate CTE. It blocks `SELECT *`.
 
 ## The deck
-- Live deck (claude.ai Slides artifact, version 80): https://claude.ai/artifact/6UUb91x2vHULkaM4g73uQr — Claude Code reads and publishes it with the Artifact tool (`project/deck.json` + `project/slides/<id>.html`); re-read before every publish.
+- Live deck (claude.ai Slides artifact, version 82): https://claude.ai/artifact/6UUb91x2vHULkaM4g73uQr — Claude Code reads and publishes it with the Artifact tool (`project/deck.json` + `project/slides/<id>.html`); re-read before every publish.
 - Style: Eden's Deck Style Guide https://claude.ai/code/artifact/987682ea-ee39-493c-b5f8-4c28be9b2f0a — dark charcoal #212121, Oswald, gold #FFDF85 for the key concept, red #FF0B47 for problems, blue table headers #4285F4, footer "SuperPlay 2026".
 - `claude/deck_v2_*.py` and `claude/deck_gen_x3.py` are the generator scripts used to build earlier versions.
 
