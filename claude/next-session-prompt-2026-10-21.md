@@ -40,6 +40,12 @@ Continue the cross-studio album analysis (Dice Dreams, Domino Dreams, Disney Sol
 6. `INDEX.md` is not yet updated with the docs from 2026-10-20/21.
 7. `seg-return` shows differences in "pts". Eden's rule is to give differences in %. Fix it if she asks.
 
+## Progress, second session 2026-10-21 (Claude Code)
+- Item 2 (per-group targets): options and the missing evidence written in `claude/group-targets-options-2026-10-21.md` (options A–E; what a decision needs = revenue per player by spend group, proposed as a per-group readout of test 1). No targets set. Deck not touched (item 1: Eden is reviewing v82).
+- Item 6: `INDEX.md` updated with every doc from 2026-10-20/21, deck v82, the game-revenue denominator and the open checks.
+- Items 4 and 5 (data checks; exact rebases of weighting / staircase 1–2 missing / heavy-missers): NOT run. The BIFROST BigQuery MCP returned a server error on every call (list_projects ×3, get_user_info). Plan when it is back: add the game-revenue `tot` CTE from `opening_facts_queries.sql` to the GROUPS / w2 / w3 queries in `finisher_recount_queries.sql`; Domino 17 needs its own denominator (not in opening-facts).
+- The handoff commit 3698e2c sits on `claude/album-analysis-payout-692f62` (after the PR #2 merge); it was copied into this worktree as uncommitted changes (CLAUDE.md pointer + this file). Merge or cherry-pick it with Eden's OK.
+
 ## Docs from 2026-10-20/21 (`claude/`)
 - `payout-mixpanel-def-2026-10-20.md` + `payout_mixpanel_def_queries.sql`
 - `opening-facts-2026-10-20.md` + `opening_facts_queries.sql`

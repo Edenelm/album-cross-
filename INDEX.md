@@ -1,4 +1,4 @@
-# אינדקס הפרויקט — אנליזת אלבומים בין סטודיו (עודכן 2026-10-20)
+# אינדקס הפרויקט — אנליזת אלבומים בין סטודיו (עודכן 2026-10-21)
 
 **להתחיל כאן.** לפני כל בדיקה חדשה — לבדוק בטבלה לפי נושא אם כבר נבדק.
 
@@ -7,20 +7,30 @@
 ## 1. מה עדכני
 | מה | קובץ | סטטוס |
 |---|---|---|
+| **מכנה חלק ההכנסה לכל המצגת (עדן, 2026-10-20)** | claude/opening-facts-2026-10-20.md; claude/opening_facts_queries.sql | **עדכני — הגדרה**: סך הכנסות הרכישה במשחק בתקופת האלבום (מתחילת האלבום עד יום לפני הסגירה, כל השחקנים, בלי צ'יטרים וטסט); RV בנפרד. מקדם מהבסיס הישן (הכנסת האוכלוסייה הסטנדרטית): דייס 0.67–0.69, דומינו 0.77–0.79, דיסני 0.78–0.81. יעד הכנסת המסיימים על הבסיס החדש: 20 / 23 / 24% (עדן, 2026-10-21). גם: מבנה האלבום, הכנסה לפי ותק אלבומים (ספטמבר), ARPDAU בסוף לפי ותק |
+| **יעדי סיום לפי קבוצת תשלום — אפשרויות (2026-10-21)** | claude/group-targets-options-2026-10-21.md | **עדכני — לא הוחלט (עדן)**: אפשרויות א–ה, מה חסר להחלטה (ראיה שהעלאת שיעור סיום בקבוצה מוסיפה הכנסה), הצעה לקריאה לפי קבוצה בטסט 1 |
+| **סקירת המצגת: Finding / Why / Action לכל שקף (2026-10-21)** | claude/deck-review-actions-2026-10-21.md | **עדכני** — גרסה 81–82; שמונה השאלות של עדן ותשובותיהן; שורות לכל שקף |
+| **מקורות הווילד בדייס בשבוע הסגירה (2026-10-21)** | claude/dice-wild-sources-2026-10-21.md; claude/dice_wild_sources_closing_week.sql | **עדכני** — הקו שצונח ב־closing-week הוא ווילד חינמי: גלגל הבונוס 8–7 ימים לפני, הטרייל ב־3 הימים האחרונים; בימים 6–4 רק קנייה. לא בעיית נתונים |
+| **ציר הזמן של נדירים — השחקן המשלם החציוני (2026-10-20)** | claude/rare-timeline-2026-10-20.md; claude/rare_timeline_queries.sql | **עדכני** — רווח חציוני 4 / 7 / 7 ימים; הרצף היבש הארוך ביותר 6 / 13–15 / 12–15 ימים (שקף rare-timeline) |
+| **פייאאוט לפי הגדרות Mixpanel, לפי מצב סיום (2026-10-20)** | claude/payout-mixpanel-def-2026-10-20.md; claude/payout_mixpanel_def_queries.sql | **עדכני** (staging באישור) — אחרי הסיום המסיים החציוני מקבל 12–19% פחות פייאאוט בדומינו ובדיסני, דייס +3–4% (שקף payout-near) |
+| **RV בדומינו 20: מה צפייה נותנת ומסלול חינמי לאלבום (2026-10-20)** | claude/domino-rv-rewards-2026-10-20.md; claude/domino_rv_rewards_queries.sql | **עדכני** (staging באישור) — 7,517 מסיימים לא משלמים, חציון 2,887 צפיות (כ־93 ביום), כ־640 חבילות; 45 אלף $ מודעות = 0.28% מהכנסות המשחק (שקף rv-path). צפייה אוטומטית — לא נבדק |
+| **השערת היובש בשבוע האחרון (2026-10-20)** | claude/dryness-last-week-2026-10-20.md; claude/dryness_last_week_queries.sql | **עדכני** — בדיסני, שבוע לפני: 1% ממשלמי 2–3 חסרות מקבלים מדבקה חינם ביום ו־0% קונים (דייס 6% / 8%) (שקף dryness) |
+| **חלק הכנסה לכל אוכלוסייה במצגת (2026-10-20)** | claude/revshare-fill-2026-10-20.md; claude/revshare_fill_queries_2026-10-20.sql | **עדכני** (בסיס ישן — הכנסת האוכלוסייה הסטנדרטית; להכפיל במקדם) |
+| **סיפור המצגת גרסה 4, חפיפות, מבנה, סקירה (2026-10-20)** | claude/storyline-v4-2026-10-20.md; claude/deck-overlaps-2026-10-20.md; claude/deck-structure-2026-10-20.md; claude/storyline-2026-10-20.md; claude/deck-review-2026-10-20.md; claude/deck_review_checks_2026-10-20.sql | **עדכני** — הסדר הנוכחי של המצגת (פתיחה, 8 פרקים, שיטה, נספח, נדחו); 9 שקפים לנספח; הסקירה מ־10-20 ובדיקותיה (seg-return, heavy-missers בסיס) |
 | **ספירה מחדש של מסיימים (144 עד סוף יום הסגירה)** | claude/finisher-recount-2026-10-19.md; claude/finisher_recount_queries.sql | **עדכני — גובר על מספרי מסיימים בכל המסמכים הקודמים** |
 | **הספירות שנשארו (2026-10-20)** | claude/remaining-recounts-2026-10-20.md; claude/remaining_recounts_queries.sql | **עדכני — סוגר את רשימת "לא נספר מחדש" שבסוף finisher-recount**: מדבקה אחרונה בווילד/ג'וקר (89 / 95 / 79%; ווילד בתשלום בדייס 61–71%), הוצאה ותשלום של מסיימים בסוף (×2.3 / 1.8 / 2.1; ×1.8 / 1.5 / 1.6), שיעור סיום לפי מסלול, סוגרי הפאזל בדומינו 20 (3,223 → 3,991; חזקים 393 → 520, 367 אלף $) |
 | **משלם כולל את יום הסגירה (2026-10-20, עדן)** | claude/payer-close-day-2026-10-20.md; claude/payer_close_day_queries.sql | **עדכני — הגדרה**: מי ששילם רק ביום הסגירה = משלם (הכנסה עדיין עד יום לפני הסגירה). משלמים +0.2–0.4%; שיעורי הסיום והחלקים בהכנסה לא זזים; חלק הלא משלמים מהמסיימים יורד ב־0.3–1.3 נק' (דייס 6 / 5 / 1%, דיסני 15 / 8 / 5%) |
-| **המצגת (Slides, אנגלית)** | https://claude.ai/artifact/6UUb91x2vHULkaM4g73uQr | **עדכני — גרסה 67 (2026-10-20): הגדרת משלם כוללת את יום הסגירה (read, nonpayer-share, disney-finishers, puzzle-joker, jokers, domino-3albums, last3days). גרסה 66: 11 שקופיות עודכנו לפי הספירות שנשארו (last3days, domino-3albums, dice-close, closing-week, nonpayer-share, routes, disney-finishers, puzzle-joker, jokers, jokers-test, tests). גרסה 65: stand4 מציג 3 ימים לפני הסגירה (4 ימים דהוי). גרסה 62: נוספה seg7-top — בסגמנט 7, משלמי $700+ באלבום: 0.3% מהשחקנים, 11.7% מההכנסה, 143K גלגולים ביום, הפרס מחזיק 1.4 ימים, 76% קונים שוב עד יום 3 (claude/seg7-top-payers-2026-10-20.md). גרסה 61: הסיפור אחרי הסיום מוצג לפי סגמנט האלבום 1–7 בלבד: seg-return + prize-fit. גרסה 60: seg-return לפי הפרס הסופי (קוד 1–7). גרסה 56: שקופיות הפרס הגדול בדייס (prize-fit, prize-rec) + שורה ב־tests ו־decisions. גרסה 54: 28 שקופיות עודכנו לפי הגדרת המסיים החדשה** |
+| **המצגת (Slides, אנגלית)** | https://claude.ai/artifact/6UUb91x2vHULkaM4g73uQr | **עדכני — גרסה 82 (2026-10-21), 96 שקפים: כל שקף אנליטי מסתיים ב־Finding / Why it matters / Action; מכנה = הכנסות המשחק; סיפור גרסה 4; שקפי השיטה = "יעדים לפי קבוצה: לא הוחלט". גרסה 67 (2026-10-20): הגדרת משלם כוללת את יום הסגירה (read, nonpayer-share, disney-finishers, puzzle-joker, jokers, domino-3albums, last3days). גרסה 66: 11 שקופיות עודכנו לפי הספירות שנשארו (last3days, domino-3albums, dice-close, closing-week, nonpayer-share, routes, disney-finishers, puzzle-joker, jokers, jokers-test, tests). גרסה 65: stand4 מציג 3 ימים לפני הסגירה (4 ימים דהוי). גרסה 62: נוספה seg7-top — בסגמנט 7, משלמי $700+ באלבום: 0.3% מהשחקנים, 11.7% מההכנסה, 143K גלגולים ביום, הפרס מחזיק 1.4 ימים, 76% קונים שוב עד יום 3 (claude/seg7-top-payers-2026-10-20.md). גרסה 61: הסיפור אחרי הסיום מוצג לפי סגמנט האלבום 1–7 בלבד: seg-return + prize-fit. גרסה 60: seg-return לפי הפרס הסופי (קוד 1–7). גרסה 56: שקופיות הפרס הגדול בדייס (prize-fit, prize-rec) + שורה ב־tests ו־decisions. גרסה 54: 28 שקופיות עודכנו לפי הגדרת המסיים החדשה** |
 | **אירועים אחרי האלבום ומסיימים** | claude/post-album-events-2026-10-19.md | **עדכני** — שים לב: חלק ה־recovery שם השתמש ב"144 או דגל". המלצה A (פרס גדול יותר לשחקני טופ בדייס, לפי הגלגולים היומיים) נמצאת במצגת מ־v56 |
-| **הנחיה לשיחה הבאה** | claude/next-session-prompt-2026-10-19.md | **עדכני (2026-10-20)** |
-| **הגדרות, החלטות, כללי עבודה** | decisions-definitions-register.md | **עדכני (2026-10-20 — הגדרת משלם)** |
+| **הנחיה לשיחה הבאה** | claude/next-session-prompt-2026-10-21.md (קודמות: 2026-10-20, 2026-10-19) | **עדכני (2026-10-21)** |
+| **הגדרות, החלטות, כללי עבודה** | decisions-definitions-register.md | **עדכני (2026-10-21 — מכנה הכנסות המשחק, יעד 20/23/24%, נעילת שער ב־3 המשחקים, יעדים לפי קבוצה לא הוחלטו)** |
 | **תוכן המצגת v1 (אנגלית, Claude Docs)** | https://claude.ai/code/artifact/8ffefe07-808e-48fd-809f-34921e9e81e1 | עדכני חלקית — מספרי המסיימים בו לפי ההגדרה הישנה |
 | **בדיקה מחדש של הראיות מול התוצאות המקוריות** | claude/evidence-recheck-2026-10-18.md | **עדכני — גובר על claims-register / v4 / day-synthesis בסתירות** |
 | אורך אלבום מול הסוף (נבדק 2026-10-18) | claude/album-length-end-arpdau-2026-10-18.md; claude/album-length-whole-album-addendum-2026-10-18.md | **עדכני** — הטענה "אלבום קצר נסגר חזק" לא נתמכת (שקופית length) |
 | פרוגרשן סטיקרים — שחקן משלם חציוני (נבדק 2026-10-18) | claude/sticker-progression-p50-payers-2026-10-18.md | **עדכני** — בדומינו ובדיסני השליש האחרון כמעט ריק; הפער בסוף = גולדנים + רויאלים (שקופיות progression, progression-type) |
 | האנליזה המלאה | claude/album-analysis-v4-2026-10-15.md | עדכני חלקית (ראו evidence-recheck, finisher-recount) |
 | סיכום 2026-10-18 — ממצאים והמלצות (מסיימים שלא שילמו, דומינו 19 מול 20, ג'וקר הפאזל) | claude/day-synthesis-2026-10-18.md | עדכני חלקית (ראו evidence-recheck, finisher-recount, remaining-recounts). הקו נעצר (עדן: "אין שום דבר מעניין") |
-| יעדי מסיימים לפי קבוצה (2026-10-18) | claude/finisher-targets-by-group-2026-10-18.md; מסמך נימוק לסטודיו: https://claude.ai/code/artifact/c39cd9b7-4cea-4a45-83b2-c8c4c562c6e5 | עדכני חלקית — שיעורי הסיום לפי קבוצה עודכנו ב־finisher-recount |
+| יעדי מסיימים לפי קבוצה (2026-10-18) | claude/finisher-targets-by-group-2026-10-18.md; מסמך נימוק לסטודיו: https://claude.ai/code/artifact/c39cd9b7-4cea-4a45-83b2-c8c4c562c6e5 | עדכני חלקית — שיעורי הסיום לפי קבוצה עודכנו ב־finisher-recount; הסטטוס והאפשרויות ב־group-targets-options-2026-10-21 (לא הוחלט) |
 | מסיימים שלא שילמו (2026-10-18) | claude/nonpayer-finishers-2026-10-18.md; claude/nonpayer-prior-month-2026-10-18.md; claude/nonpayer-rv-week-after-2026-10-18.md; claude/domino-rv-finishers-2026-10-18.md | **עדכני** (חלק לא משלמים עודכן ב־finisher-recount) |
 | דומינו 19 מול 20 וג'וקר הפאזל | claude/domino-19-vs-20-last-sticker-cost-2026-10-18.md; claude/domino-19-vs-20-strength-mix-2026-10-18.md; claude/domino-album-total-rev-2026-10-18.md; claude/domino-strong-puzzle-closers-2026-10-18.md; claude/domino-strong-closers-price-vs-cz-2026-10-18.md | **עדכני** (מסיימים 9,992 → 17,665 לפי ההגדרה החדשה; סוגרי הפאזל 3,991 / חזקים 520 ב־remaining-recounts) |
 | התנהגות אחרי השלמה | claude/post-completion-2026-10-17.md | הוחלף חלקית — ערכים חדשים ב־finisher-recount (כולל דומינו 20) |
@@ -126,9 +136,28 @@
 ### ז. ידע ונתונים
 dice-album-data-setup, dice-album-dbt-knowledge, reference/dice_album_knowledge_base.md, reference/album_cross_game_benchmark_plan.md, "album_knowledge_base (2).md", "domino album onboarding.md" (כולל אלבום דלוקס, סעיף 6) — רקע; agent-analysts-kickoff-prompt — הנחיית סוכנים. RV בדומינו: prod_30_intermediate.int_user_daily_rv, prod_20_core.core_ad_watch_completed. מקור מדבקה בדומינו: prod_30_intermediate.int_user_album_stickers (new_sticker_source, new_sticker_mtx_campaign_name; t_Offer = הצעת רכישה, czt/czw = סוג ומכפיל CZ). CZ ברכישה: smart_segments.cz_c ב־prod_10_staging.stg_purchase_completed_vw (staging — רק באישור). עמודות סטיקרים לפי סוג: דייס unique_common/golden/super_stickers_lt; דומינו ודיסני unique_common_stickers_lt, unique_golden_stickers_lt, unique_royal_stickers_tl (בדיסני 12 הספירה לסוג חורגת מ־113/24/7 — לבדוק). **דייס: בטבלה היומית אין עדכון מדבקות ביום הסגירה — מסיימי יום הסגירה מ־30_intermediate.fact_user_album_stickers.** **שומר הגישה של BigQuery MCP קורא `s.struct.field` כשם טבלה — לפרק שדות של STRUCT לעמודות בשלב נפרד.**
 
+### ט. המצגת והמכנה החדש (2026-10-20/21)
+| נושא | מסמך | שאילתה | סטטוס | עיקר |
+|---|---|---|---|---|
+| מכנה הכנסות המשחק, מבנה, ותק, ARPDAU בסוף לפי ותק | opening-facts-2026-10-20 | opening_facts_queries.sql | ✔ הגדרה | מקדמים 0.67–0.81; בדייס ובדומינו כל קבוצת ותק מסיימת 8–20% מעל הממוצע, בדיסני שטוח |
+| ציר נדירים — חציוני משלם | rare-timeline-2026-10-20 | rare_timeline_queries.sql | ✔ | רווח 4 / 7 / 7; רצף יבש 6 / 13–15 / 12–15 ימים |
+| פייאאוט לפי Mixpanel, לפי מצב סיום | payout-mixpanel-def-2026-10-20 | payout_mixpanel_def_queries.sql (staging) | ✔ | אחרי הסיום −12 עד −19% בדומינו ובדיסני; דייס +3–4% |
+| RV בדומינו 20 — מה נותן ומסלול חינמי | domino-rv-rewards-2026-10-20 | domino_rv_rewards_queries.sql (staging) | ✔ (צפייה אוטומטית ◐) | כ־93 צפיות ביום למסיים לא משלם; 0.28% מהכנסות המשחק |
+| יובש בשבוע האחרון | dryness-last-week-2026-10-20 | dryness_last_week_queries.sql | ✔ | דיסני: 1% חינם / 0% קנייה ביום אצל 2–3 חסרות |
+| מקורות הווילד בדייס בשבוע הסגירה | dice-wild-sources-2026-10-21 | dice_wild_sources_closing_week.sql | ✔ | שני אירועים חינמיים; בימים 6–4 רק קנייה; לוח אירועים מהקונפיג לא נבדק |
+| חלק הכנסה לכל אוכלוסייה | revshare-fill-2026-10-20 | revshare_fill_queries_2026-10-20.sql | ✔ (בסיס ישן) | 2–3 חסרות 8 ימים לפני: דיסני 22–33% |
+| יעדים לפי קבוצת תשלום — אפשרויות | group-targets-options-2026-10-21 | — (מספרים קיימים) | ◐ לא הוחלט | אפשרויות א–ה; הראיה החסרה = הכנסה לשחקן לפי קבוצה בטסט 1 |
+| סקירת המצגת ושורות לכל שקף | deck-review-2026-10-20; deck-review-actions-2026-10-21 | deck_review_checks_2026-10-20.sql | ✔ | גרסאות 68–82 |
+
 ## 3. שאלות פתוחות
 | שאלה | למה חשובה | איך לסגור |
 |---|---|---|
+| **יעדי סיום לפי קבוצת תשלום** — לא הוחלט; חסרה ראיה שהעלאת שיעור סיום בקבוצה מוסיפה הכנסה | היעד התפעולי לצוותי האלבום | קריאה לפי קבוצה בטסט 1 (group-targets-options-2026-10-21); החלטת הנהלה |
+| אסימוני ה־Market בדיסני — נקנים או מורווחים | תשלום/חינם של כלי הסגירה בדיסני | צוות דיסני (שקף open-checks) |
+| צפייה אוטומטית ב־RV בדומינו (כ־93 צפיות ביום למסיים לא משלם) | תקפות מסלול ה־RV והטסט של מכסת צפיות | שאילתה: התפלגות צפיות לשעה / רווחים קבועים; צוות דומינו |
+| לוח האירועים בדייס מהקונפיג ומי זכאי לפרס הסופי של הטרייל | הסבר הקו של הווילד החינמי ב־closing-week | שאילתה על טבלאות הקונפיג / צוות דייס |
+| חישוב מדויק על בסיס הכנסות המשחק: weighting לפי קבוצה; 1–2 חסרות ב־staircase; heavy-missers לפי אלבום | הערות השקפים עדיין על הבסיס הישן (מכפיל ממוצע) | להוסיף מכנה tot לשאילתות GROUPS / w2 / w3 ב־finisher_recount_queries.sql; ב־2026-10-21 שרת ה־BigQuery לא ענה |
+| seg-return מציג הפרשים ב־pts; הכלל של עדן = % | עקביות | לתקן אם עדן מבקשת |
 | רעיון ניסוי חלופי לוותיקי Light/Mid בדייס עם פרס גדול | המלצה B נדחתה | עדן |
 | stand-move: להשאיר או להוריד (חוזר על המעבר 4→3 של stand4) | כפילות במצגת | עדן |
 | מעבר ויזואלי על המצגת והערות עדן | המצגת נבנתה בלי בדיקת רינדור לכל שקופית | עדן |
