@@ -36,14 +36,19 @@ Continue the cross-studio album analysis (Dice Dreams, Domino Dreams, Disney Sol
    - Paid vs free for most rare sources.
    - Possible automated RV viewing in Domino (~93 views a day).
    - The Dice event calendar and who is eligible for the Trail final reward (`claude/dice-wild-sources-2026-10-21.md`).
-5. **Approximate rebases still on the old basis:** the `weighting` chart, the 1- and 2-missing shares in the `staircase` notes, and the `heavy-missers` notes. Rerun on game revenue if a slide needs exact numbers.
+5. **Exact rebases on game revenue: DONE 2026-10-21** (`claude/game-revenue-rebase-2026-10-21.md`): weighting 4 / 14 / 14 / 26 / 18% (3-game average), staircase finished 19 / 22 / 17% and 1 / 2 missing 5 / 5 / 6% and 10 / 8 / 8%, heavy-missers unchanged. The slide notes (weighting, groups, staircase, heavy-missers) are NOT yet updated: apply after Eden's v82 review.
 6. `INDEX.md` is not yet updated with the docs from 2026-10-20/21.
 7. `seg-return` shows differences in "pts". Eden's rule is to give differences in %. Fix it if she asks.
 
 ## Progress, second session 2026-10-21 (Claude Code)
 - Item 2 (per-group targets): options and the missing evidence written in `claude/group-targets-options-2026-10-21.md` (options A–E; what a decision needs = revenue per player by spend group, proposed as a per-group readout of test 1). No targets set. Deck not touched (item 1: Eden is reviewing v82).
 - Item 6: `INDEX.md` updated with every doc from 2026-10-20/21, deck v82, the game-revenue denominator and the open checks.
-- Items 4 and 5 (data checks; exact rebases of weighting / staircase 1–2 missing / heavy-missers): NOT run. The BIFROST BigQuery MCP returned a server error on every call (list_projects ×3, get_user_info). Plan when it is back: add the game-revenue `tot` CTE from `opening_facts_queries.sql` to the GROUPS / w2 / w3 queries in `finisher_recount_queries.sql`; Domino 17 needs its own denominator (not in opening-facts).
+- Item 5 (exact rebases): DONE later the same day. `claude/game_revenue_rebase_queries.sql` + `claude/game-revenue-rebase-2026-10-21.md` + raw CSVs in `claude/results/`. Dice was run by Eden in the BigQuery console while the BIFROST server was down; Domino and Disney ran through the MCP once it came back. All checks against opening-facts and finisher-recount passed. Domino 17 game purchase revenue = $17,388,298 (new).
+- Item 4 (data checks: automated RV viewing in Domino, Dice event calendar, paid vs free rare sources): NOT run (server outage for most of the session).
+- Item 2 (per-group targets), second pass 2026-10-21: finish rate by payer strength percentile (`claude/strength-percentile-2026-10-21.md`): p95 ≈ $12–13 a day in all three games; above p95 finish 25–42%, below 4–11%; the 10% goal is a goal for the 95% below p95; curve is smooth. Still not decided.
+- Item 4 (open checks): DONE where data can answer (`claude/open-checks-2026-10-21.md`): Domino RV = manual ad farming, no impossible cadence; Dice Trail = 39 back-to-back campaigns, Wild given below the top tier (tier = config, Dice team); paid vs free = question list for the studios; Disney Market tokens still with the Disney team.
+- Final deck: bottom lines approved by Eden 2026-10-21 (`claude/final-deck-bottom-lines-2026-10-21.md`); a NEW deck, separate from v82, is being built.
+- Eden's new questions 2026-10-21: (a) Domino easy segment must collect 3 goldens + 2 royals at the gate vs hard 2 royals + 1 golden; her claim: bringing an easy player to 5 missing is a weak 'near the end' feeling; wants data on revenue share left far behind in albums 19/20 by segment. (b) Dice has a VIP population, Disney has none: idea to differentiate Disney top payers (different art) — last priority.
 - The handoff commit 3698e2c sits on `claude/album-analysis-payout-692f62` (after the PR #2 merge); it was copied into this worktree as uncommitted changes (CLAUDE.md pointer + this file). Merge or cherry-pick it with Eden's OK.
 
 ## Docs from 2026-10-20/21 (`claude/`)
