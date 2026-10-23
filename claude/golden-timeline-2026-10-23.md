@@ -19,7 +19,7 @@ Daily series (day:median held:share getting a new Golden) are in the query outpu
 
 ## Reading
 - **Fact:** Goldens arrive steadily in all three games: a new Golden every 2–3 days for the median payer, the longest wait 3–6 days (8–14% of the album).
-- **Fact:** compare the rares (`rare-timeline-2026-10-20.md`): longest wait 14% Dice vs 26–30% Domino and 28–35% Disney. The long dry stretch in Domino and Disney is a rare (Royal) issue, not a Golden issue.
+- **Fact:** compare the rares (`rare-timeline-2026-10-20.md`): longest wait 14% Dice vs 26–30% Domino and 28–35% Disney. The long dry stretch in Domino and Disney is a rare (Royal) issue. **Updated 2026-10-23 (Eden):** Disney is behind on Goldens too — normal pace, but payers end 16–18% short (Dice 6–7%); see `disney-stalls-missing-2026-10-23.md`.
 - **Fact:** at close the median payer holds 83–96% of the Goldens; Disney is lowest (83–88%).
 - Method note: the rare doc counted the dry stretch slightly differently (album length without the close day); the gap between games is far larger than that difference.
 
@@ -52,7 +52,7 @@ Same query with all set stickers (Dice common / golden / super; Domino and Disne
 
 - **Fact:** on all 144 stickers the median payer gets something new almost every day in all three games (median gap 1 day, longest wait 2–4 days) and ends 2–6 stickers short.
 - **Fact:** Dice keeps more for the end (82% at 70% of the album vs ~90% in Domino hard and Disney 14), so its last 30% has more new stickers to give.
-- **Reading:** the overall flow is steady everywhere; the differences between games sit in the rares (slide 32), and for Disney also in the last Goldens.
+- **Reading (updated 2026-10-23, Eden):** Dice and Domino flow steadily; Disney 15 comes in waves with two 4–6 day lulls when events pause (`disney-stalls-missing-2026-10-23.md`). The end gap is in rares and, for Disney, Goldens.
 
 ## All 144 stickers, Domino 20 ALL payers (Eden, 2026-10-23, later)
 Eden: on the all-144 step chart, Domino = album 20, median paying player (paid on any album day), all players (no easy/hard split).
