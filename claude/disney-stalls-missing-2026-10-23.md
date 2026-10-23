@@ -24,6 +24,13 @@
 - **Interpretation:** Disney's sticker flow comes in waves set by the event calendar: when the events between waves pause, the median payer gets almost nothing new for 4–6 days; the next wave (days 14–16, day 32) brings a jump.
 - **Hypothesis (not checked):** daily reward and MTX challenge jump on the same days (14, 32) as other sources — that looks like a booster / new event start rather than players playing more. The event calendar was not checked.
 
+### C. Do payers act differently in the lulls? (query C, 13 GB)
+Disney 15 payers, per album day: share active and album spend per active payer.
+- Days 9–13 (lull 1): 91–93% active, $2.77–3.19 per active payer. Days 16–19 (wave): 92–93% active, $2.44–2.70.
+- Days 26–31 (lull 2): 90–91% active, $2.77–3.53. Days 32–35 (wave): 88–90% active, $2.91–3.35.
+- **Fact:** activity and spend do not drop in the lulls; spend per active payer is if anything higher than in the wave days.
+- **Interpretation:** the waves have no visible short-term cost in Disney 15. So the waves are not shown on a slide as a problem; the end-of-album gap (B) is the message.
+
 ## B. Missing stickers at close, average per payer (all payers)
 
 | Album | Commons missing | Goldens missing | Rares missing (Super / Royal) | Total missing | Goldens share of the missing |
@@ -46,3 +53,10 @@ Share of payers missing at least 1: Goldens Dice 76–80%, Domino 79–90%, Disn
 - Old: "The long dry stretch in Domino and Disney is a rare (Royal) issue, not a Golden issue."
 - New: "Disney payers end short on both Royals and Goldens. Royals come with long waits (28–35% of the album without a new one); Goldens come at a normal pace but too few by the end — the typical payer misses 4 of 24 Goldens at close, vs 1–2 of 28 in Dice."
 - New (all 144): "Disney's sticker flow comes in waves set by events: two 4–6 day lulls when events pause, then a jump when the next one starts. Dice and Domino flow steadily."
+
+## D. Slide: new stickers per day (2026-10-23, Eden asked to show the progression difference)
+ALBUM END slide `w144_slide` "New Stickers per Day, Median Paying Player", right after the all-144 step slide. Bars = day-to-day change of the median line on the step slide (Dice 63, Domino 20, Disney 15; from `all144_steps_2026-10-23.sql`).
+- Dice 63 days 10–36: 1–5 a day, no run of low days. Domino 20 days 6–38: 1–5 a day.
+- Disney 15: days 10–13 = 2, 1, 1, 0; days 27–31 = 1, 1, 1, 1, 2; jumps +7 (day 16) and +6 (day 32).
+- The low bars at the very end (Dice days 37–43, Domino days 39–50) are players who are almost full, not lulls.
+Image: `claude/slides/album-end-daily-new-stickers-2026-10-23.png`.
