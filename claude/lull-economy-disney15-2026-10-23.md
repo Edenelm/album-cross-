@@ -32,3 +32,33 @@ Across days 8–38 (31 days): balance vs spend r = −0.67; payout vs spend r = 
 - Correlation only, one album; Disney 14 not checked.
 
 Recommendation: **test**, do not change yet. Test idea: in a lull, a small steady sticker source without extra coins vs control; measure spend in the lull and the next burst, stickers missing at close, finish rate.
+
+## Follow-up (Eden 2026-10-23): fewer buyers or less per buyer? Who falls behind and what are they worth?
+SQL: `claude/lull_revenue_disney15_2026-10-23.sql` (11.8 GB, daily album table only). Same payers; album revenue = days 1–42 (close day left out) = $36,513,464.
+ARPDAU = revenue ÷ active payers that day; ARPPU = revenue ÷ buyers (spend > 0) that day; conversion = buyers ÷ active.
+
+| Window | Active payers / day | Buyers / day | Conversion | ARPPU | ARPDAU | Revenue / day | Window revenue | Share of album revenue |
+|---|---|---|---|---|---|---|---|---|
+| Lull 1 (10–13) | 300,421 | 50,334 | 16.8% | $17.35 | $2.91 | $873,249 | $3,492,995 | 10% |
+| Burst 1 (16–19) | 301,944 | 47,615 | 15.8% | $16.41 | $2.59 | $781,517 | $3,126,068 | 9% |
+| Middle (20–25) | 299,882 | 49,066 | 16.4% | $17.24 | $2.82 | $845,784 | $5,074,707 | 14% |
+| Lull 2 (27–31) | 294,678 | 50,748 | 17.2% | $18.41 | $3.17 | $934,196 | $4,670,982 | 13% |
+| Burst 2 (32–35) | 289,214 | 48,286 | 16.7% | $19.05 | $3.18 | $919,932 | $3,679,727 | 10% |
+
+- **Fact (burst 1 vs lull 1):** same active payers (+1%), revenue per day −11% (−$91,732 a day, about −$366,900 over the 4 days). The drop is half fewer buyers (−5%, 2,719 fewer a day) and half less per buyer (ARPPU −5%). Not more buyers.
+- Same burst vs the middle days (20–25): revenue per day −8%, buyers −3%, ARPPU −5%.
+- In burst 1 the economy is richer at the same time: payout 63% vs 53% (+20%), median balance 4.2 vs 3.3 (+24%, Mixpanel "coins in allowance" units).
+- Burst 2 does not show this (revenue per day $919,932, close to lull 2), and its payout is not high (57%).
+
+### Who falls behind and what they are worth (end status on close−1)
+| End status | Players | % of payers | Album revenue | % of album revenue | Held day 9 | Day 13 | Day 26 | Day 31 |
+|---|---|---|---|---|---|---|---|---|
+| Finished | 13,185 | 4% | $6,754,161 | 18% | 61 | 67 | 117 | 127 |
+| 1 missing | 7,146 | 2% | $2,835,778 | 8% | 60 | 66 | 116 | 125 |
+| 2–3 missing | 42,347 | 13% | $11,172,092 | 31% | 59 | 64 | 115 | 126 |
+| 4+ missing | 263,164 | 81% | $15,751,437 | 43% | 51 | 55 | 100 | 109 |
+
+- **Fact:** the payers who end 4+ away are 81% of payers and 43% of album revenue ($15,751,437).
+- **Fact:** their gap to finishers: 10 stickers on day 9, 12 on day 13, 17 on day 26, 18 on day 31. The gap grows +1 in lull 1, +5 in days 14–26 (burst 1 and the middle), +1 in lull 2.
+- **Interpretation:** in the lulls nobody gets much, so the gap stays; it opens when the flow comes back — the more active players take more of the wave. "Not keeping up" happens in the bursts, and the lulls leave less time to catch up before the end.
+- Correlation only; one album; event mix in the windows is not the same.
