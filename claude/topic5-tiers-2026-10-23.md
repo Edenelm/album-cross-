@@ -27,7 +27,7 @@ SQL: `claude/topic5_tiers_2026-10-23.sql` (Disney 24 GB, Domino 10 GB, Dice 104 
 Tier $0 (no spend before the last quarter): 6% of payers, under 1% of revenue in all games (no goal, per the 2026-10-15 decision).
 
 ## Reading
-- **Fact:** the same shape everywhere: about 2 in 3 payers are at <=$2 a day (15-17% of revenue); the 13% at $5+ hold 63-67% of revenue.
+- **Fact:** the same shape everywhere: about 2 in 3 payers are at <=$2 a day (15-17% of revenue); the 12-14% at $5+ hold 63-67% of revenue.
 - **Fact:** at >$20 a day all three games bring about 2 in 3 players close by close-4 (62-67%).
 - **Fact:** below that Disney falls away: at $2-5 a day 18% reach in Disney vs 38-43% in Dice / Domino 20; at <=$2, 5% vs 15-24%.
 - **Fact:** far payers in the $2-20 tiers = 26% of album revenue in Disney 15 (11% + 15%) vs 10% in Dice 63 and 11% in Domino 20 (Domino 19: 28%, like Disney).
