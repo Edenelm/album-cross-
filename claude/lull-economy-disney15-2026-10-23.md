@@ -22,7 +22,7 @@ SQL: `claude/lull_economy_disney15_2026-10-23.sql` (solitaire-dreams-411507, 306
 Across days 8–38 (31 days): balance vs spend r = −0.67; payout vs spend r = −0.46; new stickers vs payout r = +0.41; new stickers vs spend r = −0.19.
 
 ## Reading
-- **Fact:** burst 1 is a "rich" stretch: payout 63% vs 53% in lull 1 (+19%), and not only from album prizes (without them 58% vs 51%, +14%); median balance +24%; spend per active payer −11% ($2.59 vs $2.91).
+- **Fact:** burst 1 is a "rich" stretch: payout 63% vs 53% in lull 1 (+20%), and not only from album prizes (without them 58% vs 51%, +14%); median balance +24%; spend per active payer −11% ($2.59 vs $2.91).
 - **Fact:** burst 2 is not rich (payout 57%, balance 3.3) and spend stays up ($3.18). So "many stickers" does not always mean high payout; it does when the event wave also pays many coins.
 - **Fact:** in the lulls payout and balance are lower and spend is the same or higher (lull 2: $3.17, paying share up to 18% on days 28–29).
 - **Fact:** day 7 is the exception: payout 67% and the highest spend of the album ($4.20; sets 11–12 open that day).
