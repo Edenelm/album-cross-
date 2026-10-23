@@ -17,8 +17,8 @@ def txt(oid, t):
     return [{'deleteText': {'objectId': oid, 'textRange': {'type': 'ALL'}}}, {'insertText': {'objectId': oid, 'text': t}}]
 def color(oid, c):
     return [{'updateTextStyle': {'objectId': oid, 'textRange': {'type': 'ALL'}, 'style': {'foregroundColor': {'opaqueColor': {'rgbColor': c}}}, 'fields': 'foregroundColor'}}]
-def bar(S, k, val):
-    h = val / 100 * SCALE; x = X0[k]   # copies keep a 3000000 EMU base size: scale = real size / 3000000
+def bar(S, k, val, scale=None):
+    h = val / 100 * (scale or SCALE); x = X0[k]   # copies keep a 3000000 EMU base size: scale = real size / 3000000
     return [{'updatePageElementTransform': {'objectId': f'{S}_{k}_bar', 'applyMode': 'ABSOLUTE', 'transform': {'scaleX': 0.1981, 'scaleY': round(h * E / 3e6, 4), 'shearX': 0, 'shearY': 0, 'translateX': int(x * E), 'translateY': int((BASE - h) * E), 'unit': 'EMU'}}},
             {'updatePageElementTransform': {'objectId': f'{S}_{k}_v', 'applyMode': 'ABSOLUTE', 'transform': {'scaleX': 0.2591, 'scaleY': 0.0853, 'shearX': 0, 'shearY': 0, 'translateX': int((x - 0.1) * E), 'translateY': int((BASE - h - 0.3) * E), 'unit': 'EMU'}}}]
 def bars_slide(S, title, sub, msg, vals, labels, caps, capcolors, msg_red=None):
@@ -183,6 +183,49 @@ def r2():   # what to do, one card per game
         R += tbox(S, f'{S}_{k}_dl', x + 0.25, 3.0, 3.75, 0.25, 'DO', 9, GREY, True)
         R += tbox(S, f'{S}_{k}_do', x + 0.25, 3.22, 3.75, 0.9, do, 13, WHITE)
     R += tbox(S, S + '_ms', 0.61, 4.45, 7.0, 0.3, 'Domino: keep what worked in album 20. Disney: bring the middle payers close before the lock opens.', 11, WHITE)
+    R += tbox(S, S + '_ft', 7.78, 5.25, 1.72, 0.2, 'SuperPlay 2026', 8, {'red': 0.62, 'green': 0.62, 'blue': 0.62})
+    return R
+
+def s6a():   # topic 6: first week after close vs own pace, finished vs far, $2-20 a day
+    S, SC = 's6a_slide', 1.8
+    vals = {'dice0': 110, 'dice1': 52, 'domino0': 140, 'domino1': 49, 'disney0': 128, 'disney1': 59}
+    R = dup('t5d_slide', S, T5D)
+    R += txt(f'{S}_ti', 'Spend per Day in the Week After Close vs Own Album Pace, $2–20 a Day Payers')
+    R += txt(f'{S}_su', 'Latest album · 7 days after the close day (next album days 2–8) · 100% = the player\'s own spend per day during the album · end status on close−1')
+    msg = 'Payers who finish start the next album at full pace or more. Payers who end 4+ stickers away start at about half, in all three games.'
+    R += txt(f'{S}_ms', msg) + color(f'{S}_ms', WHITE)
+    i = msg.index('Payers who end')
+    R += [{'updateTextStyle': {'objectId': f'{S}_ms', 'textRange': {'type': 'FIXED_RANGE', 'startIndex': i, 'endIndex': len(msg)}, 'style': {'foregroundColor': {'opaqueColor': {'rgbColor': RED}}}, 'fields': 'foregroundColor'}}]
+    gcol = {'dice': BLUE, 'domino': {'red': 0.961, 'green': 0.627, 'blue': 0.29}, 'disney': GREEN}
+    names = {'dice': 'Dice 63', 'domino': 'Domino 20', 'disney': 'Disney 15'}
+    for k in X0:
+        g = k[:-1]
+        R += bar(S, k, vals[k], SC) + txt(f'{S}_{k}_v', f'{vals[k]}%') + txt(f'{S}_{k}_a', names[g])
+        R += txt(f'{S}_{k}_l', 'finished' if k.endswith('0') else '4+ missing') + color(f'{S}_{k}_l', GOLD if k.endswith('0') else RED)
+        R += fill(f'{S}_{k}_bar', gcol[g] if k.endswith('0') else {'red': 0.353, 'green': 0.353, 'blue': 0.353})
+    y = BASE - SC
+    R += box(S, f'{S}_ref', 0.9, y, 8.3, 0.012, 'RECTANGLE') + fill(f'{S}_ref', GOLD)
+    R += [{'updateShapeProperties': {'objectId': f'{S}_ref', 'shapeProperties': {'outline': {'propertyState': 'NOT_RENDERED'}}, 'fields': 'outline.propertyState'}}]
+    R += tbox(S, f'{S}_reft', 8.0, y - 0.27, 1.5, 0.25, 'own pace = 100%', 9, GOLD)
+    return R
+def s6b():   # topic 6: one after-album problem per game
+    S = 's6b_slide'
+    R = [{'createSlide': {'objectId': S, 'slideLayoutReference': {'predefinedLayout': 'BLANK'}}},
+         {'updatePageProperties': {'objectId': S, 'pageProperties': {'pageBackgroundFill': {'solidFill': {'color': {'rgbColor': {'red': 0.129, 'green': 0.129, 'blue': 0.129}}}}}, 'fields': 'pageBackgroundFill'}}]
+    R += tbox(S, S + '_ti', 0.61, 0.33, 8.8, 0.5, 'After the Album: One Gap per Game', 24, WHITE)
+    R += tbox(S, S + '_su', 0.61, 0.82, 8.8, 0.25, 'Latest album · first week after close vs the player\'s own album pace · middle payers = $2–20 a day', 9.5, GREY)
+    cards_ = [('dc', 0.61, 'Dice', BLUE, '110%', 'Finishers start slow', 'Finishers\' first week vs own pace (Domino 140%, Disney 128%). The grand prize lasts light and middle payers 4–8 days.'),
+              ('dm', 3.56, 'Domino', {'red': 0.961, 'green': 0.627, 'blue': 0.29}, '40%', 'Far payers drop the most', '$5–20 payers who end 4+ away, first week vs own pace: the lowest of the three games (over $20: 22%).'),
+              ('ds', 6.51, 'Disney', GREEN, '$729,995', 'The biggest far group', 'Far middle payers spent this much less than their own pace in one week (Dice $234,316, Domino $117,876).')]
+    for k, x, name, gc, big, head, detail in cards_:
+        R += box(S, f'{S}_{k}_card', x, 1.25, 2.85, 3.0, 'ROUND_RECTANGLE')
+        R += [{'updateShapeProperties': {'objectId': f'{S}_{k}_card', 'shapeProperties': {'shapeBackgroundFill': {'solidFill': {'color': {'rgbColor': {'red': 0.169, 'green': 0.169, 'blue': 0.169}}}},
+               'outline': {'outlineFill': {'solidFill': {'color': {'rgbColor': {'red': 0.267, 'green': 0.267, 'blue': 0.267}}}}, 'weight': {'magnitude': 1, 'unit': 'PT'}}}, 'fields': 'shapeBackgroundFill.solidFill.color,outline.outlineFill.solidFill.color,outline.weight'}}]
+        R += tbox(S, f'{S}_{k}_h', x + 0.22, 1.37, 2.4, 0.4, name, 18, gc, True)
+        R += tbox(S, f'{S}_{k}_big', x + 0.22, 1.8, 2.4, 0.6, big, 30, RED, True)
+        R += tbox(S, f'{S}_{k}_head', x + 0.22, 2.5, 2.4, 0.35, head, 14, WHITE, True)
+        R += tbox(S, f'{S}_{k}_det', x + 0.22, 2.9, 2.45, 1.2, detail, 11, GREY)
+    R += tbox(S, S + '_ms', 0.61, 4.45, 7.0, 0.3, 'Each game has its own after-album gap. The end-of-album goal (topic 5) also protects the next album\'s first week.', 11, WHITE)
     R += tbox(S, S + '_ft', 7.78, 5.25, 1.72, 0.2, 'SuperPlay 2026', 8, {'red': 0.62, 'green': 0.62, 'blue': 0.62})
     return R
 
