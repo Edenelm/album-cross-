@@ -4,7 +4,7 @@ Eden's cross-studio sticker-album analysis for Superplay: Dice Dreams, Domino Dr
 This repo was moved from the claude.ai Project "Album Analysis Cross Studios" on 2026-10-20.
 
 ## Start here
-1. `claude/next-session-prompt-2026-10-21.md` — the latest handoff: what is done, where we stand, what is open (older: `claude/next-session-prompt-2026-10-20.md`).
+1. `claude/next-session-prompt-2026-10-25.md` — the latest handoff (topic 6: Dice finishers, 200K prize, test). Older: `claude/next-session-prompt-2026-10-24.md`, `-10-21.md`.
 2. `INDEX.md` — the map of every doc by topic, with status (current / superseded) and where the SQL is. Check it before starting any new check.
 3. `decisions-definitions-register.md` — the source of truth for definitions. When it conflicts with an older doc, it wins.
 4. The latest results: `claude/payer-close-day-2026-10-20.md`, `claude/remaining-recounts-2026-10-20.md`, `claude/finisher-recount-2026-10-19.md`.
