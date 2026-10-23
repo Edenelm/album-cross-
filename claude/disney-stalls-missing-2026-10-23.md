@@ -24,6 +24,13 @@
 - **Interpretation:** Disney's sticker flow comes in waves set by the event calendar: when the events between waves pause, the median payer gets almost nothing new for 4–6 days; the next wave (days 14–16, day 32) brings a jump.
 - **Hypothesis (not checked):** daily reward and MTX challenge jump on the same days (14, 32) as other sources — that looks like a booster / new event start rather than players playing more. The event calendar was not checked.
 
+### C. Do payers act differently in the lulls? (query C, 13 GB)
+Disney 15 payers, per album day: share active and album spend per active payer.
+- Days 9–13 (lull 1): 91–93% active, $2.77–3.19 per active payer. Days 16–19 (wave): 92–93% active, $2.44–2.70.
+- Days 26–31 (lull 2): 90–91% active, $2.77–3.53. Days 32–35 (wave): 88–90% active, $2.91–3.35.
+- **Fact:** activity and spend do not drop in the lulls; spend per active payer is if anything higher than in the wave days.
+- **Interpretation:** the waves have no visible short-term cost in Disney 15. So the waves are not shown on a slide as a problem; the end-of-album gap (B) is the message.
+
 ## B. Missing stickers at close, average per payer (all payers)
 
 | Album | Commons missing | Goldens missing | Rares missing (Super / Royal) | Total missing | Goldens share of the missing |
