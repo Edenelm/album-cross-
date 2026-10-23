@@ -122,3 +122,31 @@ SELECT album_id, STRING_AGG(FORMAT('%s n=%d avg_miss=%.2f med=%d miss_any=%.2f',
 FROM (SELECT m.album_id, m.typ, ANY_VALUE(t.n_typ) AS n_typ, AVG(m.m) AS avg_m, APPROX_QUANTILES(m.m, 2)[OFFSET(1)] AS med_m, AVG(IF(m.m > 0, 1, 0)) AS any_m
       FROM miss m JOIN tsize t USING (album_id, typ) GROUP BY 1,2) GROUP BY 1
 ORDER BY 1;
+
+-- ===== C. DISNEY 15 (solitaire-dreams-411507): per album day, share of payers active and album spend per active payer (lulls vs waves) =====
+WITH ud AS (
+  SELECT album_id, user_id, date_dim, album_open_date AS a_start, album_close_date AS a_end,
+    login_ratio AS lr, IFNULL(user_album_count,1) > 1 AS past, IFNULL(special_user_flag,FALSE) AS excl, IFNULL(album_spent_today,0) AS spend,
+    IFNULL(active_flag, FALSE) AS act
+  FROM `solitaire-dreams-411507.bi_prod.user_daily_album`
+  WHERE date_dim BETWEEN DATE '2026-07-01' AND DATE '2026-10-12' AND album_id = 15 AND date_dim <= album_close_date
+),
+bad_users AS (
+  SELECT DISTINCT user_id FROM `solitaire-dreams-411507.bi_prod.solitaire_user_daily_metrics_agg_df`
+  WHERE date_dim BETWEEN DATE '2026-07-01' AND DATE '2026-10-12' AND exclude_reason IS NOT NULL
+),
+u AS (
+  SELECT album_id, user_id, ANY_VALUE(a_end) AS a_end, SUM(spend) AS rev_c,
+    ARRAY_AGG(IF(date_dim < a_end, STRUCT(lr, past, excl), NULL) IGNORE NULLS ORDER BY date_dim DESC LIMIT 1)[SAFE_OFFSET(0)] AS l,
+    MAX(IF(date_dim < a_end, date_dim, NULL)) AS last_d
+  FROM ud GROUP BY 1,2
+),
+pop AS (SELECT user_id FROM u WHERE last_d = DATE_SUB(a_end, INTERVAL 1 DAY) AND l.past AND NOT l.excl AND l.lr >= 0.5
+  AND rev_c > 0 AND user_id NOT IN (SELECT user_id FROM bad_users))
+SELECT STRING_AGG(FORMAT('%d:%.2f:%.2f', day, act_share, spend_per_act), ' ' ORDER BY day) AS series
+FROM (
+  SELECT DATE_DIFF(d.date_dim, d.a_start, DAY) + 1 AS day,
+    COUNTIF(d.act) / (SELECT COUNT(*) FROM pop) AS act_share,
+    SAFE_DIVIDE(SUM(IF(d.act, d.spend, 0)), COUNTIF(d.act)) AS spend_per_act
+  FROM ud d JOIN pop USING (user_id) GROUP BY 1
+);
