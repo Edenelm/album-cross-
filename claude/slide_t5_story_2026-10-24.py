@@ -123,5 +123,68 @@ def n0():   # opening, info only: spend levels across all games
         for c in range(5): R += color(f'n0_slide_c{r}{c}', GOLD if c == 3 else WHITE)
     return R
 
+ROWS_UP = [['$0', 'Paid only late', '6%', 'Under 1%', 'Close to 0'],
+           ['≤$2', 'Light payers', '66%', '15%', '1/5 of average'],
+           ['$2–5', 'Middle payers', '15%', '18%', 'About average'],
+           ['$5–20', 'Strong payers', '11%', '37%', '3× average'],
+           ['>$20', 'Top spenders', '2%', '29%', '15× average']]   # low to high, same order as t5a / t5b
+def reorder_opening():
+    R = []
+    for r, row in enumerate(ROWS_UP):
+        for c, v in enumerate(row):
+            R += txt(f'n0_slide_c{r}{c}', v) + txt(f'h621288aadfa9fec0_0_{3045 + 6 * r + c}', v)
+    return R
+def r1():   # end goal per spend level, Domino and Disney vs Dice 63
+    R = cards('r1_slide', 'End Goal per Spend Level: Revenue Within 3 Stickers at Close−4',
+        '% of the level\'s revenue (up to close−4) from payers at ≤3 missing on close−4 · goal = Dice 63 level (proposal; final numbers are a management decision)',
+        'Domino 20 is at Dice\'s level: keep it. Disney is below in every level under $20: that is where to act.',
+        ['Spend level ($ a day)', 'Goal (Dice 63)', 'Domino 20', 'Disney 15', 'Focus'],
+        [['$0', 'No goal', '—', '—', '—'],
+         ['≤$2', '35%', '30%', '10%', 'Smaller goal (sets)'],
+         ['$2–5', '43%', '46%', '23%', 'Disney'],
+         ['$5–20', '54%', '58%', '45%', 'Disney'],
+         ['>$20', '68%', '72%', '71%', 'Keep']], msg_red=None)
+    col_c = {(1, 2): RED, (1, 3): RED, (2, 3): RED, (3, 3): RED, (2, 2): GOLD, (3, 2): GOLD, (4, 2): GOLD, (4, 3): GOLD}
+    for r in range(5):
+        for c in range(5):
+            R += color(f'r1_slide_c{r}{c}', col_c.get((r, c), GREY if r == 0 else WHITE))
+    R += color('r1_slide_ms', WHITE)
+    i = 'Domino 20 is at Dice\'s level: keep it. Disney is below in every level under $20: that is where to act.'.index('Disney is below')
+    R += [{'updateTextStyle': {'objectId': 'r1_slide_ms', 'textRange': {'type': 'FIXED_RANGE', 'startIndex': i, 'endIndex': i + 41}, 'style': {'foregroundColor': {'opaqueColor': {'rgbColor': RED}}}, 'fields': 'foregroundColor'}}]
+    return R
+def box(S, oid, x, y, w, h, kind='TEXT_BOX'):
+    return [{'createShape': {'objectId': oid, 'shapeType': kind, 'elementProperties': {'pageObjectId': S,
+        'size': {'width': {'magnitude': int(w * E), 'unit': 'EMU'}, 'height': {'magnitude': int(h * E), 'unit': 'EMU'}},
+        'transform': {'scaleX': 1, 'scaleY': 1, 'translateX': int(x * E), 'translateY': int(y * E), 'unit': 'EMU'}}}}]
+def tbox(S, oid, x, y, w, h, t, size, c, bold=False):
+    return box(S, oid, x, y, w, h) + [{'insertText': {'objectId': oid, 'text': t}},
+        {'updateTextStyle': {'objectId': oid, 'textRange': {'type': 'ALL'}, 'style': {'fontFamily': 'Oswald', 'bold': bold, 'fontSize': {'magnitude': size, 'unit': 'PT'}, 'foregroundColor': {'opaqueColor': {'rgbColor': c}}}, 'fields': 'fontFamily,bold,fontSize,foregroundColor'}}]
+def r2():   # what to do, one card per game
+    S = 'r2_slide'
+    R = [{'createSlide': {'objectId': S, 'slideLayoutReference': {'predefinedLayout': 'BLANK'}}},
+         {'updatePageProperties': {'objectId': S, 'pageProperties': {'pageBackgroundFill': {'solidFill': {'color': {'rgbColor': {'red': 0.129, 'green': 0.129, 'blue': 0.129}}}}}, 'fields': 'pageBackgroundFill'}}]
+    R += tbox(S, S + '_ti', 0.61, 0.33, 8.8, 0.5, 'What to Do at the End of the Album: Domino and Disney', 24, WHITE)
+    R += tbox(S, S + '_su', 0.61, 0.82, 8.8, 0.25, 'Goal = revenue within 3 stickers at close−4, per spend level (previous slide) · Adopt = use now · Test = Test vs Control first', 9.5, GREY)
+    cards_ = [('dm', 0.61, 'Domino', {'red': 0.961, 'green': 0.627, 'blue': 0.29},
+               'Album 20 reached the goal in 3 of 4 levels. Album 19 did not (3–31% below $20).',
+               'Make album 20\'s end the standard. Track the goal per level every day from close−14; act when a level falls behind.', 'ADOPT'),
+              ('ds', 5.14, 'Disney', {'red': 0.235, 'green': 0.784, 'blue': 0.659},
+               'Below the goal in every level under $20. 26% of album revenue ends 4+ stickers away.',
+               'Give $2–20 payers an extra sticker source from close−14, so they reach 3 missing when the lock opens.', 'TEST')]
+    for k, x, name, gc, now, do, call in cards_:
+        R += box(S, f'{S}_{k}_card', x, 1.25, 4.25, 3.0, 'ROUND_RECTANGLE')
+        R += [{'updateShapeProperties': {'objectId': f'{S}_{k}_card', 'shapeProperties': {'shapeBackgroundFill': {'solidFill': {'color': {'rgbColor': {'red': 0.169, 'green': 0.169, 'blue': 0.169}}}},
+               'outline': {'outlineFill': {'solidFill': {'color': {'rgbColor': {'red': 0.267, 'green': 0.267, 'blue': 0.267}}}}, 'weight': {'magnitude': 1, 'unit': 'PT'}}}, 'fields': 'shapeBackgroundFill.solidFill.color,outline.outlineFill.solidFill.color,outline.weight'}}]
+        R += tbox(S, f'{S}_{k}_h', x + 0.25, 1.38, 2.6, 0.45, name, 20, gc, True)
+        R += tbox(S, f'{S}_{k}_call', x + 2.85, 1.42, 1.15, 0.4, call, 16, GOLD, True)
+        R += [{'updateParagraphStyle': {'objectId': f'{S}_{k}_call', 'textRange': {'type': 'ALL'}, 'style': {'alignment': 'END'}, 'fields': 'alignment'}}]
+        R += tbox(S, f'{S}_{k}_nl', x + 0.25, 1.95, 3.75, 0.25, 'NOW', 9, GREY, True)
+        R += tbox(S, f'{S}_{k}_now', x + 0.25, 2.17, 3.75, 0.75, now, 13, WHITE)
+        R += tbox(S, f'{S}_{k}_dl', x + 0.25, 3.0, 3.75, 0.25, 'DO', 9, GREY, True)
+        R += tbox(S, f'{S}_{k}_do', x + 0.25, 3.22, 3.75, 0.9, do, 13, WHITE)
+    R += tbox(S, S + '_ms', 0.61, 4.45, 7.0, 0.3, 'Domino: keep what worked in album 20. Disney: bring the middle payers close before the lock opens.', 11, WHITE)
+    R += tbox(S, S + '_ft', 7.78, 5.25, 1.72, 0.2, 'SuperPlay 2026', 8, {'red': 0.62, 'green': 0.62, 'blue': 0.62})
+    return R
+
 if __name__ == '__main__':
     print(json.dumps(globals()[sys.argv[1]](), ensure_ascii=False, separators=(',', ':')))
