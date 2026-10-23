@@ -170,3 +170,66 @@ JOIN (SELECT album_id, APPROX_QUANTILES(own_med, 2)[OFFSET(1)] AS own_med FROM p
 JOIN (SELECT p.album_id, COUNT(*) AS n_payers, ROUND(SUM(p.alb_rev) / ANY_VALUE(t.pop_rev), 4) AS rev_share FROM pop p JOIN tot t USING (album_id) GROUP BY 1) rs USING (album_id)
 ORDER BY 1
 ;
+
+-- ===== 2026-10-23: DOMINO 19/20 by segment (easy / hard) =====
+-- Same as the Domino section with: seg = album_segment on the player's first row; album_id key = '<album>-<segment>';
+-- extra output: avg_end_share (avg Goldens at close / 28), med_end, all_goldens (share holding all 28). Ran 19.2 GB.
+WITH ud AS (
+  SELECT album_id, user_id, date_dim, album_open_date AS a_start, album_close_date AS a_end,
+    login_ratio AS lr, IFNULL(user_album_count,1) > 1 AS past, IFNULL(special_user_flag,FALSE) AS excl, IFNULL(album_spent_today,0) AS spend, album_segment AS seg
+  FROM `domino-dreams-dbt.prod_40_mart.user_daily_album`
+  WHERE date_dim BETWEEN DATE '2026-07-01' AND DATE '2026-10-12' AND album_id IN (19,20) AND date_dim <= album_close_date
+),
+bad_users AS (
+  SELECT DISTINCT user_id FROM `domino-dreams-dbt.prod_40_mart.user_daily_metrics`
+  WHERE date_dim BETWEEN DATE '2026-07-01' AND DATE '2026-10-12' AND IFNULL(suspected_cheater_flag,FALSE)
+),
+u AS (
+  SELECT album_id, user_id, ANY_VALUE(a_start) AS a_start, ANY_VALUE(a_end) AS a_end,
+    SUM(IF(date_dim < a_end, spend, 0)) AS alb_rev, SUM(spend) AS rev_c,
+    ARRAY_AGG(IF(date_dim < a_end, STRUCT(lr, past, excl), NULL) IGNORE NULLS ORDER BY date_dim DESC LIMIT 1)[SAFE_OFFSET(0)] AS l,
+    MAX(IF(date_dim < a_end, date_dim, NULL)) AS last_d,
+    ARRAY_AGG(seg IGNORE NULLS ORDER BY date_dim LIMIT 1)[SAFE_OFFSET(0)] AS seg
+  FROM ud GROUP BY 1,2
+),
+pop0 AS (SELECT CONCAT(CAST(album_id AS STRING), '-', IFNULL(LOWER(seg), 'other')) AS album_id, user_id, a_start, a_end, alb_rev, rev_c FROM u WHERE last_d = DATE_SUB(a_end, INTERVAL 1 DAY) AND l.past AND NOT l.excl AND l.lr >= 0.5
+  AND user_id NOT IN (SELECT user_id FROM bad_users)),
+tot AS (SELECT album_id, SUM(alb_rev) AS pop_rev FROM pop0 GROUP BY 1),
+pop AS (SELECT album_id, user_id, a_start, a_end, alb_rev FROM pop0 WHERE rev_c > 0),
+r AS (
+  SELECT p.album_id, s.user_id, s.sticker_id, MIN(s.sticker_collected_min_date) AS d
+  FROM `domino-dreams-dbt.prod_30_intermediate.int_user_album_stickers` s JOIN pop p ON CAST(s.album_id AS STRING) = SPLIT(p.album_id, '-')[OFFSET(0)] AND s.user_id = p.user_id
+  WHERE s.sticker_collected_min_date BETWEEN DATE '2026-07-01' AND DATE '2026-10-12' AND s.album_id IN (19,20)
+    AND s.user_collected_sticker_flag AND LOWER(s.sticker_type) = 'golden' AND s.sticker_collected_min_date <= p.a_end
+  GROUP BY 1,2,3
+),
+rd AS (SELECT r.album_id, r.user_id, DATE_DIFF(r.d, p.a_start, DAY) + 1 AS day FROM r JOIN pop p USING (album_id, user_id)),
+alen AS (SELECT album_id, DATE_DIFF(ANY_VALUE(a_end), ANY_VALUE(a_start), DAY) + 1 AS n_days FROM pop GROUP BY 1),
+grid AS (SELECT p.album_id, p.user_id, day FROM pop p JOIN alen USING (album_id), UNNEST(GENERATE_ARRAY(1, alen.n_days)) AS day),
+daily AS (SELECT album_id, user_id, day, COUNT(*) AS new_r FROM rd GROUP BY 1,2,3),
+cum AS (
+  SELECT g.album_id, g.day, IFNULL(dl.new_r, 0) AS new_r,
+    SUM(IFNULL(dl.new_r, 0)) OVER (PARTITION BY g.album_id, g.user_id ORDER BY g.day) AS held
+  FROM grid g LEFT JOIN daily dl USING (album_id, user_id, day)
+),
+gaps AS (
+  SELECT album_id, user_id, day - IFNULL(LAG(day) OVER (PARTITION BY album_id, user_id ORDER BY day), 0) AS gap,
+    ROW_NUMBER() OVER (PARTITION BY album_id, user_id ORDER BY day) AS k
+  FROM (SELECT DISTINCT album_id, user_id, day FROM rd)
+),
+pg AS (SELECT album_id, user_id, APPROX_QUANTILES(gap, 2)[OFFSET(1)] AS own_med FROM gaps GROUP BY 1,2),
+endh AS (SELECT album_id, user_id, COUNT(*) AS n_r FROM rd GROUP BY 1,2)
+SELECT d.album_id, eh.avg_end_share, eh.med_end, eh.all_goldens, d.series, g.gap_med, g.gap_le4, o.own_med, g.first_day, rs.rev_share, rs.n_payers
+FROM (SELECT album_id, STRING_AGG(FORMAT('%d:%d:%.2f', day, p50, got_new), ' ' ORDER BY day) AS series
+      FROM (SELECT album_id, day, APPROX_QUANTILES(held, 2)[OFFSET(1)] AS p50, AVG(IF(new_r > 0, 1, 0)) AS got_new FROM cum GROUP BY 1,2)
+      GROUP BY 1) d
+JOIN (SELECT album_id, APPROX_QUANTILES(gap, 2)[OFFSET(1)] AS gap_med, ROUND(AVG(IF(gap <= 4, 1, 0)), 3) AS gap_le4,
+        APPROX_QUANTILES(IF(k = 1, gap, NULL), 2 IGNORE NULLS)[OFFSET(1)] AS first_day FROM gaps GROUP BY 1) g USING (album_id)
+JOIN (SELECT album_id, APPROX_QUANTILES(own_med, 2)[OFFSET(1)] AS own_med FROM pg GROUP BY 1) o USING (album_id)
+JOIN (SELECT p.album_id, ROUND(AVG(IFNULL(e.n_r,0))/28, 3) AS avg_end_share, APPROX_QUANTILES(IFNULL(e.n_r,0), 2)[OFFSET(1)] AS med_end, ROUND(AVG(IF(IFNULL(e.n_r,0) >= 28, 1, 0)), 3) AS all_goldens FROM pop p LEFT JOIN endh e USING (album_id, user_id) GROUP BY 1) eh USING (album_id)
+JOIN (SELECT p.album_id, COUNT(*) AS n_payers, ROUND(SUM(p.alb_rev) / ANY_VALUE(t.pop_rev), 4) AS rev_share FROM pop p JOIN tot t USING (album_id) GROUP BY 1) rs USING (album_id)
+ORDER BY 1;
+
+-- ===== 2026-10-23: ALL 144 set stickers (Eden): same three queries with the sticker filter changed to all set types
+-- Dice: s.sticker_type IN ('common','golden','super'); Domino (by segment) / Disney: LOWER(s.sticker_type) IN ('common','golden','royal');
+-- Domino end-share denominator 144. Results: claude/golden-timeline-2026-10-23.md (section "All 144 stickers").
