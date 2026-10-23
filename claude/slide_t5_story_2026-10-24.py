@@ -95,5 +95,33 @@ def n4():
          ['5. Measure it', 'Last-4-days revenue per payer', 'Album end', 'Analytics', 'Test']],
         msg_red='Disney\'s middle payers (26% of album revenue).')
 
+BLUE, GREEN, WHITE = {'red': 0.424, 'green': 0.62, 'blue': 1}, {'red': 0.235, 'green': 0.784, 'blue': 0.659}, {'red': 0.961, 'green': 0.961, 'blue': 0.961}
+def fill(oid, c):
+    return [{'updateShapeProperties': {'objectId': oid, 'shapeProperties': {'shapeBackgroundFill': {'solidFill': {'color': {'rgbColor': c}}}}, 'fields': 'shapeBackgroundFill.solidFill.color'}}]
+def n6():   # why goals per spend level: one overall number hides the middle
+    R = bars_slide('n6_slide',
+        'Revenue Within 3 Stickers at Close−4: All Payers vs by Spend Level',
+        'Dice 63 (blue) vs Disney 15 (green) · % of the group\'s revenue (up to close−4) from payers at ≤3 missing on close−4',
+        'All payers: a small gap (54% vs 43%). By spend level: the same at the top, far behind in the middle (43% vs 23%). One goal for everyone hides it.',
+        {'dice0': 54, 'dice1': 43, 'domino0': 68, 'domino1': 71, 'disney0': 43, 'disney1': 23},
+        {k: ('Dice 63' if k.endswith('0') else 'Disney 15') for k in X0},
+        {'dice0': 'All payers', 'dice1': 'All payers', 'domino0': 'Over $20', 'domino1': 'Over $20', 'disney0': '$2–5 a day', 'disney1': '$2–5 a day'},
+        {k: (RED if k == 'disney1' else GREY) for k in X0}, msg_red='far behind in the middle (43% vs 23%)')
+    for k in X0: R += fill(f'n6_slide_{k}_bar', BLUE if k.endswith('0') else GREEN)
+    return R
+def n0():   # opening, info only: spend levels across all games
+    R = cards('n0_slide', 'Paying Players and Album Revenue by Spend Level, All Games',
+        'Dice 63 + Domino 20 + Disney 15 together · spend level = album spend per day before the last quarter · standard-population payers',
+        '2 in 3 payers spend $2 a day or less and bring 15% of revenue. The 13% who spend over $5 a day bring two thirds.',
+        ['Spend level ($ a day)', 'Who', '% of paying players', '% of album revenue', 'Revenue per payer'],
+        [['Over $20', 'Top spenders', '2%', '29%', '15× average'],
+         ['$5–20', 'Strong payers', '11%', '37%', '3× average'],
+         ['$2–5', 'Middle payers', '15%', '18%', 'About average'],
+         ['$2 or less', 'Light payers', '66%', '15%', '1/5 of average'],
+         ['$0', 'Paid only late', '6%', 'Under 1%', 'Close to 0']], msg_red='The 13% who spend over $5 a day bring two thirds.')
+    for r in range(5):
+        for c in range(5): R += color(f'n0_slide_c{r}{c}', GOLD if c == 3 else WHITE)
+    return R
+
 if __name__ == '__main__':
     print(json.dumps(globals()[sys.argv[1]](), ensure_ascii=False, separators=(',', ':')))
