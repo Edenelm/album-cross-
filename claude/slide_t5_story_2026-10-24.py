@@ -214,9 +214,9 @@ def s6b():   # topic 6: one after-album problem per game
          {'updatePageProperties': {'objectId': S, 'pageProperties': {'pageBackgroundFill': {'solidFill': {'color': {'rgbColor': {'red': 0.129, 'green': 0.129, 'blue': 0.129}}}}}, 'fields': 'pageBackgroundFill'}}]
     R += tbox(S, S + '_ti', 0.61, 0.33, 8.8, 0.5, 'After the Album: One Gap per Game', 24, WHITE)
     R += tbox(S, S + '_su', 0.61, 0.82, 8.8, 0.25, 'Latest album · first week after close vs the player\'s own album pace · middle payers = $2–20 a day', 9.5, GREY)
-    cards_ = [('dc', 0.61, 'Dice', BLUE, '110%', 'Finishers start slow', 'Finishers\' first week vs own pace (Domino 140%, Disney 128%). The grand prize lasts light and middle payers 4–8 days.'),
-              ('dm', 3.56, 'Domino', {'red': 0.961, 'green': 0.627, 'blue': 0.29}, '40%', 'Far payers drop the most', '$5–20 payers who end 4+ away, first week vs own pace: the lowest of the three games (over $20: 22%).'),
-              ('ds', 6.51, 'Disney', GREEN, '$729,995', 'The biggest far group', 'Far middle payers spent this much less than their own pace in one week (Dice $234,316, Domino $117,876).')]
+    cards_ = [('dc', 0.61, 'Dice', BLUE, '52%', 'Finishers start slow too', '$234,316 short that week\nFinishers: 110% of own pace (lowest)'),
+              ('dm', 3.56, 'Domino', {'red': 0.961, 'green': 0.627, 'blue': 0.29}, '49%', 'Far payers drop the most', '$117,876 short that week\nFinishers: 140% of own pace'),
+              ('ds', 6.51, 'Disney', GREEN, '59%', 'Most money in the gap', '$729,995 short that week\nFinishers: 128% of own pace')]   # same 3 measures per card (Eden)
     for k, x, name, gc, big, head, detail in cards_:
         R += box(S, f'{S}_{k}_card', x, 1.25, 2.85, 3.0, 'ROUND_RECTANGLE')
         R += [{'updateShapeProperties': {'objectId': f'{S}_{k}_card', 'shapeProperties': {'shapeBackgroundFill': {'solidFill': {'color': {'rgbColor': {'red': 0.169, 'green': 0.169, 'blue': 0.169}}}},
@@ -224,7 +224,7 @@ def s6b():   # topic 6: one after-album problem per game
         R += tbox(S, f'{S}_{k}_h', x + 0.22, 1.37, 2.4, 0.4, name, 18, gc, True)
         R += tbox(S, f'{S}_{k}_big', x + 0.22, 1.8, 2.4, 0.6, big, 30, RED, True)
         R += tbox(S, f'{S}_{k}_head', x + 0.22, 2.5, 2.4, 0.35, head, 14, WHITE, True)
-        R += tbox(S, f'{S}_{k}_det', x + 0.22, 2.9, 2.45, 1.2, detail, 11, GREY)
+        R += tbox(S, f'{S}_{k}_det', x + 0.22, 2.9, 2.45, 1.2, detail, 12, GREY)
     R += tbox(S, S + '_ms', 0.61, 4.45, 7.0, 0.3, 'Each game has its own after-album gap. The end-of-album goal (topic 5) also protects the next album\'s first week.', 11, WHITE)
     R += tbox(S, S + '_ft', 7.78, 5.25, 1.72, 0.2, 'SuperPlay 2026', 8, {'red': 0.62, 'green': 0.62, 'blue': 0.62})
     return R
