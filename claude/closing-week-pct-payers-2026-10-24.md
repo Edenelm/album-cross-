@@ -18,5 +18,19 @@ Slide: new copy `p24fix` right after p24 (p24 kept as is). Chart drawn as shapes
 | Disney 15 | 0.1 / 0.0 | 0.1 / 0.0 | 0.1 / 0.0 | 0.05 / 0.7 | 1.0 / 0.6 | 1.2 / 2.1 | 2.0 / 4.2 |
 
 ## Reading
-- Same message as before, now on the right albums and comparable: Dice sells Wilds every day (2–6% of payers); Domino 20 gives Jokers free (Puzzle event, 11% three days out), bought ~1%; Disney sells mostly in the last 3 days (1–2%), about 0.1% a day before.
+- Same message as before, now on the right albums and comparable: Dice sells Wilds every day (2–6% of payers); Domino 20 gives free Jokers in events (11% three days out), bought ~1%; Disney sells mostly in the last 3 days (1–2%), about 0.1% a day before.
 - Correction to the old title: Disney 15 does sell a Joker from 7 days out, but to ~400 payers a day.
+
+## Domino 20: where the free Jokers come from (checked 2026-10-24, Eden asked; 4.5 GB)
+Same payers; non-paid Joker stickers by `new_sticker_source` / `new_sticker_mtx_campaign_name`, payers per day (days 5 → 1 before close):
+| Source (campaign, dates) | 5 | 4 | 3 | 2 | 1 |
+|---|---|---|---|---|---|
+| Movie Twister event (AlbumMomentsTvTwister, t_Event, 8–9 Oct; + `_RC` variant) | 2 | 5,090 | 13,002 | 5,865 | 0 |
+| Joker Puzzle (t_MiniCollection, 28 Sep – 7 Oct) | 2,234 | 1,442 | 0 | 0 | 0 |
+| Summer Fever Puzzle (t_MiniCollection, 8–11 Oct) | 1 | 25 | 218 | 951 | 2,017 |
+| Trail rewards (Collector's Trail 9 Oct, Summer Trail 11 Oct) | 1 | 1 | ~1,500 | ~1,570 | ~2,030 |
+| Road to Glory (t_MtxEvent, 10–11 Oct) | 0 | 1 | 0 | 343 | 1,201 |
+| Garden Blast (t_MiniGame, 10 Oct) | 1 | 1 | 0 | 636 | 532 |
+- **Fact:** the peak 3 days before close is the Movie Twister event (13K payers that day; the two campaign variants may overlap), not the Puzzle. The Puzzle gave Jokers 5–4 days out (Joker Puzzle) and 2–1 days out (Summer Fever Puzzle).
+- **Correction:** the earlier note "free Jokers mostly from the Puzzle event" was wrong for the peak; slide finding and notes fixed.
+- **Not checked:** whether players had to pay to progress in Movie Twister; the validated paid rule classes it as gameplay.
