@@ -42,3 +42,25 @@ SELECT album_id, src, STRING_AGG(FORMAT('%d:%d/%d', dtc, players, stickers), ' '
   SUM(stickers) AS stickers_14d, SUM(wild_st) AS wild_filled_14d
 FROM (SELECT album_id, src, dtc, COUNT(DISTINCT user_id) AS players, COUNT(*) AS stickers, COUNTIF(wild) AS wild_st FROM s GROUP BY 1,2,3)
 GROUP BY 1, 2 ORDER BY 2, 1;
+
+-- ===== Q3 (Eden 2026-10-25: "not the same number of players — show a normalised measure"): Trail chest per active player =====
+-- Denominator = active players in the album that day (user_daily_album is_active, not excluded). Numerator = players getting >=1 Trail chest sticker that day.
+WITH alb AS (
+  SELECT album_id, MAX(album_end_date) AS a_end FROM `dice-dreams-dbt.50_reporting.user_daily_album`
+  WHERE date_dim BETWEEN DATE '2026-08-20' AND DATE '2026-10-19' AND album_id IN (63,65) GROUP BY 1),
+act AS (
+  SELECT x.album_id, DATE_DIFF(x.date_dim, a.a_end, DAY) AS dtc, COUNT(DISTINCT x.user_id) AS active
+  FROM `dice-dreams-dbt.50_reporting.user_daily_album` x JOIN alb a USING (album_id)
+  WHERE x.date_dim BETWEEN DATE '2026-08-20' AND DATE '2026-10-19' AND x.album_id IN (63,65)
+    AND x.is_active AND NOT IFNULL(x.is_excluded, FALSE) AND x.date_dim < a.a_end AND x.date_dim >= DATE_SUB(a.a_end, INTERVAL 10 DAY)
+  GROUP BY 1, 2),
+tr AS (
+  SELECT s.album_id, DATE_DIFF(s.sticker_collected_date, a.a_end, DAY) AS dtc, COUNT(DISTINCT s.user_id) AS trail_players, COUNT(*) AS trail_stickers
+  FROM `dice-dreams-dbt.30_intermediate.fact_user_album_stickers` s JOIN alb a USING (album_id)
+  WHERE s.sticker_collected_date BETWEEN DATE '2026-08-20' AND DATE '2026-10-19' AND s.album_id IN (63,65)
+    AND s.is_sticker_collected AND s.sticker_source = 'Trail – Chest'
+    AND s.sticker_collected_date < a.a_end AND s.sticker_collected_date >= DATE_SUB(a.a_end, INTERVAL 10 DAY)
+  GROUP BY 1, 2)
+SELECT album_id, STRING_AGG(FORMAT('%d:%.1f%%', dtc, 100 * trail_players / active), ' ' ORDER BY dtc) AS pct_active_getting_trail,
+  STRING_AGG(FORMAT('%d:%.2f', dtc, trail_stickers / active), ' ' ORDER BY dtc) AS trail_stickers_per_active, STRING_AGG(FORMAT('%d:%d', dtc, active), ' ' ORDER BY dtc) AS active
+FROM act JOIN tr USING (album_id, dtc) GROUP BY 1 ORDER BY 1;
