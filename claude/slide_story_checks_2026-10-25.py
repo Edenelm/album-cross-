@@ -79,18 +79,18 @@ def dmix(idx=None):
 def d65t(idx=None):
     S = 'd65t_slide'
     msg = 'In 65 the free Trail kept feeding players through the final weekend; fewer of them paid and payers did not top up. A lead, not proof: ask the Dice team for the Trail setup of 65 vs 63.'
-    R = h.page(S, 'Dice Players a Day Getting Trail Chest Stickers: 63 vs 65',
+    R = h.page(S, 'Dice: Share of Active Players Getting Trail Chest Stickers, 63 vs 65',
                'All players in the album · close on Monday, so days 3–1 = Friday to Sunday (shaded) · active players were the same share in both albums (85%)',
                msg, msg_red='fewer of them paid and payers did not top up', idx=idx, msg_y=4.6)
     R += card(S, 'pc', 0.61, 1.2, 5.3, 3.25)
-    R += h.tbox(S, f'{S}_pt', 0.75, 1.24, 2.6, 0.28, 'Players a day (thousands)', 10, h.WHITE, True)
+    R += h.tbox(S, f'{S}_pt', 0.75, 1.24, 2.6, 0.28, '% of active players that day', 10, h.WHITE, True)
     R += h.rect(S, f'{S}_lg1', 3.9, 1.33, 0.13, 0.13, DIM)
     R += h.tbox(S, f'{S}_lt1', 4.05, 1.26, 0.8, 0.25, 'album 63', 8, h.GREY)
     R += h.rect(S, f'{S}_lg2', 4.85, 1.33, 0.13, 0.13, DICE)
     R += h.tbox(S, f'{S}_lt2', 5.0, 1.26, 0.8, 0.25, 'album 65', 8, h.GREY)
-    base, per, gw, bw = 4.0, 0.0095, 0.5, 0.2
-    d63 = [191, 142, 175, 127, 80, 138, 129, 71, 34, 50]
-    d65 = [232, 215, 152, 114, 80, 150, 133, 116, 98, 98]
+    base, per, gw, bw = 4.0, 0.045, 0.5, 0.2
+    d63 = [36.3, 27.2, 33.1, 23.9, 15.1, 26.1, 24.4, 13.6, 6.5, 9.5]   # % of active players (normalised, Eden 2026-10-25)
+    d65 = [44.1, 40.7, 28.0, 20.9, 14.6, 27.3, 24.3, 21.4, 18.2, 17.8]
     R += h.rect(S, f'{S}_sh', 0.8 + 7 * gw - 0.05, 1.55, 3 * gw + 0.05, base - 1.55, {'red': 0.22, 'green': 0.22, 'blue': 0.22})
     R += h.rect(S, f'{S}_z', 0.75, base, 5.0, 0.012, h.GREY)
     for i in range(10):
@@ -100,9 +100,9 @@ def d65t(idx=None):
             x, hgt = gx + k * (bw + 0.01), v * per
             R += h.rect(S, f'{S}_b{i}{k}', x, base - hgt, bw, hgt, c)
             if i >= 7:
-                R += h.tbox(S, f'{S}_v{i}{k}', x - 0.12, base - hgt - 0.2, bw + 0.24, 0.2, str(v), 7, h.WHITE, k == 1, 'CENTER')
+                R += h.tbox(S, f'{S}_v{i}{k}', x - 0.12, base - hgt - 0.2, bw + 0.24, 0.2, f'{v:.0f}%', 7, h.WHITE, k == 1, 'CENTER')
     R += h.tbox(S, f'{S}_dl', 0.75, base + 0.22, 5.0, 0.2, 'days before close', 8, h.GREY, False, 'CENTER')
-    for i, (num, lab, c) in enumerate([('~2×', 'players a day got Trail chest stickers on the final weekend in 65 (98–116K vs 34–71K)', DICE),
+    for i, (num, lab, c) in enumerate([('~2×', 'of active players got Trail chest stickers each day of the final weekend in 65 (18–21% vs 7–14% in 63)', DICE),
                                        ('−11%', 'payers a day on the final weekend vs days 11–5 in 65 (63: +3%)', h.RED),
                                        ('+3%', 'spend per payer on the final weekend vs days 11–5 in 65 (63: +17%)', h.RED)]):
         y = 1.2 + i * 1.1

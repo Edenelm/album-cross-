@@ -26,3 +26,15 @@ SQL: `claude/dice65_pu_trail_2026-10-25.sql` (Q1 83 GB, Q2 8 GB).
 
 - **Fact:** the Trail was *not* weaker in 65. It gave 8–12% more stickers in the last 14 days. On the final weekend, about twice as many players a day got Trail chest stickers (98–116K vs 34–71K).
 - **Reading (hypothesis, fits Eden's earlier idea "album too easy"):** in 65 the free Trail fed players on the final weekend. They got stickers without paying, so fewer needed to buy, and buyers did not top up. That fits fewer payers and flat ARPPU on the final weekend. Not proven. A test, or the Dice team's Trail config for 65 vs 63, would settle it.
+
+## Q3: normalised by active players (Eden 2026-10-25)
+Active players a day were similar: 517K–532K in 63, 525K–552K in 65. Share of active players that day who got at least one Trail chest sticker:
+
+| Days before close | 10 | 9 | 8 | 7 | 6 | 5 | 4 | 3 (Fri) | 2 (Sat) | 1 (Sun) |
+|---|---|---|---|---|---|---|---|---|---|---|
+| 63 | 36% | 27% | 33% | 24% | 15% | 26% | 24% | 14% | 6% | 10% |
+| 65 | 44% | 41% | 28% | 21% | 15% | 27% | 24% | **21%** | **18%** | **18%** |
+
+Trail chest stickers per active player on the final weekend: 63 0.20 / 0.12 / 0.17, 65 0.34 / 0.29 / 0.32.
+- **Fact:** normalised, the picture holds. On the final weekend about twice the share of active players got Trail chest stickers in 65 (18–21% vs 6–14%). Days 7–4 are about the same in both albums.
+- The `d65t_slide` chart now shows this share instead of player counts.
