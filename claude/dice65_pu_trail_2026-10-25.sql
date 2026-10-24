@@ -64,3 +64,26 @@ tr AS (
 SELECT album_id, STRING_AGG(FORMAT('%d:%.1f%%', dtc, 100 * trail_players / active), ' ' ORDER BY dtc) AS pct_active_getting_trail,
   STRING_AGG(FORMAT('%d:%.2f', dtc, trail_stickers / active), ' ' ORDER BY dtc) AS trail_stickers_per_active, STRING_AGG(FORMAT('%d:%d', dtc, active), ' ' ORDER BY dtc) AS active
 FROM act JOIN tr USING (album_id, dtc) GROUP BY 1 ORDER BY 1;
+
+-- ===== Q4 (Eden 2026-10-25: "which stickers did they get from the Trail? are you talking about Wilds?") =====
+-- Every Trail sticker row in days 10..1 before close, by source (chest / final reward), sticker type, Wild-filled or not,
+-- and NEW (the player's first copy of that sticker in the album) vs duplicate. Final weekend = days 3..1.
+WITH alb AS (
+  SELECT album_id, MAX(album_end_date) AS a_end FROM `dice-dreams-dbt.50_reporting.user_daily_album`
+  WHERE date_dim BETWEEN DATE '2026-07-20' AND DATE '2026-10-19' AND album_id IN (63,65) GROUP BY 1),
+tr AS (
+  SELECT s.album_id, s.user_id, s.sticker_id, s.sticker_type AS typ, s.sticker_source AS src, IFNULL(s.collected_from_wild, FALSE) AS wild,
+    s.sticker_collected_ts AS ts, DATE_DIFF(s.sticker_collected_date, a.a_end, DAY) AS dtc
+  FROM `dice-dreams-dbt.30_intermediate.fact_user_album_stickers` s JOIN alb a USING (album_id)
+  WHERE s.sticker_collected_date BETWEEN DATE '2026-08-20' AND DATE '2026-10-19' AND s.album_id IN (63,65)
+    AND s.is_sticker_collected AND s.sticker_source LIKE 'Trail%'
+    AND s.sticker_collected_date < a.a_end AND s.sticker_collected_date >= DATE_SUB(a.a_end, INTERVAL 10 DAY)),
+first_copy AS (
+  SELECT s.album_id, s.user_id, s.sticker_id, MIN(s.sticker_collected_ts) AS ts1
+  FROM `dice-dreams-dbt.30_intermediate.fact_user_album_stickers` s
+  JOIN (SELECT DISTINCT album_id, user_id, sticker_id FROM tr) t USING (album_id, user_id, sticker_id)
+  WHERE s.sticker_collected_date BETWEEN DATE '2026-06-01' AND DATE '2026-10-19' AND s.album_id IN (63,65) AND s.is_sticker_collected
+  GROUP BY 1,2,3)
+SELECT t.album_id, IF(t.dtc >= -3, 'final weekend', 'days 10-4') AS win, t.src, t.typ, t.wild, t.ts = f.ts1 AS is_new, COUNT(*) AS stickers, COUNT(DISTINCT t.user_id) AS players
+FROM tr t JOIN first_copy f USING (album_id, user_id, sticker_id)
+GROUP BY 1,2,3,4,5,6 HAVING stickers >= 500 ORDER BY 1,2,3,4,5,6;

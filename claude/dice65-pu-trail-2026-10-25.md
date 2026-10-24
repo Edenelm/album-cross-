@@ -38,3 +38,20 @@ Active players a day were similar: 517K–532K in 63, 525K–552K in 65. Share o
 Trail chest stickers per active player on the final weekend: 63 0.20 / 0.12 / 0.17, 65 0.34 / 0.29 / 0.32.
 - **Fact:** normalised, the picture holds. On the final weekend about twice the share of active players got Trail chest stickers in 65 (18–21% vs 6–14%). Days 7–4 are about the same in both albums.
 - The `d65t_slide` chart now shows this share instead of player counts.
+
+## Q4: which stickers did the Trail give? (Eden 2026-10-25)
+Every Trail row in `fact_user_album_stickers` turned out to be a **new** sticker for the player (first copy). The table holds new stickers only.
+
+| Final weekend (Fri–Sun) | 63 | 65 | per 1,000 active player-days, 63 → 65 |
+|---|---|---|---|
+| Trail – Chest: new commons | 148,576 | 274,926 | 95 → 168 |
+| Trail – Chest: new Goldens | 60,327 | 87,752 | 38 → 54 |
+| Trail – Chest: new Supers | 53,385 | 157,102 | 34 → 96 |
+| Trail – Chest: all new set stickers | 262,288 | 519,780 | 167 → 318 |
+| Trail – Final Reward: Wild (filled a new Super / Golden / common) | 48,487 | 62,207 | 31 → 38 |
+| Trail – Final Reward: a Super directly | 10,995 | 16,835 | 7 → 10 |
+Active player-days on the final weekend: 1,568,891 (63), 1,633,978 (65).
+
+- **Fact:** the Trail chest gives regular new set stickers, not Wilds. On 65's final weekend it gave about twice as many new stickers per active player as in 63, and about 3× as many new Supers.
+- The Wild comes only from the Trail **final reward**, and it is close between the two albums (31 vs 38 per 1,000 active player-days).
+- (Days 10–4 also show "pixie" rows, which are not one of the 144 set stickers. They are left out above.)
