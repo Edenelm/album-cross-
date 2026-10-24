@@ -3,7 +3,7 @@ Rules: title = what is plotted; one message per slide in the bottom line; contex
 s1 = total game revenue in the week after each close date (calendar). s2 = finishers' week after vs own pace, 3 albums per game.
 s7 = payout change after close by spend level, paying finishers, album prizes included.
 Data: topic6-game-revenue-after-close-2026-10-24.md (calendar section), topic6-calendar-neutral-return-2026-10-24.md (A),
-topic6-payout-prizes-by-level-2026-10-24.md. Usage (from claude/): python3 slide_t6_story_2026-10-24.py <s1|s2|s2_size|s3|s4|s4f|s4s|s5|s6|s6s|s7|s8f|s8s|s9|s10|r1|r2|r3|r4|t7d|t7e|t7f|s9v|t7g|t7h|r5|notes> [insertionIndex]"""
+topic6-payout-prizes-by-level-2026-10-24.md. Usage (from claude/): python3 slide_t6_story_2026-10-24.py <s1|s2|s2_size|s3|s4|s4f|s4s|s5|s6|s6s|s7|s8f|s8s|s9|s10|r1|r2|r3|r4|t7d|t7e|t7f|s9v|t7g|t7h|r5|dj1|v1|v2|notes> [insertionIndex]"""
 import json, sys, importlib.util as u
 s = u.spec_from_file_location('h', 'slide_t7_dice_prize_2026-10-25.py'); h = u.module_from_spec(s); s.loader.exec_module(h)
 GAMES = [('Dice', h.BLUE), ('Domino', {'red': 0.961, 'green': 0.627, 'blue': 0.29}), ('Disney', {'red': 0.235, 'green': 0.784, 'blue': 0.706})]
@@ -593,6 +593,69 @@ def r5(idx=None):
     R += h.tbox(S, f'{S}_dl', 7.85, 3.2, 1.7, 0.85, 'got their last sticker from a Puzzle Joker', 9, h.GREY, False, 'CENTER')
     # action
     R += h.tbox(S, f'{S}_act', 0.55, 4.15, 9.0, 0.35, 'TEST: a daily RV cap, and RV rewards without sticker packs / Puzzle pieces · measure: payer conversion, retention, ad revenue', 10, h.GOLD, True)
+    return R
+
+# dj1: redesign of Eden's Disney Joker test slide (h22531cc986c0856e_0_118) as a timeline of the last 7 days.
+def dj1(idx=None):
+    S = 'dj1_slide'
+    X0, CW = 2.35, 0.88
+    days = ['−7', '−6', '−5', '−4', '−3', '−2', '−1']
+    R = h.page(S, 'Disney Joker in the Last 7 Days: Today vs Two Tests',
+               'Disney paying players · days before the album close · Joker = fills any missing sticker',
+               'Today Disney payers can get a Joker only in the last 3 days. Test giving it earlier: on sale from day −7 (A), or as an event prize on days −4 to −3 (B).',
+               msg_red='Test giving it earlier', idx=idx, msg_y=4.6)
+    R += h.rect(S, f'{S}_bg', 0.55, 1.2, 9.0, 2.45, h.CARD)
+    for k, d in enumerate(days):
+        R += h.tbox(S, f'{S}_d{k}', X0 + k * CW, 1.28, CW, 0.25, f'day {d}', 9, h.GREY, False, 'CENTER')
+    rows = [('Control (today)', [(4, 7, LIGHT, 'Joker on sale')]),
+            ('Test A · sale', [(0, 7, h.GOLD, 'Joker on sale from day −7')]),
+            ('Test B · event', [(3, 5, h.GOLD, 'event prize'), (5, 7, LIGHT, 'sale as today')])]
+    for r_, (lab, segs) in enumerate(rows):
+        y = 1.62 + r_ * 0.65
+        R += h.tbox(S, f'{S}_l{r_}', 0.7, y + 0.1, 1.6, 0.3, lab, 12, h.WHITE if r_ == 0 else h.GOLD, True)
+        for j, (a, b, c, t) in enumerate(segs):
+            R += h.rect(S, f'{S}_s{r_}{j}', X0 + a * CW + 0.03, y, (b - a) * CW - 0.06, 0.48, c)
+            R += h.tbox(S, f'{S}_t{r_}{j}', X0 + a * CW, y + 0.1, (b - a) * CW, 0.3, t, 10, {'red': 0.13, 'green': 0.13, 'blue': 0.13}, True, 'CENTER')
+    # evidence strip
+    R += h.rect(S, f'{S}_ev', 0.55, 3.75, 9.0, 0.7, h.CARD)
+    R += h.tbox(S, f'{S}_evn', 0.7, 3.8, 1.3, 0.6, '×1.8', 26, h.GOLD, True)
+    R += h.tbox(S, f'{S}_evl', 2.0, 3.85, 7.4, 0.55, 'Why B: in Domino 20, payers who got the event Joker spent 1.8× their usual pace in those 2 days (18% of payers, 31% of album revenue). Today only 0.1% of Disney payers a day get a Joker before day −3.', 10, h.GREY)
+    return R
+
+# Split of Eden's v144_slide (2 messages) into two one-message slides (lull-economy-disney15-2026-10-23.md).
+TEAL = {'red': 0.235, 'green': 0.784, 'blue': 0.706}
+def v1(idx=None):   # economy: revenue per day, quiet vs release window
+    S, BASE, PER = 'v144a_slide', 3.9, 0.0000022
+    R = h.page(S, 'Disney 15 Payers: Revenue per Day, Quiet vs Sticker-Release Days',
+               'Disney album 15 · all paying players · days 10–13 (few new stickers) vs days 16–19 (many new stickers, high coin payout)',
+               'When the game releases many stickers and pays out more coins, payers spend 11% less a day.',
+               msg_red='11% less a day', idx=idx, msg_y=4.6)
+    R += h.rect(S, f'{S}_pc', 0.55, 1.2, 9.0, 3.15, h.CARD)
+    rows = [('Days 10–13 · quiet', 873249, '1 new sticker a day · payout 53%', LIGHT), ('Days 16–19 · release', 781517, '5 new stickers a day · payout 63%', TEAL)]
+    for k, (lab, v, sub, c) in enumerate(rows):
+        x, hgt = 1.6 + k * 4.0, v * PER
+        R += h.rect(S, f'{S}_b{k}', x, BASE - hgt, 2.4, hgt, c)
+        R += h.tbox(S, f'{S}_v{k}', x - 0.3, BASE - hgt - 0.45, 3.0, 0.4, f'${v:,} a day', 18, h.WHITE, True, 'CENTER')
+        R += h.tbox(S, f'{S}_l{k}', x - 0.3, BASE + 0.03, 3.0, 0.22, lab, 10, h.WHITE, True, 'CENTER')
+        R += h.tbox(S, f'{S}_s{k}', x - 0.5, BASE + 0.22, 3.4, 0.22, sub, 9, h.GREY, False, 'CENTER')
+    R += h.tbox(S, f'{S}_d', 4.1, 2.2, 1.4, 0.4, '−11%', 22, h.RED, True, 'CENTER')
+    return R
+
+def v2(idx=None):   # who falls behind and when
+    S, BASE, PER = 'v144b_slide', 3.85, 0.12
+    R = h.page(S, 'Disney 15: Stickers Behind Finishers, Payers Who End 4+ Away',
+               '263,164 paying players (81% of payers, 43% of album revenue) · gap = finishers\' stickers minus theirs, by album day',
+               'These payers fall behind most in days 14–26, when many stickers are released (+5), not in the quiet days (+1 to +2).',
+               msg_red='days 14–26', idx=idx, msg_y=4.6)
+    R += h.rect(S, f'{S}_pc', 0.55, 1.2, 9.0, 3.15, h.CARD)
+    pts = [('day 9', 10), ('day 13', 12), ('day 26', 17), ('day 31', 18)]
+    for k, (lab, v) in enumerate(pts):
+        x, hgt = 1.2 + k * 2.15, v * PER
+        R += h.rect(S, f'{S}_b{k}', x, BASE - hgt, 1.3, hgt, TEAL if k != 2 else h.RED)
+        R += h.tbox(S, f'{S}_v{k}', x - 0.2, BASE - hgt - 0.4, 1.7, 0.36, f'{v}', 18, h.WHITE, True, 'CENTER')
+        R += h.tbox(S, f'{S}_l{k}', x - 0.2, BASE + 0.03, 1.7, 0.22, lab, 10, h.GREY, False, 'CENTER')
+    for k, (txt, c) in enumerate([('+2 quiet', h.GREY), ('+5 release days', h.RED), ('+1 quiet', h.GREY)]):
+        R += h.tbox(S, f'{S}_g{k}', 2.15 + k * 2.15, 1.3, 1.6, 0.25, txt, 10, c, True, 'CENTER')
     return R
 
 NOTES = {
