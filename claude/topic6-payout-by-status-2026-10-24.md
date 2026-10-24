@@ -46,3 +46,10 @@ Median player after close: Dice 88 / 89 / 90 / 90% (flat), Domino 59 / 62 / 65 /
 - **Correction:** my earlier reading on t6h ("the drop reflects a richer end of album") is wrong: mid-album levels were close, so finishers really get a stingier game after close.
 - **Hypothesis (not tested):** finishers play differently at the start of the new album (bigger stakes, more boosters), which lowers the payout per coin.
 - **Recommendation:** unchanged: soft landing as a revenue lever: **do not adopt** (the stingier game does not stop finishers from spending). If the team wants it for player experience, **test** it with next-album spend and retention as measures.
+
+## Story slide t6j (Eden 2026-10-24): Dice finishers come back slowest + the payout story
+Slide **t6j_slide** (after t6i). Finishers $2–20 a day: payout change days 1–3 vs own mid-album (median player): Dice +5%, Domino −18%, Disney −12%; week after (s6c): 110% / 140% / 128%. Under each panel: payout level after close, finishers vs all players of the same game (77 vs 84 / 64 vs 70 / 59 vs 73%).
+- The change is comparable across games (each player vs himself); the levels are not (different formulas), so the slide compares levels only inside a game.
+- Same direction for payers 1–2 short: payout +5% / −12% / −5%, week after ($2–20) 90% / 103% / 108%.
+- **Hypothesis:** Dice keeps paying out a lot after close, so the roll stock lasts and the next purchase waits; Domino and Disney tighten the start of the new album. **Caveat:** inside each game, players whose payout fell did not spend more (payout split), so this is a lead, not proof.
+- **Recommendation: TEST** in Dice: tighter payout in days 1–3 of the new album for finishers and players 1–2 short, Control = today; measure buying and spend vs own pace in days 1–7; guardrails next-album spend (14 days), finish rate, churn.
