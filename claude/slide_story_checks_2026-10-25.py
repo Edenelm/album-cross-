@@ -1,6 +1,6 @@
 """ALBUM END: slides from the story-review checks (2026-10-24/25). Source: claude/open-checks-2026-10-24.md (C), claude/dice65-end-2026-10-24.md.
 d65_slide: Dice spend per payer per day, last 4 days vs days 11-5 before close, albums 63 vs 65, by spend level.
-Usage (from claude/): python3 slide_story_checks_2026-10-25.py <dmix|d65|notes> [insertionIndex|-]"""
+Usage (from claude/): python3 slide_story_checks_2026-10-25.py <dmix|d65|d65t|notes> [insertionIndex|-]"""
 import json, sys, importlib.util as u
 s = u.spec_from_file_location('h', 'slide_t7_dice_prize_2026-10-25.py'); h = u.module_from_spec(s); s.loader.exec_module(h)
 DICE, DIM = {'red': 0.435, 'green': 0.639, 'blue': 1}, {'red': 0.45, 'green': 0.45, 'blue': 0.45}
@@ -47,16 +47,16 @@ def d65(idx=None):
 
 def dmix(idx=None):
     S = 'dmix_slide'
-    msg = 'Disney ARPDAU fell 19% mostly because there are fewer new players and more veterans. Each group spends about the same; with album 10\'s mix, album 15 is −1%.'
-    R = h.page(S, 'Disney ARPDAU by Album: Actual vs Album-10 Player Mix',
-               'All players who got the album, active days, close day excluded · mix = share of active days by albums seen (1 / 2–3 / 4–6 / 7+) · album 13 = 21-day mini album',
+    msg = 'Disney ARPDAU fell 19% mostly because there are fewer new players and more veterans. Each group spends about the same; if the new/veteran share had stayed as in album 10, album 15 would be −1%.'
+    R = h.page(S, "Disney ARPDAU: Actual vs Album 10's New/Veteran Share",
+               'All players who got the album, active days, close day excluded · new/veteran share = share of active days by albums seen (1 / 2–3 / 4–6 / 7+) · album 13 = 21-day mini album',
                msg, msg_red='fewer new players and more veterans', idx=idx, msg_y=4.6)
     R += card(S, 'pc', 0.61, 1.2, 5.3, 3.25)
     R += h.tbox(S, f'{S}_pt', 0.75, 1.24, 2.4, 0.28, 'ARPDAU by album', 10, h.WHITE, True)
     R += h.rect(S, f'{S}_lg1', 3.05, 1.33, 0.13, 0.13, DIM)
     R += h.tbox(S, f'{S}_lt1', 3.2, 1.26, 0.8, 0.25, 'actual', 8, h.GREY)
     R += h.rect(S, f'{S}_lg2', 3.85, 1.33, 0.13, 0.13, DISNEY)
-    R += h.tbox(S, f'{S}_lt2', 4.0, 1.26, 1.85, 0.25, 'with album 10 player mix', 8, h.GREY)
+    R += h.tbox(S, f'{S}_lt2', 4.0, 1.26, 1.85, 0.25, "album 10's new/veteran share", 8, h.GREY)
     base, per, w = 4.0, 1.7, 0.34
     R += h.rect(S, f'{S}_z', 0.75, base, 5.0, 0.012, h.GREY)
     data = [(10, 1.11, 1.11), (11, 1.12, 1.16), (12, 0.97, 1.04), (13, 1.01, 1.15), (14, 0.91, 1.03), (15, 0.91, 1.11)]
@@ -69,14 +69,54 @@ def dmix(idx=None):
             R += h.tbox(S, f'{S}_v{i}{k}', x - 0.15, base - hgt - 0.24, w + 0.3, 0.22, f'${v:.2f}', 8, h.WHITE, k == 1, 'CENTER')
     for i, (num, lab, c) in enumerate([('29% → 6%', 'of active days come from players in their first album (album 10 → 15)', h.RED),
                                        ('19% → 44%', 'of active days come from players in their 7th+ album ($0.72–0.81 a day vs $1.24–1.50 new)', h.WHITE),
-                                       ('−19% → −1%', 'album 15 vs album 10: actual vs with album 10\'s player mix', DISNEY)]):
+                                       ('−19% → −1%', 'album 15 vs album 10: actual vs if the new/veteran share stayed as in album 10', DISNEY)]):
         y = 1.2 + i * 1.1
         R += card(S, f't{i}', 6.1, y, 3.3, 1.0)
         R += h.tbox(S, f'{S}_tn{i}', 6.22, y + 0.05, 3.1, 0.45, num, 22, c, True)
         R += h.tbox(S, f'{S}_tl{i}', 6.22, y + 0.52, 3.1, 0.45, lab, 8.5, h.WHITE)
     return R
 
-NOTES = {'dmix_slide': """Question (Eden, story opening): Disney ARPDAU fell from $1.11 (album 10) to $0.91 (album 15), −19%. Do players spend less, or did the crowd change?
+def d65t(idx=None):
+    S = 'd65t_slide'
+    msg = 'In 65 the free Trail kept feeding players through the final weekend; fewer of them paid and payers did not top up. A lead, not proof: ask the Dice team for the Trail setup of 65 vs 63.'
+    R = h.page(S, 'Dice Players a Day Getting Trail Chest Stickers: 63 vs 65',
+               'All players in the album · close on Monday, so days 3–1 = Friday to Sunday (shaded) · active players were the same share in both albums (85%)',
+               msg, msg_red='fewer of them paid and payers did not top up', idx=idx, msg_y=4.6)
+    R += card(S, 'pc', 0.61, 1.2, 5.3, 3.25)
+    R += h.tbox(S, f'{S}_pt', 0.75, 1.24, 2.6, 0.28, 'Players a day (thousands)', 10, h.WHITE, True)
+    R += h.rect(S, f'{S}_lg1', 3.9, 1.33, 0.13, 0.13, DIM)
+    R += h.tbox(S, f'{S}_lt1', 4.05, 1.26, 0.8, 0.25, 'album 63', 8, h.GREY)
+    R += h.rect(S, f'{S}_lg2', 4.85, 1.33, 0.13, 0.13, DICE)
+    R += h.tbox(S, f'{S}_lt2', 5.0, 1.26, 0.8, 0.25, 'album 65', 8, h.GREY)
+    base, per, gw, bw = 4.0, 0.0095, 0.5, 0.2
+    d63 = [191, 142, 175, 127, 80, 138, 129, 71, 34, 50]
+    d65 = [232, 215, 152, 114, 80, 150, 133, 116, 98, 98]
+    R += h.rect(S, f'{S}_sh', 0.8 + 7 * gw - 0.05, 1.55, 3 * gw + 0.05, base - 1.55, {'red': 0.22, 'green': 0.22, 'blue': 0.22})
+    R += h.rect(S, f'{S}_z', 0.75, base, 5.0, 0.012, h.GREY)
+    for i in range(10):
+        gx = 0.85 + i * gw
+        R += h.tbox(S, f'{S}_d{i}', gx - 0.08, base + 0.03, 0.55, 0.22, str(10 - i), 9, h.WHITE, i >= 7, 'CENTER')
+        for k, (v, c) in enumerate([(d63[i], DIM), (d65[i], DICE)]):
+            x, hgt = gx + k * (bw + 0.01), v * per
+            R += h.rect(S, f'{S}_b{i}{k}', x, base - hgt, bw, hgt, c)
+            if i >= 7:
+                R += h.tbox(S, f'{S}_v{i}{k}', x - 0.12, base - hgt - 0.2, bw + 0.24, 0.2, str(v), 7, h.WHITE, k == 1, 'CENTER')
+    R += h.tbox(S, f'{S}_dl', 0.75, base + 0.22, 5.0, 0.2, 'days before close', 8, h.GREY, False, 'CENTER')
+    for i, (num, lab, c) in enumerate([('~2×', 'players a day got Trail chest stickers on the final weekend in 65 (98–116K vs 34–71K)', DICE),
+                                       ('−11%', 'payers a day on the final weekend vs days 11–5 in 65 (63: +3%)', h.RED),
+                                       ('+3%', 'spend per payer on the final weekend vs days 11–5 in 65 (63: +17%)', h.RED)]):
+        y = 1.2 + i * 1.1
+        R += card(S, f't{i}', 6.1, y, 3.3, 1.0)
+        R += h.tbox(S, f'{S}_tn{i}', 6.22, y + 0.05, 3.1, 0.45, num, 22, c, True)
+        R += h.tbox(S, f'{S}_tl{i}', 6.22, y + 0.52, 3.1, 0.45, lab, 8.5, h.WHITE)
+    return R
+
+NOTES = {'d65t_slide': """Follow-up to the previous slide (Eden: were there enough payers, and was the Trail at 65's level in 63?).
+Trail – Chest: players a day getting at least one sticker from it, days 10–1 before close (thousands): 63 191 / 142 / 175 / 127 / 80 / 138 / 129 / 71 / 34 / 50; 65 232 / 215 / 152 / 114 / 80 / 150 / 133 / 116 / 98 / 98. Last 14 days: Trail chest stickers 2,703,459 (63) vs 2,930,994 (65, +8%); Trail final reward 336,233 vs 377,520 (+12%).
+Payers (standard population, 203,118 in 63 / 192,616 in 65): active rate the same (about 85% on the final weekend). Payers a day, days 11–5 → final weekend: 63 15.0% → 15.4% (+3%); 65 16.2% → 14.4% (−11%). Spend per payer: 63 $18.70 → $21.90 (+17%); 65 $18.50 → $19.00 (+3%).
+Reading: players were there and paying before the end (65 even more than 63). On the final weekend of 65 the free Trail gave about twice as many players stickers, fewer paid, and payers did not top up. Hypothesis ("album too easy at the end"), one album — ask the Dice team for the Trail setup of 65 vs 63, or test.
+Doc: claude/dice65-pu-trail-2026-10-25.md.""",
+ 'dmix_slide': """Question (Eden, story opening): Disney ARPDAU fell from $1.11 (album 10) to $0.91 (album 15), −19%. Do players spend less, or did the crowd change?
 Example: in album 10, 29 of every 100 active days were new players (first album, about $1.37 a day) and 19 were veterans (7+ albums, about $0.72). In album 15 only 6 of 100 days are new players and 44 are veterans. Each group spends about the same as before (new $1.50, veterans $0.78), but there are many more veterans, so the average falls — like a class average that drops because more weaker students joined, not because each student got worse.
 Mix-fixed = each album's ARPDAU per group, weighted by album 10's share of active days. Album 11 +5%, 12 −7%, 13 +3% (21-day mini album), 14 −8%, 15 −1%.
 ARPDAU by group (albums 10–15): first album $1.24–1.50; 2–3 albums $1.02–1.19; 4–6 $0.87–1.01; 7+ $0.72–0.81.
