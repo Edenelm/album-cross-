@@ -645,16 +645,16 @@ def v2(idx=None):   # who falls behind and when
     S, BASE, PER = 'v144b_slide', 3.85, 0.12
     R = h.page(S, 'Disney 15: Stickers Behind Finishers, Payers Who End 4+ Away',
                '263,164 paying players (81% of payers, 43% of album revenue) · gap = finishers\' stickers minus theirs, by album day',
-               'These payers fall behind most in days 14–26, when many stickers are released (+5), not in the quiet days (+1 to +2).',
-               msg_red='days 14–26', idx=idx, msg_y=4.6)
+               'Payers who end 4+ away fall behind gradually in every game; in Disney the gap gets bigger in the middle of the album (16–17 vs 9–12 in Dice and Domino).',
+               msg_red='in Disney the gap gets bigger in the middle of the album', idx=idx, msg_y=4.6)
     R += h.rect(S, f'{S}_pc', 0.55, 1.2, 9.0, 3.15, h.CARD)
     pts = [('day 9', 10), ('day 13', 12), ('day 26', 17), ('day 31', 18)]
     for k, (lab, v) in enumerate(pts):
         x, hgt = 1.2 + k * 2.15, v * PER
-        R += h.rect(S, f'{S}_b{k}', x, BASE - hgt, 1.3, hgt, TEAL if k != 2 else h.RED)
+        R += h.rect(S, f'{S}_b{k}', x, BASE - hgt, 1.3, hgt, TEAL)
         R += h.tbox(S, f'{S}_v{k}', x - 0.2, BASE - hgt - 0.4, 1.7, 0.36, f'{v}', 18, h.WHITE, True, 'CENTER')
         R += h.tbox(S, f'{S}_l{k}', x - 0.2, BASE + 0.03, 1.7, 0.22, lab, 10, h.GREY, False, 'CENTER')
-    for k, (txt, c) in enumerate([('+2 quiet', h.GREY), ('+5 release days', h.RED), ('+1 quiet', h.GREY)]):
+    for k, (txt, c) in enumerate([('+0.5 a day', h.GREY), ('+0.4 a day', h.GREY), ('+0.2 a day', h.GREY)]):
         R += h.tbox(S, f'{S}_g{k}', 2.15 + k * 2.15, 1.3, 1.6, 0.25, txt, 10, c, True, 'CENTER')
     return R
 
