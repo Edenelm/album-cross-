@@ -1,0 +1,44 @@
+album_id,period,src,won_units,pct_of_won,payout_points,rtp_pct_total,won_over_stake_pct,players,days
+14,a_mid,level completed,171859279,65.9,93.5,52.8,141.9,367188,14
+14,a_mid,other,77023995,29.5,41.9,52.8,141.9,367188,14
+14,a_mid,album set completed,8856597,3.4,4.8,52.8,141.9,367188,14
+14,a_mid,duplicates,2107583,0.8,1.1,52.8,141.9,367188,14
+14,a_mid,album set potion retro,1014157,0.4,0.6,52.8,141.9,367188,14
+14,a_mid,album completed,1111,0.0,0.0,52.8,141.9,367188,14
+14,b_last4,level completed,46170227,67.5,88.6,50.4,131.3,341173,4
+14,b_last4,other,17060701,24.9,32.7,50.4,131.3,341173,4
+14,b_last4,album completed,2523786,3.7,4.8,50.4,131.3,341173,4
+14,b_last4,album set completed,2225199,3.3,4.3,50.4,131.3,341173,4
+14,b_last4,duplicates,398299,0.6,0.8,50.4,131.3,341173,4
+14,b_last4,magic sets grand prize,17078,0.0,0.0,50.4,131.3,341173,4
+14,b_last4,magic set completed,10028,0.0,0.0,50.4,131.3,341173,4
+14,b_last4,album set potion retro,6,0.0,0.0,50.4,131.3,341173,4
+14,c_close,level completed,13028788,69.1,94.2,55.9,136.3,288652,1
+14,c_close,other,4331673,23.0,31.3,55.9,136.3,288652,1
+14,c_close,album completed,958047,5.1,6.9,55.9,136.3,288652,1
+14,c_close,album set completed,484386,2.6,3.5,55.9,136.3,288652,1
+14,c_close,duplicates,38012,0.2,0.3,55.9,136.3,288652,1
+14,c_close,magic sets grand prize,12694,0.1,0.1,55.9,136.3,288652,1
+14,c_close,magic set completed,7444,0.0,0.1,55.9,136.3,288652,1
+14,c_close,album tutorial,1,0.0,0.0,55.9,136.3,288652,1
+15,a_mid,level completed,166180135,70.1,87.2,57.1,124.4,322734,14
+15,a_mid,other,61026336,25.8,32.0,57.1,124.4,322734,14
+15,a_mid,album set completed,8099461,3.4,4.3,57.1,124.4,322734,14
+15,a_mid,duplicates,1127183,0.5,0.6,57.1,124.4,322734,14
+15,a_mid,album set potion retro,532135,0.2,0.3,57.1,124.4,322734,14
+15,a_mid,album completed,902,0.0,0.0,57.1,124.4,322734,14
+15,b_last4,level completed,45730865,68.4,88.0,57.0,128.7,301575,4
+15,b_last4,other,15633344,23.4,30.1,57.0,128.7,301575,4
+15,b_last4,album completed,2506770,3.7,4.8,57.0,128.7,301575,4
+15,b_last4,album set completed,2445348,3.7,4.7,57.0,128.7,301575,4
+15,b_last4,duplicates,474599,0.7,0.9,57.0,128.7,301575,4
+15,b_last4,magic sets grand prize,37530,0.1,0.1,57.0,128.7,301575,4
+15,b_last4,magic set completed,21898,0.0,0.0,57.0,128.7,301575,4
+15,c_close,level completed,10680904,69.6,86.7,52.8,124.6,258384,1
+15,c_close,other,3588542,23.4,29.1,52.8,124.6,258384,1
+15,c_close,album completed,712462,4.6,5.8,52.8,124.6,258384,1
+15,c_close,album set completed,302154,2.0,2.5,52.8,124.6,258384,1
+15,c_close,duplicates,39126,0.3,0.3,52.8,124.6,258384,1
+15,c_close,magic sets grand prize,18756,0.1,0.2,52.8,124.6,258384,1
+15,c_close,magic set completed,10925,0.1,0.1,52.8,124.6,258384,1
+15,c_close,album tutorial,17,0.0,0.0,52.8,124.6,258384,1
