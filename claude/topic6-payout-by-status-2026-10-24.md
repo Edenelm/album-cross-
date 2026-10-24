@@ -53,3 +53,10 @@ Slide **t6j_slide** (after t6i). Finishers $2–20 a day: payout change days 1�
 - Same direction for payers 1–2 short: payout +5% / −12% / −5%, week after ($2–20) 90% / 103% / 108%.
 - **Hypothesis:** Dice keeps paying out a lot after close, so the roll stock lasts and the next purchase waits; Domino and Disney tighten the start of the new album. **Caveat:** inside each game, players whose payout fell did not spend more (payout split), so this is a lead, not proof.
 - **Recommendation: TEST** in Dice: tighter payout in days 1–3 of the new album for finishers and players 1–2 short, Control = today; measure buying and spend vs own pace in days 1–7; guardrails next-album spend (14 days), finish rate, churn.
+
+### Stock check (Eden approved, run 2026-10-24): the "stock lasts" hypothesis is not supported
+Full doc and SQL: `topic6-stock-by-status-2026-10-24.md`, `topic6_stock_by_status_2026-10-24.sql`. Measure: balance at the end of the close day ÷ own play per day close−18..−5.
+- **Fact:** the median paying player in every status group and every game ends the close day with less than 0.1 day of own play.
+- **Fact:** share with 2+ days of stock ($2–20): finishers Dice 11%, Domino 13%, Disney 12%; 1–2 short 5% / 7% / 6%. Dice does not carry more stock.
+- **Updated interpretation:** the slow Dice return is not explained by stock at close. What is left is the payout flow after close (+5% in Dice). It is not tested and has no support from the within-game split.
+- **Recommendation (updated):** the t6j test is still **TEST**, but with a lower expected effect: it now checks only the payout flow. Stock-based fixes: **do not adopt**.
