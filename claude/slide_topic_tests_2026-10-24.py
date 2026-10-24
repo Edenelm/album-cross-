@@ -35,13 +35,13 @@ def test_slide(S, title, who, control, arms, measure, msg, idx=None):
 
 SLIDES = {
  'tx_gate': dict(title='Test: Locked End Stickers in Disney',
-    who='Disney payers. 86–97% of those who end 1–3 short miss a locked sticker; only 2–6% hold the top one 2 days before close.',
+    who='All Disney payers (325,842–371,049 per album). 16–20% end 1–3 short = 37–38% of album revenue; 86–97% of them miss a locked sticker.',
     control='2 Goldens + 1 Royal locked to the end.',
     arms=[('2 Royals + 1 Golden', 'Like Domino (1 Golden + 2 Royals) and Dice (1 Golden + 2 Supers).', True)],
     measure='Main: finish rate and revenue per payer in the last 4 days · Guardrail: next-album spend',
     msg='Disney is the only game that locks 2 Goldens to the end. Test the Domino mix.'),
  'tx_gold': dict(title='Tests: Goldens in Disney',
-    who='Disney payers who miss a Golden 10 days before close. They end 4.2 of 24 Goldens short (Dice 2.0 of 28); Goldens are 42–56% of what they miss.',
+    who='89–97% of Disney payers miss a Golden that is already out 10 days before close (57–86% of album revenue); 28–30% miss only 1–3 of them (35–54%).',
     control='24 Goldens; packs and rotating offers.',
     arms=[('Pick your Golden', 'A daily offer for the Golden you miss, last 10 days.', False),
           ('More Goldens + sale', 'More Goldens in the album (Dice / Domino: 28), sold at the end.', True)],
@@ -107,12 +107,12 @@ def t9(idx=None):
 NOTES = {
  'tx_gate': """Fact: Disney locks 2 Goldens + 1 Royal to the end; Domino 1 Golden + 2 Royals; Dice 1 Golden + 2 Supers. Disney near-finishers missing at least one locked sticker: 97% / 86% (albums 14 / 15, old end status close−1); 2% / 5.5% of payers hold the top locked sticker 2 days before close (Dice 7.5–11%, Domino 5.6–9.3%).
 Test (Eden's idea, 2026-10-24): 2 Royals + 1 Golden locked to the end. Hypothesis, not a decision; size of the change and which stickers = product team.
-Size not counted yet for Disney on the current definition (players, % of payers, % of revenue) — topic-4 gates were not rerun for Disney.
+The locked-sticker share (86–97%) is from the old gates slide; topic-4 gates were not rerun for Disney. Sizes: claude/topic9-disney-test-sizes-2026-10-24.md.
 Source: claude/topic4-gates-2026-10-22.md, dz7 slide.""",
  'tx_gold': """Existing test (gtest slide): daily 'pick the Golden you miss' offer in the last 10 days (Dice sells Goldens every day to 3–5% of active payers; Disney 14 1.1–5.1% a day).
 New arm (Eden): more Goldens in the album and a Golden sale at the end. Caution: more Goldens without more supply can raise what payers miss — the sale at the end is part of the arm.
 Disney 15 payers miss on average 4.2 of 24 Goldens at close (18%); Goldens are 42–56% of what Disney payers miss (Dice 2.0 of 28).
-Size of 'payers missing a Golden 10 days before close' not counted yet.
+Sizes: claude/topic9-disney-test-sizes-2026-10-24.md (22 of 24 Goldens out by close−10; missing any 89–97% of payers, 1–3 missing 28–30%).
 Source: claude/disney-stalls-missing-2026-10-23.md, claude/golden-offers-by-day-2026-10-23.md.""",
  'tx_royal': """Who: Disney middle payers (P50–95 of spend so far) with 4+ missing 14 days before close: 22% of Disney game revenue. After their last new Royal (11–13 days before close) they stay active 72% of days but spend only 3–4% of their album spend. Disney 15 payers miss 2.7 of 7 Royals at close (39%).
 Arms: existing steady Royal source (tst slide) and Joker earlier — sale from close−7 or event prize (dj1 slide; Domino 20 event Joker: payers spent 1.8× their usual pace in those 2 days). New (Eden): Royals from regular packs; more Royals in the album with a Joker sale at the end.
