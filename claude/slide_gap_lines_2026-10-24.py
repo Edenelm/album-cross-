@@ -82,6 +82,17 @@ def g1(idx=None):
                     h.RED if name == 'Disney' else h.WHITE, True)
     return R
 
+def legend(idx=None):   # Eden 2026-10-24: legend restored after the subtitle was removed; sits between the title and the panels
+    Y, R = 1.12, []
+    for i, (n, a, c) in enumerate(GAMES):
+        R += seg(f'{S}_lg_f{i}', 0.7 + i * 0.14, Y, 0.82 + i * 0.14, Y, c, 2.5)
+    R += h.tbox(S, f'{S}_lg_ft', 1.15, Y - 0.12, 2.6, 0.25, 'Finishers (all 144 on the day before close)', 9, h.WHITE)
+    R += seg(f'{S}_lg_g', 3.95, Y, 4.35, Y, FAR, 2)
+    R += h.tbox(S, f'{S}_lg_gt', 4.42, Y - 0.12, 2.0, 0.25, 'Payers who end 4+ away', 9, h.WHITE)
+    R += h.rect(S, f'{S}_lg_s', 6.35, Y - 0.08, 0.35, 0.16, SHADE)
+    R += h.tbox(S, f'{S}_lg_st', 6.77, Y - 0.12, 2.2, 0.25, 'Last 30% of the album', 9, h.WHITE)
+    return R
+
 NOTES = {S: """What this shows: for each game, the average number of unique set stickers (of 144) that two groups of paying players held on each album day. Colored line = finishers (all 144 on the day before close). Grey line = payers who end 4 or more stickers away (140 or fewer on the day before close). X axis = share of the album's days, so albums of different length line up (a point every 10%). Shaded = last 30% of the album.
 Example: in Disney 15, on day 21 (50% of the album) the average finisher held 103 stickers and the average far payer 87: 16 behind. On the last day before close: 144 vs 131 (13 behind).
 Gap at 20% / 50% / 70% / last day: Dice 63: 7 / 9 / 11 / 12 · Domino 20: 7 / 12 / 12 / 12 · Disney 15: 10 / 16 / 17 / 13.
