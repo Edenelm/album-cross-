@@ -33,4 +33,4 @@ Same payers; non-paid Joker stickers by `new_sticker_source` / `new_sticker_mtx_
 | Garden Blast (t_MiniGame, 10 Oct) | 1 | 1 | 0 | 636 | 532 |
 - **Fact:** the peak 3 days before close is the Movie Twister event (13K payers that day; the two campaign variants may overlap), not the Puzzle. The Puzzle gave Jokers 5–4 days out (Joker Puzzle) and 2–1 days out (Summer Fever Puzzle).
 - **Correction:** the earlier note "free Jokers mostly from the Puzzle event" was wrong for the peak; slide finding and notes fixed.
-- **Not checked:** whether players had to pay to progress in Movie Twister; the validated paid rule classes it as gameplay.
+- **Checked 2026-10-24** (`domino-movie-twister-purchases-2026-10-24.md`): 54% of the 19,125 payers with a Movie Twister Joker bought on the event days before getting it; they spent ×1.83 their daily habit; 52% of buyers paid above their CZ. They are 18% of payers, 31% of album revenue.
