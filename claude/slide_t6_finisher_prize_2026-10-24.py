@@ -91,6 +91,36 @@ def short(idx):
     R += h.tbox(S, f'{S}_reft', 9.08, y - 0.2, 0.9, 0.4, 'album pace\n= 100%', 8.5, h.GOLD)
     return R
 
+# slide-36 measure by close status (close-1), latest album: payout change % (days 1-3 vs mid-album, median player), week after % of own pace
+STATUS = {'Dice 63': [(5, 103), (5, 87), (4, 75), (6, 55)],
+          'Domino 20': [(-18, 124), (-12, 104), (-8, 92), (-4, 62)],
+          'Disney 15': [(-11, 107), (-5, 98), (1, 77), (4, 66)]}
+
+def status(idx):
+    S, ZERO, PER = 't6h_slide', 2.35, 0.045
+    msg = 'In Domino and Disney the payout drops most for finishers, who come back the best. Players far from 144 get little or no drop and come back the worst.'
+    R = h.page(S, 'Payout After Close and Spend in the Week After, by Close Status',
+               'Latest album · paying players · bars = payout in days 1–3 after close vs mid-album (median player) · numbers = week-after spend vs own pace',
+               msg, msg_red='Players far from 144 get little or no drop and come back the worst.', idx=idx, msg_y=4.6)
+    caps = ['Finished', '1–2 short', '3 short', '4+ short']
+    for g, (name, col) in enumerate(GAMES):
+        px = 0.55 + g * 3.05
+        R += h.rect(S, f'{S}_p{g}', px, 1.2, 2.85, 3.15, h.CARD)
+        R += h.tbox(S, f'{S}_g{g}', px, 1.25, 2.85, 0.32, name, 14, h.WHITE, True, 'CENTER')
+        R += h.rect(S, f'{S}_z{g}', px + 0.12, ZERO, 2.61, 0.012, h.GREY)
+        for k, (chg, after) in enumerate(STATUS[name]):
+            x = px + 0.2 + k * 0.66
+            hgt = max(abs(chg) * PER, 0.02)
+            y = ZERO - hgt if chg >= 0 else ZERO
+            R += h.rect(S, f'{S}_b{g}{k}', x, y, 0.46, hgt, col)
+            ly = y - 0.27 if chg >= 0 else ZERO + hgt + 0.02
+            R += h.tbox(S, f'{S}_v{g}{k}', x - 0.15, ly, 0.76, 0.25, f'{chg:+d}%', 10.5, h.WHITE, True, 'CENTER')
+            R += h.tbox(S, f'{S}_c{g}{k}', x - 0.15, 3.48, 0.76, 0.22, caps[k], 8.5, h.GREY, False, 'CENTER')
+            red = after < 80
+            R += h.tbox(S, f'{S}_a{g}{k}', x - 0.15, 3.72, 0.76, 0.3, f'{after}%', 13, h.RED if red else h.WHITE, True, 'CENTER')
+        R += h.tbox(S, f'{S}_al{g}', px, 4.02, 2.85, 0.22, 'week after, % of own pace', 8, h.GREY, False, 'CENTER')
+    return R
+
 NOTES = {
  't6e_slide': """Paying finishers (standard population, 144 stickers on close−1), latest album: Dice 63 (19,688), Domino 20 (8,071), Disney 15 (12,613).
 Prize in days of own play = the album prize ÷ the player's own play per day in the album (album start to close−1). Dice: album_reward_value (rolls) ÷ rolls played per day. Domino and Disney: 'album completed' coins ÷ coins spent per day (Mixpanel coins in / out, staging views). Same measure in all three games; the cut-offs 2 and 4 days are my choice (round numbers, as in t7b).
@@ -113,9 +143,17 @@ All spend levels, latest album: Dice 63 29,743 players (15% of payers, 24% of al
 Close day: only 7–11% of them finish on the close day (Dice 63 9%, Domino 20 7%, Disney 15 11%). Their week after is about the same as those who stay short (Dice 84% vs 87%, Domino 106% vs 103%; Disney 109% vs 96%).
 Payout after close (Part 1, slide 36, median player, days 1–3 of the next album vs mid-album): 1–2 short (status at the end of the close day there) get Dice +2% to +5%, Domino −4% to −12%, Disney −3% to −12%. Dice has no payout drop but the weakest return, so across games the lower payout does not line up with a weaker return. Within-game check (run 2026-10-24): week after for payout lower / same / higher (days 1–3 vs mid-album, own payout): Dice 87% / 111% / 70%, Domino 108% / 113% / 95%, Disney 107% / 107% / 82%. The group whose payout rose spends the least in every game, so a lower payout does not go with lower spend; the ratio moves with how the player plays. Only a test can isolate the payout effect. Soft landing for this group: do not adopt.
 Not the same cut as Part 1 slide 34 ($20+ payers 2–3 short at the end of the close day, last 4 days vs usual spend): there the week after is a partial recovery from the last 4 days; here it is lower than the last 7 days. Both can be true (the last 4 days are the lowest).
-Revenue % = share of all paying players' album revenue (album start to close−1)."""
+Revenue % = share of all paying players' album revenue (album start to close−1).""",
+ 't6h_slide': """Same measure as Part 1 slide 36 for every close status: own payout in days 1–3 of the next album ÷ own payout mid-album (close−18..−5), album prizes left out, median across players who played in both windows (Dice: rolls; Domino, Disney: coins; Mixpanel definitions as in slide 36). Status on the day before close (as s6c/s6d), latest album, all paying players. Week after = spend close+1..close+7 vs own album pace.
+Payout change (finished / 1–2 / 3 / 4+ short): Dice 63 +5 / +5 / +4 / +6%; Domino 20 −18 / −12 / −8 / −4%; Disney 15 −11 / −5 / +1 / +4%. Share of players whose payout fell: Domino 82 / 73 / 66 / 57%, Disney 72 / 60 / 48 / 41%, Dice 38 / 36 / 36 / 36%.
+Week after: Dice 103 / 87 / 75 / 55%; Domino 124 / 104 / 92 / 62%; Disney 107 / 98 / 77 / 66%.
+$2–20 a day only: same pattern (payout Domino −18 / −12 / −7 / −5%, Disney −12 / −5 / +1 / +7%, Dice +5% everywhere).
+Check: finishers match slide 36 (status at end of close day there): Dice 1.05 vs 1.04, Domino 0.82 vs 0.81, Disney 0.89 vs 0.87.
+Players: Dice 19,688 / 29,743 / 76,491 / 65,898; Domino 8,071 / 13,687 / 24,642 / 53,515; Disney 12,613 / 17,183 / 29,956 / 245,055.
+Fact: in Domino and Disney the payout drop after close is largest for finishers and shrinks with distance from 144; the groups with the biggest drop come back the best. Dice has no drop in any group.
+Interpretation (not tested): the drop reflects what finishers had at the end of the album (a richer stretch), not a penalty that slows them. It does not explain the weak return of players far from 144 (they had already slowed before close, s6d). Soft landing after close: no support as a revenue lever from this data; only a test can tell."""
 }
 
 if __name__ == '__main__':
     if sys.argv[1] == 'notes': print(json.dumps(NOTES, ensure_ascii=False))
-    else: print(json.dumps({'e': split, 'f': small, 'g': short}[sys.argv[1]](int(sys.argv[2]) if len(sys.argv) > 2 else None), ensure_ascii=False, separators=(',', ':')))
+    else: print(json.dumps({'e': split, 'f': small, 'g': short, 'h': status}[sys.argv[1]](int(sys.argv[2]) if len(sys.argv) > 2 else None), ensure_ascii=False, separators=(',', ':')))
