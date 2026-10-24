@@ -97,3 +97,10 @@ SQL: `claude/vip_gift_recipients_2026-10-24.sql` (115.2 GB). Population: album 6
 Same direction inside every album-61 cell (finish 13–19% with the gift vs 24–29% without).
 - **Reading (not causal):** the gift goes to VIP who are already 4+ away a week before close; 86% of them still do not finish. It does not reach the group this analysis is about (VIP 1–3 short at close), and there is no sign it lifts finishing or spend. Recipients are weaker spenders, so this is not proof it does nothing.
 - For the recommendation: do not copy the gift as is. The gap is VIP (and $1K–5K) who end 1–3 short; help has to reach them in the last days, before close.
+
+## Slides (2026-10-24)
+Generator: `claude/slide_vip_album_end_2026-10-24.py`. Added to ALBUM END right after a6s9v, notes written.
+- **vipa_slide** — VIP spend after close vs normal week, finished vs 1–3 short, 2 albums per game (6 of 6 albums: 1–3 short −7% to −19%; finishers drop less). Cards: 4–12% of album revenue; $1K–5K 1–3 short −15% to −20%; Disney churn 1.6–2.5× finishers.
+- **vipt_slide** — TEST in Disney first: help in the last 4 days before close, 3 groups (Control / Dice-style gift timed and targeted / offer on the missing stickers). Main KPI revenue per player 28 days after close vs own normal week; guardrails finish rate, churn d15–28, album revenue, cost. Dice gift as is: do not copy.
+- Note: on the live vipa slide a hidden legend square (vipa_slide_lg2, filled with the card colour) is left from the first build; the generator no longer makes it.
+- Correction to Eden's brief: "7–19%" is the VIP range; $1K–5K who end 1–3 short drop 15–20%.
