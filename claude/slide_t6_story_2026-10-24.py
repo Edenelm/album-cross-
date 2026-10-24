@@ -3,7 +3,7 @@ Rules: title = what is plotted; one message per slide in the bottom line; contex
 s1 = total game revenue in the week after each close date (calendar). s2 = finishers' week after vs own pace, 3 albums per game.
 s7 = payout change after close by spend level, paying finishers, album prizes included.
 Data: topic6-game-revenue-after-close-2026-10-24.md (calendar section), topic6-calendar-neutral-return-2026-10-24.md (A),
-topic6-payout-prizes-by-level-2026-10-24.md. Usage (from claude/): python3 slide_t6_story_2026-10-24.py <s1|s2|s2_size|s3|s4|s4f|s4s|s5|s6|s6s|s7|s8f|s8s|s9|s10|r1|r2|r3|r4|t7d|t7e|t7f|s9v|t7g|t7h|r5|dj1|v1|v2|notes> [insertionIndex]"""
+topic6-payout-prizes-by-level-2026-10-24.md. Usage (from claude/): python3 slide_t6_story_2026-10-24.py <s1|s2|s2_size|s3|s4|s4f|s4s|s5|s6|s6s|s7|s8f|s8s|s9|s10|r1|r2|r3|r4|t7d|t7e|t7f|s9v|t7g|t7h|r5|dj1|v1|v2|v3|notes> [insertionIndex]"""
 import json, sys, importlib.util as u
 s = u.spec_from_file_location('h', 'slide_t7_dice_prize_2026-10-25.py'); h = u.module_from_spec(s); s.loader.exec_module(h)
 GAMES = [('Dice', h.BLUE), ('Domino', {'red': 0.961, 'green': 0.627, 'blue': 0.29}), ('Disney', {'red': 0.235, 'green': 0.784, 'blue': 0.706})]
@@ -656,6 +656,27 @@ def v2(idx=None):   # who falls behind and when
         R += h.tbox(S, f'{S}_l{k}', x - 0.2, BASE + 0.03, 1.7, 0.22, lab, 10, h.GREY, False, 'CENTER')
     for k, (txt, c) in enumerate([('+0.5 a day', h.GREY), ('+0.4 a day', h.GREY), ('+0.2 a day', h.GREY)]):
         R += h.tbox(S, f'{S}_g{k}', 2.15 + k * 2.15, 1.3, 1.6, 0.25, txt, 10, c, True, 'CENTER')
+    return R
+
+# v144c: gap to finishers by share of the album, 3 games (gap-by-day-3games-2026-10-24.md). Replaces Disney-only v144b.
+GAP3 = {'Dice': [7, 9, 11, 12], 'Domino': [7, 12, 12, 12], 'Disney': [10, 16, 17, 13]}
+def v3(idx=None):
+    S, BASE, PER = 'v144c_slide', 3.75, 0.12
+    R = h.page(S, 'Stickers Behind Finishers, Payers Who End 4+ Away, 3 Games',
+               'Paying players · latest album (Dice 63, Domino 20, Disney 15) · gap = finishers\' stickers minus theirs (average)',
+               'In every game these payers fall behind gradually; in Disney the gap is bigger in the middle of the album (16–17 vs 9–12).',
+               msg_red='in Disney the gap is bigger in the middle of the album', idx=idx, msg_y=4.6)
+    R += h.rect(S, f'{S}_pc', 0.55, 1.2, 9.0, 3.15, h.CARD)
+    for k, lab in enumerate(['20% of album', '50%', '70%', 'last day']):
+        gx = 1.0 + k * 2.15
+        for j, (name, col) in enumerate(GAMES):
+            v = GAP3[name][k]; x, hgt = gx + j * 0.55, v * PER
+            R += h.rect(S, f'{S}_b{k}{j}', x, BASE - hgt, 0.5, hgt, col)
+            R += h.tbox(S, f'{S}_v{k}{j}', x - 0.1, BASE - hgt - 0.27, 0.7, 0.25, f'{v}', 11, h.RED if (name == 'Disney' and k in (1, 2)) else h.WHITE, True, 'CENTER')
+        R += h.tbox(S, f'{S}_c{k}', gx - 0.1, BASE + 0.05, 1.85, 0.25, lab, 10, h.GREY, False, 'CENTER')
+    for j, (name, col) in enumerate(GAMES):
+        R += h.rect(S, f'{S}_k{j}', 6.9 + j * 0.9, 1.33, 0.15, 0.15, col)
+        R += h.tbox(S, f'{S}_kl{j}', 7.08 + j * 0.9, 1.27, 0.7, 0.25, name, 9, h.WHITE)
     return R
 
 NOTES = {
