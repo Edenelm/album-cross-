@@ -121,6 +121,28 @@ def status(idx):
         R += h.tbox(S, f'{S}_al{g}', px, 4.02, 2.85, 0.22, 'week after, % of own pace', 8, h.GREY, False, 'CENTER')
     return R
 
+# payout LEVEL in days 1-3 after close, whole group (sum won / sum spent on play, all sources), by close status, latest album
+LEVEL = {'Dice 63': [77, 83, 88, 88], 'Domino 20': [64, 68, 71, 73], 'Disney 15': [59, 65, 72, 78]}
+
+def level(idx):
+    S, BASE, PER = 't6i_slide', 3.45, 0.019
+    msg = 'After close, finishers get the least back from the game in all three games, and still spend the most (t6h).'
+    R = h.page(S, 'Payout in Days 1–3 After Close, by Close Status',
+               'Latest album · paying players · whole group: coins won ÷ coins spent on play (Dice: rolls) · each game has its own formula: compare within a game',
+               msg, msg_red='finishers get the least back from the game', idx=idx, msg_y=4.6)
+    caps = ['Finished', '1–2 short', '3 short', '4+ short']
+    for g, (name, col) in enumerate(GAMES):
+        px = 0.55 + g * 3.05
+        R += h.rect(S, f'{S}_p{g}', px, 1.2, 2.85, 3.15, h.CARD)
+        R += h.tbox(S, f'{S}_g{g}', px, 1.2, 2.85, 0.3, name, 14, h.WHITE, True, 'CENTER')
+        for k, v in enumerate(LEVEL[name]):
+            x, hgt = px + 0.2 + k * 0.66, v * PER
+            R += h.rect(S, f'{S}_b{g}{k}', x, BASE - hgt, 0.46, hgt, col)
+            R += h.tbox(S, f'{S}_v{g}{k}', x - 0.15, BASE - hgt - 0.27, 0.76, 0.25, f'{v}%', 11, h.RED if k == 0 else h.WHITE, True, 'CENTER')
+            R += h.tbox(S, f'{S}_c{g}{k}', x - 0.15, BASE + 0.05, 0.76, 0.22, caps[k], 8.5, h.GREY, False, 'CENTER')
+        R += h.rect(S, f'{S}_z{g}', px + 0.12, BASE, 2.61, 0.012, h.GREY)
+    return R
+
 NOTES = {
  't6e_slide': """Paying finishers (standard population, 144 stickers on close−1), latest album: Dice 63 (19,688), Domino 20 (8,071), Disney 15 (12,613).
 Prize in days of own play = the album prize ÷ the player's own play per day in the album (album start to close−1). Dice: album_reward_value (rolls) ÷ rolls played per day. Domino and Disney: 'album completed' coins ÷ coins spent per day (Mixpanel coins in / out, staging views). Same measure in all three games; the cut-offs 2 and 4 days are my choice (round numbers, as in t7b).
@@ -151,9 +173,16 @@ $2–20 a day only: same pattern (payout Domino −18 / −12 / −7 / −5%, Di
 Check: finishers match slide 36 (status at end of close day there): Dice 1.05 vs 1.04, Domino 0.82 vs 0.81, Disney 0.89 vs 0.87.
 Players: Dice 19,688 / 29,743 / 76,491 / 65,898; Domino 8,071 / 13,687 / 24,642 / 53,515; Disney 12,613 / 17,183 / 29,956 / 245,055.
 Fact: in Domino and Disney the payout drop after close is largest for finishers and shrinks with distance from 144; the groups with the biggest drop come back the best. Dice has no drop in any group.
-Interpretation (not tested): the drop reflects what finishers had at the end of the album (a richer stretch), not a penalty that slows them. It does not explain the weak return of players far from 144 (they had already slowed before close, s6d). Soft landing after close: no support as a revenue lever from this data; only a test can tell."""
+Interpretation: the drop is real (the payout level after close is the lowest for finishers, t6i; mid-album the groups were close), but it does not slow them: they spend the most. It does not explain the weak return of players far from 144 (they had already slowed before close, s6d). Soft landing after close: no support as a revenue lever from this data; only a test can tell.""",
+ 't6i_slide': """Payout level (not the change) in days 1–3 of the next album, whole group: everything won from the game ÷ everything spent on play (Mixpanel definitions as slide 36; all sources incl. album prizes, which are almost zero in those days). Status on the day before close, latest album, paying players who played in those days.
+Group level (finished / 1–2 / 3 / 4+ short): Dice 63 77 / 83 / 88 / 88%; Domino 20 64 / 68 / 71 / 73%; Disney 15 59 / 65 / 72 / 78%. All groups together: Dice 84%, Domino 70%, Disney 73%.
+Median player: Dice 88 / 89 / 90 / 90% (flat; the group gap comes from heavy players); Domino 59 / 62 / 65 / 66%; Disney 61 / 67 / 74 / 74%.
+Mid-album, same groups (close−18..−5, all sources): Dice 84 / 86 / 89 / 89%; Domino 76 / 78 / 78 / 79%; Disney 68 / 71 / 73 / 76%. So in Domino the groups were about equal mid-album and the gap opens after close; in Disney finishers were a little lower mid-album and the gap widens.
+$2–20 a day: same order (Domino 64 / 66 / 68 / 68%, Disney 61 / 66 / 71 / 73%, Dice 80 / 83 / 87 / 85%).
+Levels are not comparable across games (each game's payout formula is different).
+Fact: after close the players who finished get the lowest payout of all groups, most clearly in Domino and Disney, and they still spend the most in the week after (t6h). Why finishers get less is not tested (hypothesis: they play differently at the start of the new album, e.g. bigger stakes or more boosters)."""
 }
 
 if __name__ == '__main__':
     if sys.argv[1] == 'notes': print(json.dumps(NOTES, ensure_ascii=False))
-    else: print(json.dumps({'e': split, 'f': small, 'g': short, 'h': status}[sys.argv[1]](int(sys.argv[2]) if len(sys.argv) > 2 else None), ensure_ascii=False, separators=(',', ':')))
+    else: print(json.dumps({'e': split, 'f': small, 'g': short, 'h': status, 'i': level}[sys.argv[1]](int(sys.argv[2]) if len(sys.argv) > 2 else None), ensure_ascii=False, separators=(',', ':')))

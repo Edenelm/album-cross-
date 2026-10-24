@@ -22,6 +22,27 @@ $2–20 a day: same pattern (Domino −18 / −12 / −7 / −5%, Disney −12 /
 ## Reading
 - **Fact:** in Domino and Disney the payout drop after close is a staircase: biggest for finishers, smaller with each sticker missing, none (Disney) or small (Domino) for 4+ short. Dice: no drop in any group.
 - **Fact:** the groups with the biggest payout drop come back the best (finishers 107–124% of pace); the groups with no drop come back the worst (4+ short 55–66%).
-- **Interpretation (not tested):** the drop reflects what finishers had at the end of the album (a richer stretch for players close to 144), not a penalty that slows them. The weak return of players far from 144 started before close (s6d), with no payout drop after it.
+- **Interpretation:** ~~the drop reflects a richer end of album~~ (my first reading, corrected by the payout-level check below: mid-album the groups were close, so the drop is real). The drop does not slow finishers, who spend the most. The weak return of players far from 144 started before close (s6d), with no payout drop after it.
 - **Answer:** the "weaker game after close" in Domino and Disney hits the players who come back best; it does not explain who comes back low. Together with the within-game split (`topic6-short-payers-2026-10-24.md`) the payout after close is not a lever for the return.
 - **Recommendation:** soft landing after close as a revenue lever: **do not adopt**. If the team still wants to try it (Part 1 slide 36 action), **test** it on Disney/Domino finishers with next-album spend as the measure; this data gives no reason to expect a lift.
+
+## Payout level after close (Eden asked 2026-10-24: the overall payout of each group after the album, not the ratio)
+SQL: `claude/topic6_payout_level_2026-10-24.sql` (same runs: Disney 127 GB, Domino 42 GB, Dice 209 GB). Slide: **t6i_slide** (after t6h).
+Definition: whole group, days 1–3 after close: everything won from the game ÷ everything spent on play (Mixpanel definitions as slide 36, all sources; album prizes are almost zero in those days). Players who played in those days.
+
+| Status | Dice 63 | Domino 20 | Disney 15 |
+|---|---|---|---|
+| Finished | 77% | 64% | 59% |
+| 1–2 short | 83% | 68% | 65% |
+| 3 short | 88% | 71% | 72% |
+| 4+ short | 88% | 73% | 78% |
+| All | 84% | 70% | 73% |
+| Mid-album, same groups (finished → 4+) | 84 / 86 / 89 / 89% | 76 / 78 / 78 / 79% | 68 / 71 / 73 / 76% |
+Median player after close: Dice 88 / 89 / 90 / 90% (flat), Domino 59 / 62 / 65 / 66%, Disney 61 / 67 / 74 / 74%. $2–20 a day: same order. Levels are not comparable across games (different formulas).
+
+### Reading
+- **Fact:** after close the finishers get the lowest payout of all groups in all three games (in Dice only at group level; the median Dice player is flat). In Domino the groups were about equal mid-album (76–79%) and the gap opens after close (64% vs 73%); in Disney finishers were a little lower mid-album and the gap widens (59% vs 78%).
+- **Fact:** the same finishers spend the most in the week after (t6h: 103% / 124% / 107% of own pace).
+- **Correction:** my earlier reading on t6h ("the drop reflects a richer end of album") is wrong: mid-album levels were close, so finishers really get a stingier game after close.
+- **Hypothesis (not tested):** finishers play differently at the start of the new album (bigger stakes, more boosters), which lowers the payout per coin.
+- **Recommendation:** unchanged: soft landing as a revenue lever: **do not adopt** (the stingier game does not stop finishers from spending). If the team wants it for player experience, **test** it with next-album spend and retention as measures.
