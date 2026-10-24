@@ -1,0 +1,83 @@
+"""ALBUM END: topic 6 point 1 (Eden 2026-10-24) — finishers come back at different levels: prize size or game?
+t6e = paying finishers by prize size in days of own play, three games. t6f = last week -> week after for finishers with a small prize (<2 days).
+Data: claude/topic6-finisher-prize-2026-10-24.md (SQL claude/topic6_finisher_prize_2026-10-24.sql).
+Usage (from claude/): python3 slide_t6_finisher_prize_2026-10-24.py <e|f|notes> [insertionIndex]"""
+import json, sys, importlib.util as u
+s = u.spec_from_file_location('h', 'slide_t7_dice_prize_2026-10-25.py'); h = u.module_from_spec(s); s.loader.exec_module(h)
+GAMES = [('Dice 63', h.BLUE), ('Domino 20', {'red': 0.961, 'green': 0.627, 'blue': 0.29}), ('Disney 15', {'red': 0.235, 'green': 0.784, 'blue': 0.706})]
+LIGHT = {'red': 0.55, 'green': 0.55, 'blue': 0.55}
+# share of paying finishers with a recorded prize: <2 / 2-4 / 4+ days; right label = 2+ days players, % of album revenue
+SPLIT = {'Dice 63': ((46, 35, 19), '2+ days: 10,606 players\n7% of album revenue'),
+         'Domino 20': ((74, 23, 3), '2+ days: 2,007 players\n3% of album revenue'),
+         'Disney 15': ((85, 14, 1), '2+ days: 1,926 players\n1% of album revenue')}
+# prize under 2 days: (last week, week after) % of own pace, and who
+SMALL = {'Dice 63': [((303, 135), '2,178 · 2% of rev.'), ((209, 110), '2,864 · 6% of rev.')],
+         'Domino 20': [((309, 169), '1,158 · 2% of rev.'), ((201, 136), '1,887 · 9% of rev.')],
+         'Disney 15': [((291, 175), '2,325 · 1% of rev.'), ((169, 119), '4,300 · 6% of rev.')]}
+
+def split(idx):
+    S, X0, W = 't6e_slide', 2.0, 5.5
+    msg = 'Half of Dice paying finishers get a prize worth 2+ days of their own play. Domino: 1 in 4. Disney: 1 in 7.'
+    R = h.page(S, 'Paying Finishers by Prize Size in Days of Their Own Play',
+               'Latest album · prize ÷ the player\'s own play per day in the album (Dice: rolls; Domino, Disney: coins) · % of paying finishers',
+               msg, msg_red='Half of Dice paying finishers', idx=idx)
+    cols, caps = (LIGHT, h.BLUE, h.RED), ('under 2 days', '2–4 days', '4+ days')
+    for k, (c, cap) in enumerate(zip(cols, caps)):
+        R += h.rect(S, f'{S}_k{k}', X0 + k * 1.45, 1.27, 0.16, 0.16, c) + h.tbox(S, f'{S}_kt{k}', X0 + 0.2 + k * 1.45, 1.2, 1.2, 0.28, cap, 10, h.GREY)
+    for g, (name, _) in enumerate(GAMES):
+        y = 1.7 + g * 0.92
+        shares, right = SPLIT[name]
+        R += h.tbox(S, f'{S}_g{g}', 0.55, y + 0.07, 1.4, 0.36, name, 14, h.WHITE, True)
+        x = X0
+        for k, v in enumerate(shares):
+            w = W * v / 100
+            R += h.rect(S, f'{S}_b{g}{k}', x, y, w, 0.5, cols[k])
+            if w > 0.4:
+                R += h.tbox(S, f'{S}_v{g}{k}', x, y + 0.07, w, 0.36, f'{v}%', 14, h.WHITE, True, 'CENTER')
+            x += w
+        R += h.tbox(S, f'{S}_r{g}', X0 + W + 0.12, y + 0.02, 1.9, 0.5, right, 9, h.RED if g == 0 else h.GREY)
+    return R
+
+def small(idx):
+    S, BASE, PER = 't6f_slide', 3.95, 0.0074
+    msg = 'With a small prize too, Dice finishers come back the lowest, so the prize is only part of the gap.'
+    R = h.page(S, 'Finishers with a Small Prize: Spend per Day Before and After Close',
+               'Latest album · paying finishers whose prize is under 2 days of their own play · % of own album pace · grey = last week before close · colour = week after',
+               msg, msg_red='Dice finishers come back the lowest', idx=idx, msg_y=4.78)
+    levels = ['$2–5 a day', '$5–20 a day']
+    for g, (name, col) in enumerate(GAMES):
+        px = 0.85 + g * 2.95
+        for k, ((last, after), who) in enumerate(SMALL[name]):
+            gx = px + k * 1.3
+            for j, (v, c) in enumerate(((last, LIGHT), (after, col))):
+                x, hgt = gx + j * 0.5, v * PER
+                R += h.rect(S, f'{S}_b{g}{k}{j}', x, BASE - hgt, 0.44, hgt, c)
+                R += h.tbox(S, f'{S}_v{g}{k}{j}', x - 0.2, BASE - hgt - 0.28, 0.84, 0.26, f'{v}%', 10.5, h.RED if (g == 0 and j == 1) else h.WHITE, True, 'CENTER')
+            R += h.tbox(S, f'{S}_c{g}{k}', gx - 0.15, BASE + 0.02, 1.25, 0.22, levels[k], 9.5, h.WHITE, False, 'CENTER')
+            R += h.tbox(S, f'{S}_n{g}{k}', gx - 0.15, BASE + 0.2, 1.25, 0.2, who, 7.5, h.GREY, False, 'CENTER')
+        R += h.tbox(S, f'{S}_g{g}', px - 0.1, BASE + 0.4, 2.5, 0.3, name, 13, h.WHITE, True, 'CENTER')
+    y = BASE - 100 * PER
+    R += h.rect(S, f'{S}_base', 0.7, BASE, 8.35, 0.012, h.GREY) + h.rect(S, f'{S}_ref', 0.7, y, 8.35, 0.012, h.GOLD)
+    R += h.tbox(S, f'{S}_reft', 9.08, y - 0.2, 0.9, 0.4, 'album pace\n= 100%', 8.5, h.GOLD)
+    return R
+
+NOTES = {
+ 't6e_slide': """Paying finishers (standard population, 144 stickers on close−1), latest album: Dice 63 (19,688), Domino 20 (8,071), Disney 15 (12,613).
+Prize in days of own play = the album prize ÷ the player's own play per day in the album (album start to close−1). Dice: album_reward_value (rolls) ÷ rolls played per day. Domino and Disney: 'album completed' coins ÷ coins spent per day (Mixpanel coins in / out, staging views). Same measure in all three games; the cut-offs 2 and 4 days are my choice (round numbers, as in t7b).
+Median prize: Dice 2.2 days, Domino 1.3, Disney 1.1. Album 61 / 19: Dice 2.2, Domino 1.0 (same picture).
+2+ days: Dice 63 10,606 players = 5% of paying players, 7% of album revenue (2–4 days: 6,884 · 5%; 4+: 3,722 · 2%). Domino 20: 2,007 = 2% of payers, 3% of revenue. Disney 15: 1,926 = 0.6% of payers, 0.7% of revenue.
+% shown = of paying finishers with a recorded prize. No prize found: Domino 20 443 (5%), Disney 15 58, Dice 0.
+Why Dice is different: the Dice prize is a fixed ladder (25K–200K rolls) set from past spend and never goes down (game rule). Domino and Disney (data): the prize is about 1 day of play for most paying finishers (median 1.3 / 1.1 days).
+Revenue % = share of all paying players' album revenue (album start to close−1).""",
+ 't6f_slide': """Paying finishers whose prize is under 2 days of their own play (so the prize cannot explain a slow return). Spend per day as % of own album pace (album $ a day before the last quarter): last week = close−7..close−1, week after = close+1..close+7 (next album days 2–8). Group totals.
+$2–5 a day: Dice 63 303% → 135% (2,178 players, 1.7% of album revenue); Domino 20 309% → 169% (1,158, 2.0%); Disney 15 291% → 175% (2,325, 1.2%).
+$5–20 a day: Dice 63 209% → 110% (2,864, 6.1%); Domino 20 201% → 136% (1,887, 9.2%); Disney 15 169% → 119% (4,300, 5.9%).
+Bought in the week after ($2–5 / $5–20): Dice 70% / 80%, Domino 75% / 86%, Disney 76% / 86%.
+Previous album: Dice 61 309% → 158% and 210% → 119%; Domino 19 355% → 181% and 207% → 127%. Dice is below Domino at $2–5 and $5–20 in both albums (Disney 14 not run: 490 GB); at $5–20 Dice 61 equals Disney 15 (119%). Album 63 was weak at every spend level (topic7-top-payers-2026-10-24.md), so part of the 63 gap is that album.
+Fact: same push in the last week, smaller return in Dice, also without a big prize. Interpretation: something in how Dice starts the next album (not tested here) adds to the prize effect. Hypothesis only; next step = compare the first days of the next album (gates, roll stock, offers) across games.
+Big prize (2+ days) inside Dice: see t7b (fewer buyers the bigger the prize, ≤$5 a day payers)."""
+}
+
+if __name__ == '__main__':
+    if sys.argv[1] == 'notes': print(json.dumps(NOTES, ensure_ascii=False))
+    else: print(json.dumps({'e': split, 'f': small}[sys.argv[1]](int(sys.argv[2]) if len(sys.argv) > 2 else None), ensure_ascii=False, separators=(',', ':')))
