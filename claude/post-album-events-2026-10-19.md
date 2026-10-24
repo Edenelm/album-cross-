@@ -1,5 +1,8 @@
 # Post-album events for finishers — results (2026-10-19, run approved by Eden)
 
+> **Correction 2026-10-24:** the event "spend" fields (`deluxe_album_spent_today`, `magic_spent_today`) count ALL the player's purchases while in the event, not purchases of event items, and the events are free to enter. So "event spend", "event share of revenue" and the "excl. event" columns below are spend-while-in-event; the "~15% added" estimate is not valid. The Deluxe DiD and Disney T113 still hold. See `claude/event-spend-fields-2026-10-24.md`. Also: T113's +15.85% is the raw Test-vs-Control revenue gap during Legendary (pre-test −1.84%); the diff-in-diff vs pre-test for the whole period is +2.75% (T113 deck).
+
+
 ## Bottom line (Dice, 2026-10-19)
 Conclusion: the Dice album grand prize fits the wrong players. For light/mid veterans it is too big (4-8 days of their own play), so they live off the stock and come back to buying slowly. For top payers it is small (1.5-2 days of play), so they burn it fast and come back to buying at their normal pace.
 Evidence chain (descriptive, no control group):
