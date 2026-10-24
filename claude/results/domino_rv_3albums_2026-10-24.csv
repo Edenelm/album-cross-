@@ -1,0 +1,5 @@
+album,pay,finishers,album_rev,pct_watched,avg_views_watchers,median_views_watchers,avg_rv_days,ad_rev_total,ad_rev_per_view,packs_per_view,puzzle_per_view,avg_packs_watchers,avg_puzzle_from_rv_watchers,avg_blast_from_rv_watchers,pct_puzzle_resource_from_rv_flag,pct_puzzle_resource_from_rv_syntax,avg_new_stickers_from_rv_packs,avg_new_from_puzzle_joker,avg_new_stickers_logged
+17,non_payer,1865,0,79,4506,4002,32,10607,0.0016,0.182,1.27,820,5740,339,88.1,12.4,29.5,1.0,168.3
+17,payer,9368,4246532,22,71,13,6,13559,0.0931,0.114,0.84,8,59,3,7.5,0.1,0.2,0.7,171.3
+19,non_payer,2953,0,78,4129,3146,34,17099,0.0018,0.184,1.44,758,5930,438,89.1,12.1,22.1,1.0,169.3
+19,payer,7040,3546398,30,53,10,6,11575,0.1022,0.108,0.85,6,45,4,12.0,0.0,0.1,1.2,174.7
