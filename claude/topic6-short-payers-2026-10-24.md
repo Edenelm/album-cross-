@@ -35,13 +35,35 @@ Median payout in days 1–3 of the next album vs the same player mid-album, 1–
 - **Fact:** few 1–2-short payers finish on the close day (7–11%), and finishing then barely changes the week after in Dice and Domino (Disney +13 points).
 - **Fact:** in every game the 1–2-short payers up to $20 a day push in the last week and come back near or above their pace. Over $20 a day they were already below pace in the last week (68–90%) and in Dice and Disney drop further after close (to 68% / 76%; previous albums 80% / 80%). Domino 20 is the exception (68 → 71); Domino 19 dropped (84 → 73).
 - **Fact:** Dice has the weakest return of the three (all levels 87% vs 104% / 98%) even though its payout after close does not fall (+2–5%), while Domino and Disney payout falls 3–12%.
-- **Interpretation:** across games, the lower payout after close does not line up with a weaker return, so payout is not the main reason 1–2-short payers come back lower. Within each game this is not checked yet.
+- **Interpretation:** across games, the lower payout after close does not line up with a weaker return, so payout is not the main reason 1–2-short payers come back lower. The within-game split (below) points the same way.
 - **Money:** >$20 1–2-short payers are 8% (Dice) and 7% (Disney) of album revenue; their week after is 17 / 14 points below the last week. No $ estimate without a test.
 
 ## Recommendation
-- Soft landing (extra payout in days 1–3) for 1–2-short payers: **do not adopt yet**. The cross-game pattern does not support it; the within-game check comes first.
+- Soft landing (extra payout in days 1–3) for 1–2-short payers: **do not adopt**. Neither the cross-game pattern nor the within-game payout split supports it (section 'Payout split').
 - >$20 payers 1–2 short in Dice and Disney: the window is before close (they are already below pace in the last week). This is the existing test 3 (offer for the last stickers to $20+ payers before the last 4 days), with the week after added as a measure.
 
+## Payout split (run 2026-10-24, Eden asked)
+SQL: `claude/topic6_short_payout_2026-10-24.sql` (Disney 127 GB, Domino 42 GB, Dice 209 GB). Same population as above, latest album. Payout per player = Part 1 slide 36 definition (album prizes left out): own payout days 1–3 after close ÷ own payout close−18..−5. Buckets: lower < 0.9 / same 0.9–1.1 / higher > 1.1 (**my choice**). Dice: the 1.2M-balance cohort is left out (as in slide 36).
+
+Week after (% of own pace) · bought in the week after · players, all spend levels:
+| Game | Payout lower | Payout same | Payout higher | Median payout ratio |
+|---|---|---|---|---|
+| Dice 63 | 87% · 49% · 5,728 (19%) | 111% · 64% · 14,087 (47%) | 70% · 61% · 9,015 (30%) | 1.05 |
+| Domino 20 | 108% · 67% · 7,106 (52%) | 113% · 71% · 4,312 (32%) | 95% · 68% · 1,813 (13%) | 0.88 |
+| Disney 15 | 107% · 75% · 6,744 (39%) | 107% · 79% · 6,281 (37%) | 82% · 72% · 3,706 (22%) | 0.95 |
+(% in brackets = share of the 1–2-short payers; the rest did not play in both windows.)
+
+By spend level, week after for lower / same / higher:
+- Dice 63: $2–5 82 / 118 / 91; $5–20 89 / 103 / 71; >$20 77 / 97 / 53.
+- Domino 20: $2–5 125 / 118 / 114; $5–20 96 / 109 / 87; >$20 74 / 80 / 62 (small: 152 / 120 / 53).
+- Disney 15: $2–5 151 / 148 / 111; $5–20 105 / 108 / 90; >$20 82 / 88 / 61.
+
+### Reading
+- **Fact:** players whose payout fell after close do not spend less than those with no change in Disney (107% vs 107%), slightly less in Domino (108% vs 113%; $5–20 96% vs 109%), and less in Dice (87% vs 111%).
+- **Fact:** in all three games the group whose payout **rose** spends the least (70–95%). So "payout lower → spend lower" is not a consistent pattern; the group with no change spends the most, or ties (Disney), in every game.
+- **Interpretation:** the payout ratio moves with how the player plays (bet size, boosters, how much they play), so a change in either direction marks players who changed their play. This data cannot separate the payout effect from that. Only a test can.
+- **Answer to point 2:** no sign, within any game, that the drop in payout after close is what makes 1–2-short payers come back lower. Together with the cross-game picture (Dice: no payout drop, weakest return), the payout is not the lever for this group.
+- **Recommendation:** soft landing for 1–2-short payers: **do not adopt**. If Eden wants to settle it, the only clean way is the soft-landing test already proposed in Part 1 (Disney finishers and 1-short, days 1–3), with 1–2-short payers as a reported segment.
+
 ## Open
-- Within-game payout check: split 1–2-short payers by their own payout change (days 1–3 vs mid-album) and compare week-after spend. Needs the Mixpanel payout queries (`payout_mixpanel_def_queries.sql`, per player), about 400 GB for the latest albums. Not run, waiting for Eden.
 - Part 1 slide 34 uses a different cut ($20+ payers 2–3 short at the end of the close day, last 4 days vs usual spend). There the week after is a partial recovery from the last 4 days; here it is lower than the last 7 days. Both can be true; say so if both slides are shown.
