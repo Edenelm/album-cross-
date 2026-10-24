@@ -2,7 +2,7 @@
 
 Eden (2026-10-24 handoff): continue alone — who are the Dice finishers who come back slowly, what happens to the 200K players, how to improve the prize and for whom (a test proposal). Little text, visual, add slides to ALBUM END.
 SQL: `claude/topic7_dice_prize_2026-10-25.sql` (`dice-dreams-dbt`, 130 GB: `50_reporting.user_daily_album` + `30_intermediate.user_daily_rolls_in_out`).
-Slides: t7a_slide, t7b_slide, t7c_slide (after s6b_slide). Generator: `claude/slide_t7_dice_prize_2026-10-25.py`. Thumbnails: `claude/slides/t7a.png`, `t7b.png`, `t7c.png`.
+Slides: t7a_slide, t7b_slide, t7c_slide (after s6b_slide). 2026-10-24: t7a labels rewritten after Eden did not understand "1% of revenue" (now: players, % of 200K finishers, % of album revenue; subtitle says who each bar is). Generator: `claude/slide_t7_dice_prize_2026-10-25.py`. Thumbnails: `claude/slides/t7a.png`, `t7b.png`, `t7c.png`.
 
 ## Definitions
 - Population, spend level, finished and the after-week: exactly as topic 6 (`topic6-after-album-2026-10-24.md`). Standard-population payers; spend level = album $ a day before the last quarter (own pace); finished = 144 on close−1 (Dice daily table); after-week = 7 days after the close day (next album days 2–8).
@@ -54,4 +54,4 @@ Prize sized to the player's own play (about 2–3 days of own rolls), Control = 
 
 ## Open
 - Dice 65 → 67 after-week is not complete yet (67 day 8 = 2026-10-27); re-run with albums 63/65 after that.
-- Is the >$20 album-63 drop (85% of pace) repeated in Dice 65? If yes, it is a bigger $ question than the light-payer prize.
+- ~~Is the >$20 album-63 drop (85% of pace) repeated in Dice 65?~~ Checked 2026-10-24: no — album 65 >$20 finishers start at 95% of pace (4 days), like album 61; album 63 was a one-album dip at every level. See `topic7-top-payers-2026-10-24.md`.

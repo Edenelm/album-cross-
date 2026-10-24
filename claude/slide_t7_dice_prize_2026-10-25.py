@@ -38,18 +38,18 @@ def t7a(idx=None):   # 200K prize in days of own play, by spend level (Dice 63 p
     S, BASE, PER = 't7a_slide', 3.55, 0.38   # inches per day of play
     msg = 'The same 200K prize is 5 days of play for a $2-a-day payer and 1 day for a top payer.'
     R = page(S, 'Dice 200K Prize in Days of the Player\'s Own Play, by Spend Level',
-             'Dice 63 payer finishers with the 200K-roll prize · days = 200K ÷ the player\'s own rolls played per day in the album (median) · spend level = $ a day before the last quarter',
+             'Each bar = Dice 63 paying players who finished the album and got the 200K-roll prize · days = 200K ÷ the player\'s own rolls played per day in the album (median)',
              msg, msg_red='5 days of play', idx=idx)
-    data = [('≤$2 a day', 4.9, '1,599 players · 1% of revenue', RED),
-            ('$2–5 a day', 3.6, '1,401 players · 1% of revenue', BLUE),
-            ('$5–20 a day', 2.4, '1,789 players · 4% of revenue', BLUE),
-            ('>$20 a day', 1.2, '843 players · 7% of revenue', BLUE)]
+    data = [('≤$2 a day', 4.9, '1,599 players\n28% of 200K finishers\nunder 1% of album revenue', RED),   # Eden 2026-10-24: say who the players are
+            ('$2–5 a day', 3.6, '1,401 players\n25% of 200K finishers\n1% of album revenue', BLUE),
+            ('$5–20 a day', 2.4, '1,789 players\n32% of 200K finishers\n4% of album revenue', BLUE),
+            ('>$20 a day', 1.2, '843 players\n15% of 200K finishers\n7% of album revenue', BLUE)]
     for i, (lab, d, who, c) in enumerate(data):
         x, h = 1.05 + i * 2.1, d * PER
         R += rect(S, f'{S}_b{i}', x, BASE - h, 1.1, h, c)
         R += tbox(S, f'{S}_v{i}', x - 0.3, BASE - h - 0.45, 1.7, 0.4, f'{d} days', 18, WHITE, True, 'CENTER')
         R += tbox(S, f'{S}_l{i}', x - 0.4, BASE + 0.06, 1.9, 0.3, lab, 13, WHITE, True, 'CENTER')
-        R += tbox(S, f'{S}_w{i}', x - 0.4, BASE + 0.36, 1.9, 0.25, who, 9, GREY, False, 'CENTER')
+        R += tbox(S, f'{S}_w{i}', x - 0.5, BASE + 0.36, 2.2, 0.55, who, 9, GREY, False, 'CENTER')
     R += rect(S, f'{S}_base', 0.8, BASE, 8.4, 0.012, GREY)
     return R
 
@@ -110,7 +110,8 @@ Who changes (album 63): less for 3,722 payers whose prize is 4+ days of own play
 Main measure: % who buy in the 7 days after close. Also: week-1 spend vs own album pace, next-album revenue per payer, rolls given (cost).
 Guardrail: album revenue and finish rate in the test album must not drop (a smaller prize may lower the will to finish).
 If the prize cannot go down ("never less"), run only the top-payer arm first.
-Not proven: that the prize causes the slow return; the data shows a link only (previous slide)."""
+Not proven: that the prize causes the slow return; the data shows a link only (previous slide).
+Checked 2026-10-24 (topic7-top-payers-2026-10-24.md): >$20 finishers start the next album at about 95% of own pace (first 4 days after close; albums 61 and 65). Album 63 (84%) was a one-album dip that hit finishers at every spend level. So the top-payer arm rests on the prize being small for them (1 day of play), not on a proven drop in their spend."""
 }
 def notes():
     print(json.dumps(NOTES, ensure_ascii=False))
