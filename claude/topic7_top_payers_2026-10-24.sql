@@ -53,3 +53,14 @@ SELECT t.album_id, tier, status, COUNT(*) AS players, ROUND(COUNT(*) / ANY_VALUE
   ROUND(SAFE_DIVIDE(SUM(rev7) / 7, SUM(pace)), 3) AS d7_ratio_agg,
   ROUND(SUM(pace) * 4 - SUM(rev4)) AS gap4_usd
 FROM t JOIN tot USING (album_id) WHERE tier NOT IN ('t0_0', 't1_le2') GROUP BY 1, 2, 3 ORDER BY 2, 3, 1
+
+-- Campaign calendar around the start of albums 63 / 65 / 67 (2026-10-24, Eden). dim_campaign has only id + name;
+-- the date is read from the name prefix DDMMYY (assumed = launch date). Window: 2 days before to 4 days after the album start.
+WITH c AS (
+  SELECT campaign_id, campaign_name, SAFE.PARSE_DATE('%d%m%y', SUBSTR(campaign_name, 1, 6)) AS d
+  FROM `dice-dreams-dbt.20_core.dim_campaign`),
+w AS (
+  SELECT 'start_63' AS win, DATE '2026-07-27' AS s UNION ALL SELECT 'start_65', DATE '2026-09-07' UNION ALL SELECT 'start_67', DATE '2026-10-19')
+SELECT w.win, DATE_DIFF(c.d, w.s, DAY) AS day_vs_close, c.campaign_name
+FROM c JOIN w ON c.d BETWEEN DATE_SUB(w.s, INTERVAL 2 DAY) AND DATE_ADD(w.s, INTERVAL 4 DAY)
+ORDER BY 1, 2, 3;

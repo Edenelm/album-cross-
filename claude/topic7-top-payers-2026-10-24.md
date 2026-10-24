@@ -33,3 +33,10 @@ SQL: `claude/topic7_top_payers_2026-10-24.sql` (`dice-dreams-dbt.50_reporting.us
 ## What this changes
 - No new slide (the result is "no lasting problem"; one-line note added to t7c speaker notes).
 - t7c top-payer arm: rests on the prize being small for them (about 1 day of play), not on a proven spend drop.
+
+## Event calendar at the start of album 65 (checked 2026-10-24, Eden asked)
+Source: `dice-dreams-dbt.20_core.dim_campaign` (only campaign id + name; launch date read from the name prefix DDMMYY — my assumption). Window: 2 days before to 4 days after the album start. All 420 rows read.
+- Same volume and the same types in all three starts: 133 (album 63 start) / 143 (album 65 start) / 144 (album 67 start) campaigns — offers, Dream Pass, quests, tournaments, trail challenges, RV offers, new-album reveal and starter pack.
+- Album 65 start had holiday sales (Labor Day, Patriot Day) and no missing campaign type that the other starts had.
+- One difference: the album 63 start (= the week after album 61) had a "1 week Hot Summer Sale" strategy test. That could make album 61's after-week look high, rather than album 63's look low. Hypothesis only.
+- **Conclusion:** names alone do not explain the album-63 dip. Explaining it would need revenue by campaign — not done; the dip is one album and is not part of the story.
