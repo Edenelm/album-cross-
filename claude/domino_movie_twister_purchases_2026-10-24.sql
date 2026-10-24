@@ -53,3 +53,6 @@ SELECT got_mt, COUNT(*) AS payers, ROUND(COUNT(*) / ANY_VALUE(n_all), 4) AS shar
   ROUND(APPROX_QUANTILES(max_ev_vs_cz, 2)[OFFSET(1)], 2) AS med_max_price_vs_cz,
   ROUND(SUM(rev_ev)) AS rev_2_days
 FROM u, tot GROUP BY 1 ORDER BY 1 DESC
+
+-- Who got the Domino 20 end Jokers, by end status, middle payers (P50-95 of spend so far at 75% of the album, as far-rare-gate-gap-2026-10-23) (Eden 2026-10-24: does the 11-12 day rare drought slide fit?)
+-- Ran with the same pay CTE plus so_far (spend up to 2026-09-29) and uniq_end; Joker stickers 5-11 Oct by source (MovieTwister or any) and sticker type. 5.1 GB.

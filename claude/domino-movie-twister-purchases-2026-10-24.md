@@ -28,3 +28,14 @@ SQL: `claude/domino_movie_twister_purchases_2026-10-24.sql` (domino-dreams-dbt, 
 - **Fact:** 54% bought on the event days before they got the Joker. The Joker likely came after spending in the event, so "gameplay" (the validated paid rule) understates the paid part. Hypothesis until the event design is checked with the Domino team.
 - **Caveat:** self-selection — the players who join the event are the more active payers; the other payers are not a control group.
 - **Meaning for the closing-tool slide:** Domino's free-Joker peak is an event that also drives purchases above habit.
+
+## Does this fit the "last new rare 11–12 days before close" slide? (Eden, 2026-10-24; 5.1 GB)
+Middle payers (P50–95 of spend so far at 75% of the album, as `far-rare-gate-gap-2026-10-23.md`), Domino 20, Joker stickers in the last 7 days (5–11 Oct):
+| End status (close−1) | Middle payers | Got any Joker | Got a Movie Twister Joker | Movie Twister fills: Royal / Golden |
+|---|---|---|---|---|
+| Finished | 4,726 | 4,724 (100%) | 3,278 (69%) | 3,063 / 1,768 |
+| 1–3 missing | 25,915 | 10,280 (40%) | 6,787 (26%) | 3,137 / 4,818 |
+| 4+ missing (far) | 17,401 | **958 (6%)** | **424 (2%)** | 247 / 193 |
+- **Fact:** the end Jokers (Movie Twister and others) went to payers who were close or finished; only 6% of far middle payers got any Joker in the last week.
+- So both slides hold: the closing-week slide counts all payers (the wave is real), the rare-drought slide is about far middle payers (they were not in it). Same message as Part 1 slide "The Closing Tool Reaches the Near, Almost Never the Far".
+- Far count here 17,401 vs 15,370 in the drought doc (same rule, slightly different spend-rank population); not material.
