@@ -43,6 +43,6 @@ Standard-population payers by spend level (topic-5 tiers). Average $ per payer p
 | >$20 | 63 | $41.48 | $33.83 | $35.46 | +5% |
 | >$20 | 65 | $42.15 | $38.07 | $31.54 | −17% |
 
-- **Fact:** in 63 the final weekend (Fri–Sun) was a spend peak for every level ($5–20: $9.81 / $10.56 / $9.56). In 65 the final weekend was the lowest stretch ($8.45 / $7.94 / $8.11). The weekend before it was higher (Sat–Sun 9–8 days before close: $10.13 / $10.51).
+- **Fact:** in 63 spend rose again on the final weekend (Fri–Sun) at every level ($5–20: $9.81 / $10.56 / $9.56, above days 11–5; the highest days were 17–15 days before close). In 65 the final weekend was among the lowest days ($8.45 / $7.94 / $8.11). The weekend before it was higher (Sat–Sun 9–8 days before close: $10.13 / $10.51).
 - **Fact:** the drop also hits $2–5 payers, and most of them had not finished (only 4% had 144 at close−4). So early finishing by strong payers explains only part of it.
 - **Reading (hypothesis):** Dice 65's final weekend had no pull. Spend was as high or higher earlier in the album, but the last weekend did not lift. That points to the end's design or calendar (which events, offers or rewards ran in the last weekend), not to payers being far. Question for the Dice team: what ran in the final weekend of 65 vs 63.
