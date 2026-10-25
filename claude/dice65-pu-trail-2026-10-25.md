@@ -55,3 +55,15 @@ Active player-days on the final weekend: 1,568,891 (63), 1,633,978 (65).
 - **Fact:** the Trail chest gives regular new set stickers, not Wilds. On 65's final weekend it gave about twice as many new stickers per active player as in 63, and about 3× as many new Supers.
 - The Wild comes only from the Trail **final reward**, and it is close between the two albums (31 vs 38 per 1,000 active player-days).
 - (Days 10–4 also show "pixie" rows, which are not one of the 144 set stickers. They are left out above.)
+
+## Q5: PU / PAU — share of active payers who paid that day (Eden 2026-10-25)
+Same population as Q1 (standard-population payers). PAU = those payers active that day; PU = those who spent that day. Pooled over the days.
+
+| | Days 11–5 before close | Final weekend (days 3–1) | Change |
+|---|---|---|---|
+| Dice 63 (`dice-dreams-dbt`) | 17.2% | 18.3% | **+7%** |
+| Dice 65 | 18.4% | 16.9% | **−8%** |
+
+By day (11..1 before close): 63 15.5 / 18.5 / 17.0 / 18.4 / 17.9 / 15.5 / 17.3 / 15.9 / 17.5 / 18.7 / 18.8%; 65 17.3 / 17.4 / 19.2 / 20.2 / 19.0 / 17.0 / 18.7 / 16.9 / 17.2 / 16.4 / 17.1%.
+- Fact: normalised by active payers, the picture holds: in 65 fewer active payers paid on the final weekend (−8% vs its days 11–5), in 63 more did (+7%). The raw "payers a day" change on the d65t slide (−11% / +3%) included a small drop in active payers.
+SQL: Q5 in `dice65_pu_trail_2026-10-25.sql`.
