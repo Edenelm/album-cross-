@@ -85,7 +85,7 @@ def dxw(idx):
            'Albums 17 and 19: smaller rises, mostly $ per purchase.\n\n'
            'Easy players: 439,885 / 388,716 / 341,237 / 308,158 (albums 17–20) · Easy = 90–92% of payers and 40–43% of game revenue (albums 19–20).',
            9, GREY, spans=[('Album 18 (+37%)', WHITE, True), ('Album 20 (+25%)', WHITE, True), ('Albums 17 and 19', WHITE, True)])
-    S.text(0.5, 4.72, 8.6, 0.5, 'Albums 18 and 20, with a 2–3 sticker gate, ended strongest: +37% and +25%. The whole end structure worked better; which part caused it is not isolated (end offers and calendar changed too). Keep album 20\'s end as the standard.',
+    S.text(0.5, 4.72, 8.6, 0.5, 'Albums 18 and 20, with a 2–3 sticker gate, ended strongest: +37% and +25%. Part of it is the usual weekend rise, and end offers and calendar changed too, so the gate alone cannot be credited. Keep album 20\'s end as the standard.',
            11, WHITE, spans=[('+37% and +25%', GOLD), ('Keep album 20\'s end as the standard.', GOLD)])
     S.text(7.78, 5.25, 1.72, 0.25, 'SuperPlay 2026', 8, DGREY)
     return S
@@ -113,7 +113,7 @@ def dxsrc(idx, data, fin, easy, gate):
     # legend
     lx = 0.65
     for lab, col in CATS:
-        S.rect(lx, 4.1, 0.14, 0.14, col); S.text(lx + 0.18, 4.05, 1.5, 0.25, lab, 8, GREY); lx += 1.45 if len(lab) < 24 else 1.9
+        S.rect(lx, 4.1, 0.14, 0.14, col); S.text(lx + 0.18, 4.05, 1.25, 0.25, lab, 8, GREY); lx += 1.49
     S.text(0.5, 4.72, 8.6, 0.5, 'In album 20, 81% of finishers\' last stickers came through Jokers won in free end events (Joker Puzzle from close−14, Movie Twister at close−4); paid Joker offers gave 6%. Album 19 leaned on later events and paid Jokers; album 17 on events, offers and the Market. Keep album 20\'s free Joker route.',
            11, WHITE, spans=[('81%', GOLD), ('Keep album 20\'s free Joker route.', GOLD)])
     S.text(7.78, 5.25, 1.72, 0.25, 'SuperPlay 2026', 8, DGREY)
@@ -155,19 +155,17 @@ def dxrec(idx):
     S.panel(0.5, 1.1, 4.4, 3.5)
     S.text(0.65, 1.15, 4.1, 0.3, 'KEEP · album 20\'s end route', 12, GOLD, bold=True)
     S.text(0.65, 1.5, 4.1, 3.0,
-           'Who: Easy payers (97,937 · 92% of payers · 43% of game revenue).\n\n'
-           'What: a 3-sticker gate for Easy (same as Hard) plus a free Joker path that opens two weeks before close (Joker Puzzle, close−14 to close−5) and a Joker event at close−4 (Movie Twister). Album 19 had a 5-sticker Easy gate and no early Joker path.\n\n'
-           'Result alongside it, 19 → 20: payers within 3 at close−4 5% → 23% (31% → 55% of revenue); Easy end ARPDAU +17% → +25%; 81% of finishers\' last stickers came via event Jokers.\n\n'
-           'Watch: revenue within 3 at close−4 ≥ 55%; Easy end ARPDAU lift ≥ +25%.',
-           9, GREY, spans=[('Who:', WHITE, True), ('What:', WHITE, True), ('Result alongside it, 19 → 20:', WHITE, True), ('Watch:', WHITE, True)])
+           'Who: Easy payers · 92% of payers · 43% of game revenue\n\n'
+           'What: 3-sticker gate + free Joker path from close−14\n\n'
+           'Watch: revenue within 3 at close−4 ≥ 55%',
+           14, GREY, spans=[('Who:', WHITE, True), ('What:', WHITE, True), ('Watch:', WHITE, True)])
     S.panel(5.1, 1.1, 4.4, 3.5)
     S.text(5.25, 1.15, 4.1, 0.3, 'TEST · earlier supply of released rares to far Easy payers', 12, ORANGE, bold=True)
     S.text(5.25, 1.5, 4.1, 3.0,
-           'Who: Easy payers 6–12 missing one week before close (59,648 · 61% of Easy payers · 26% of game revenue). Entry point close−14 to close−7: management choice.\n\n'
-           'Change: from close−14, a steady source of Royals and Goldens that are already released (event reward or specific-sticker offer) for this group, so they reach ≤3 before the final days. Control = today\'s flow. End offers identical in both arms.\n\n'
-           'Success: share of the group at ≤3 missing by close−4 (today 31% for 6–8, 10% for 9–12); revenue per assigned player close−14 to close−1 and the week after.\n\n'
-           'Guardrails: Hard and over-$20 revenue; non-payer finish rate.',
-           9, GREY, spans=[('Who:', WHITE, True), ('Change:', WHITE, True), ('Success:', WHITE, True), ('Guardrails:', WHITE, True)])
+           'Who: Easy payers 6–12 missing at close−7 · 26% of game revenue\n\n'
+           'Change: steady supply of released Royals + Goldens from close−14\n\n'
+           'Measure: revenue per assigned player, to close and the week after',
+           14, GREY, spans=[('Who:', WHITE, True), ('Change:', WHITE, True), ('Measure:', WHITE, True)])
     S.text(0.5, 4.72, 8.6, 0.5, 'Keep the end that worked (album 20), and test the lever for the 79% who end far: earlier supply of released rares, measured on revenue per player.',
            11, WHITE, spans=[('Keep the end that worked (album 20)', GOLD), ('test the lever for the 79% who end far', GOLD)])
     S.text(7.78, 5.25, 1.72, 0.25, 'SuperPlay 2026', 8, DGREY)
