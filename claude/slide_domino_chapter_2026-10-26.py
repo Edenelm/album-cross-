@@ -85,7 +85,7 @@ def dxw(idx):
            'Albums 17 and 19: smaller rises, mostly $ per purchase.\n\n'
            'Easy players: 439,885 / 388,716 / 341,237 / 308,158 (albums 17–20) · Easy = 90–92% of payers and 40–43% of game revenue (albums 19–20).',
            9, GREY, spans=[('Album 18 (+37%)', WHITE, True), ('Album 20 (+25%)', WHITE, True), ('Albums 17 and 19', WHITE, True)])
-    S.text(0.5, 4.72, 8.6, 0.5, 'Albums 18 and 20, with a 2–3 sticker gate, ended strongest: +37% and +25%. The whole end structure worked better; which part caused it is not isolated (end offers and calendar changed too). Keep album 20\'s end as the standard.',
+    S.text(0.5, 4.72, 8.6, 0.5, 'Albums 18 and 20, with a 2–3 sticker gate, ended strongest: +37% and +25%. Part of it is the usual weekend rise, and end offers and calendar changed too, so the gate alone cannot be credited. Keep album 20\'s end as the standard.',
            11, WHITE, spans=[('+37% and +25%', GOLD), ('Keep album 20\'s end as the standard.', GOLD)])
     S.text(7.78, 5.25, 1.72, 0.25, 'SuperPlay 2026', 8, DGREY)
     return S
@@ -113,7 +113,7 @@ def dxsrc(idx, data, fin, easy, gate):
     # legend
     lx = 0.65
     for lab, col in CATS:
-        S.rect(lx, 4.1, 0.14, 0.14, col); S.text(lx + 0.18, 4.05, 1.5, 0.25, lab, 8, GREY); lx += 1.45 if len(lab) < 24 else 1.9
+        S.rect(lx, 4.1, 0.14, 0.14, col); S.text(lx + 0.18, 4.05, 1.25, 0.25, lab, 8, GREY); lx += 1.49
     S.text(0.5, 4.72, 8.6, 0.5, 'In album 20, 81% of finishers\' last stickers came through Jokers won in free end events (Joker Puzzle from close−14, Movie Twister at close−4); paid Joker offers gave 6%. Album 19 leaned on later events and paid Jokers; album 17 on events, offers and the Market. Keep album 20\'s free Joker route.',
            11, WHITE, spans=[('81%', GOLD), ('Keep album 20\'s free Joker route.', GOLD)])
     S.text(7.78, 5.25, 1.72, 0.25, 'SuperPlay 2026', 8, DGREY)
