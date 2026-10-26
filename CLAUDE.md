@@ -4,10 +4,21 @@ Eden's cross-studio sticker-album analysis for Superplay: Dice Dreams, Domino Dr
 This repo was moved from the claude.ai Project "Album Analysis Cross Studios" on 2026-10-20.
 
 ## Start here
-1. `claude/next-session-prompt-2026-10-25.md` — the latest handoff (topic 6: Dice finishers, 200K prize, test). Older: `claude/next-session-prompt-2026-10-24.md`, `-10-21.md`.
-2. `INDEX.md` — the map of every doc by topic, with status (current / superseded) and where the SQL is. Check it before starting any new check.
-3. `decisions-definitions-register.md` — the source of truth for definitions. When it conflicts with an older doc, it wins.
-4. The latest results: `claude/payer-close-day-2026-10-20.md`, `claude/remaining-recounts-2026-10-20.md`, `claude/finisher-recount-2026-10-19.md`.
+1. Read `MASTER-INDEX.md` first. It is a router of about 4KB. Pick the one topic card that matches the question (`index/topic-<slug>.md`), and open only the files that card lists, in its order. Do not scan `claude/`.
+2. The latest handoff is `claude/next-session-prompt-2026-10-26.md`. Older handoffs, from newest: `-10-25.md`, `-10-24.md`, `-10-23.md`, `-10-21.md`. Both 10-25 and 10-26 were written on 10-24, and no handoff covers the 10-25 work yet.
+3. `decisions-definitions-register.md` is the source of truth for definitions. It wins every conflict. Known conflicts and open decisions are in `index/conflicts-and-decisions.md`.
+4. SQL: find the file in `index/sql-catalog.md` (game, tables, what it computes, which doc it feeds, status) before writing a new query. Reuse it if it exists.
+5. Any file's status (current / superseded / draft / history): `index/files-catalog.md`.
+6. Slides: open the slide's row in the deck map first (`index/deck.md`, then `index/deck-album-end.md` or `index/deck-part1.md`, keyed by objectId or code). Then open only that row's source doc, SQL and generator script.
+7. Never open `.claude/worktrees/`. Do not read the old `INDEX.md` or files marked superseded, unless Eden asks for history.
+
+### Keep the index current (every session)
+- When you create a doc, SQL or script, add it to its topic card and to `index/sql-catalog.md` (for SQL) or `index/files-catalog.md`, with its status.
+- When you supersede a file, mark it in the card's "Superseded" line and in the catalog, and name the file that replaces it.
+- If the work opens a new topic, create `index/topic-<slug>.md` (1–3KB: conclusion with numbers and sources, files to read in order, SQL, scripts and slides, superseded files, open questions). Then add a routing row in `MASTER-INDEX.md`, in English and Hebrew keywords.
+- When you add or change a slide, update its row in the deck map: code, title, key numbers, card, source doc, SQL, script, PNG, status.
+- End every slide's speaker notes with one line: `Source: <doc> | SQL: <file> | Script: <file>`. Write `–` where there is none.
+- When a new handoff is written, update item 2 above.
 
 ## How to work with Eden
 - Chat in Hebrew. Deck text in simple, clear English.
