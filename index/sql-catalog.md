@@ -158,6 +158,9 @@ MCP guardrail: no `SELECT *`; flatten STRUCT fields in a separate CTE (`a.struct
 | c/domino_strong_closers_price_vs_cz.sql | Do | user_daily_album, user_daily_metrics, int_user_album_stickers | 2026-10-18 (Eden approved staging, cz = smart_segments.cz_c, last 7 days): 393 strong two-puzzl | domino-strong-closers-price-vs-cz-2026-10-18 | Current |
 | c/domino_strong_puzzle_closers_end_sources.sql | Do | int_user_album_stickers, user_daily_album, user_daily_metrics | 2026-10-18: Domino 20 — 393 strong (5$+/day prev album) finishers whose last two new stickers w | domino-strong-puzzle-closers-2026-10-18 | Current |
 | c/domino_easy_hard_splits_2026-10-26.sql | Do | user_daily_album, user_daily_metrics, int_user_album_stickers | 10-26: Easy vs Hard splits of three slides (Royals held at 90%/close; last new Royal day for far P50–95; revenue near by day). Albums 17/19/20 | domino-easy-hard-splits-2026-10-26 | Current (merged 10-26) |
+| c/domino_royals_by_time_easy_hard_2026-10-27.sql | Do | user_daily_album, user_daily_metrics, int_user_album_stickers | 10-27: avg % of album Royals held by % of album time (10% steps), Easy vs Hard, albums 17/19/20 | domino-easy-hard-splits-2026-10-26 §1b | Current (not committed) |
+| c/domino_19v20_by_segment_2026-10-27.sql | Do | user_daily_album, user_daily_metrics | 10-27: finish / far by segment, albums 19/20 (Hard gate unchanged check) | domino-19v20-by-segment-2026-10-27 | Current (not committed) |
+| c/domino_chapter_album_rev_base_2026-10-27.sql | Do | user_daily_album, user_daily_metrics | 10-27: Domino chapter shares on one base (album revenue of standard-population payers): finishers 17-20, Easy at close-4 and close-7 | domino-chapter-album-rev-base-2026-10-27 | Current (not committed) |
 
 ## Domino dx chapter (merged 10-26, PRs #30/#31) → index/topic-domino-dx.md
 | File | Game | Tables | What it computes (header) | Feeds | Status |
