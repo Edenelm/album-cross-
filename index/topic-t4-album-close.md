@@ -12,7 +12,7 @@
 - Domino 19 vs 20 daily new stickers (median payer): 19 = 5-day pause days 16–20, median 0 from day 31; 20 = short pauses with jumps, 0 from day 38. Close 138 vs 140 stickers (c/domino-19v20-daily-pauses-2026-10-26.md).
 - Domino 20 finishers' last 3 stickers: 81% via Joker from free end events; two end puzzles (JokerPuzzle + SummerFever) (card dx).
 - Domino Easy vs Hard: last new Royal 8–12 days before close in both; Hard gets near earlier (19: 40% of Hard revenue near a week out vs 1% Easy) (c/domino-easy-hard-splits-2026-10-26.md).
-- **NOT in main — branch claude/albums-seen-october:** c/median-missing-at-close-2026-10-25.md (slide 23 "What the P50 Paying Player Still Misses at Close": median 3/4/6 vs average 5.7/7.0/10.1; median payer misses no commons).
+- **merged to main (PR #28):** c/median-missing-at-close-2026-10-25.md (slide 23 "What the P50 Paying Player Still Misses at Close": median 3/4/6 vs average 5.7/7.0/10.1; median payer misses no commons).
 ## Read in order
 c/far-rare-gate-gap-2026-10-23.md → c/topic4-gates-2026-10-22.md → c/topic4-last8-finish-2026-10-22.md → c/topic4-market-split-2026-10-22.md → c/disney-stalls-missing-2026-10-23.md → c/closing-week-pct-payers-2026-10-24.md → c/domino-movie-twister-purchases-2026-10-24.md
 ## SQL

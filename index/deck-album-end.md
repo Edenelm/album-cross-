@@ -94,7 +94,7 @@ Card t6 unless marked. Status "live" means added; which slides Eden has skipped 
 | t9_slide | Order: evidence from a real test first, then size; Disney end tests share players, so run them one after another | targets | same | – | same | proposed |
 | – | "Avg Arpdau Whole Album" / "Avg Arpdau Last 4 Days" fixed for mix | t1 | c/mix-fixed-arpdau-2026-10-25.md | same | – | unv |
 
-## G. Pending: NOT in main (branch claude/albums-seen-october, 10-25) — all **unv** in the live deck
+## G. Pending: merged to main (PR #28) (branch claude/albums-seen-october, 10-25) — all **unv** in the live deck
 | Code / # | Change | Source doc | SQL |
 |---|---|---|---|
 | 11 (October copy, "slide 12") | Revenue share by albums seen, Oct 1–24 | c/albums-seen-october-2026-10-25.md | c/albums-seen-october-2026-10-25.sql |

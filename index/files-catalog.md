@@ -20,7 +20,7 @@ Status: Current / Superseded / Reference / Log / Script / Asset. 'INDEX' column 
 | c/album-length-end-arpdau-2026-10-18.md | 10-20 | אורך אלבום מול ARPDAU של 4 הימים האחרונים — שלושת המשחקים, מאפריל 2025 (2026-10-18) | Current | עדכני — הטענה "אלבום קצר נסגר חזק" לא נתמכת ( |
 | c/album-length-whole-album-addendum-2026-10-18.md | 10-20 | תוספת: אלבומים קצרים — טובים לאורך כל האלבום, לא בסוף (2026-10-18) | Current | עדכני — הטענה "אלבום קצר נסגר חזק" לא נתמכת ( |
 | c/dice65-end-2026-10-24.md | 10-25 | Dice 65: what happened at the end (2026-10-24) | Current |  |
-| c/dice65-pu-trail-2026-10-25.md | 10-25 | Dice 65 vs 63: paying users per day, and the Trail as a source (2026-10-25) | Current (older: newer copy with Q5 PU/PAU is NOT in main — branch claude/albums-seen-october) |  |
+| c/dice65-pu-trail-2026-10-25.md | 10-25 | Dice 65 vs 63: paying users per day, and the Trail as a source (2026-10-25) | Current (older: newer copy with Q5 PU/PAU is merged to main (PR #28)) |  |
 | c/disney-end-lift-by-album-2026-10-21.md | 10-24 | דיסני: הליפט של 4 הימים האחרונים מול ממוצע האלבום, לפי אלבום (2026-10-21) | Current | עדכני — ליפט ARPDAU 4 אחרונים ÷ אלבום לכל אלב |
 | c/disney15-windows-game-revenue-2026-10-24.md | 10-24 | Disney 15 quiet vs release days on total game revenue, with a calendar control (2026-10-24 | Current |  |
 | c/mix-fixed-arpdau-2026-10-25.md | 10-25 | ARPDAU slides with the new/veteran share held fixed, all three games (2026-10-25) | Current |  |
@@ -50,7 +50,7 @@ Status: Current / Superseded / Reference / Log / Script / Asset. 'INDEX' column 
 | super_sticker_comparison_handoff.md | 10-20 | זיכרון שיחה: השוואת Supers בין אלבומים | Reference/History (old pack, root) | listed |
 | c/domino-easy-goldens-progression-2026-10-26.md | 10-26 | Domino Easy vs Hard Goldens progression, 17/19/20 (Easy line for "Goldens Split After 70%") | Current (merged 10-26) | ✔ (10-26 row) |
 | c/domino-rare-sources-split-2026-10-26.md | 10-26 | Domino 20 rare-sources-mix: orange "closing tools" split (duplicates 37% / paid 4% / Market 0) | Current (merged 10-26) |  |
-| c/golden-buy-share-d65-d20-s15-2026-10-25.md | 10-25 | Share of active payers buying a new Golden, last 10 days, Dice 65 / Domino 20 / Disney 15 | NOT in main — branch claude/albums-seen-october |  |
+| c/golden-buy-share-d65-d20-s15-2026-10-25.md | 10-25 | Share of active payers buying a new Golden, last 10 days, Dice 65 / Domino 20 / Disney 15 | merged to main (PR #28) |  |
 
 ## Topic 4 how the album closes
 | File | Date | Title / docstring | Status | INDEX |
@@ -81,7 +81,7 @@ Status: Current / Superseded / Reference / Log / Script / Asset. 'INDEX' column 
 | two-vs-three-missing-disney-2026-10-15.md | 10-20 | Is it worth bringing players to 2 missing instead of 3? — Disney (2026-10-15) | Reference/History (old pack, root) |  |
 | weak-stall-supply-demand-2026-10-15.md | 10-20 | Supply vs demand — where weak players get stuck (Disney 14/15, Domino 19/20, Dice 61/63) — | Reference/History (old pack, root) |  |
 | c/domino-19v20-daily-pauses-2026-10-26.md | 10-26 | Domino 19 vs 20: new stickers per day, median payer (pauses and jumps) | Current (merged 10-26) |  |
-| c/median-missing-at-close-2026-10-25.md | 10-25 | Median paying player: stickers missing at close, by type (slide 23) | NOT in main — branch claude/albums-seen-october |  |
+| c/median-missing-at-close-2026-10-25.md | 10-25 | Median paying player: stickers missing at close, by type (slide 23) | merged to main (PR #28) |  |
 
 ## Topic 5 left behind
 | File | Date | Title / docstring | Status | INDEX |
@@ -208,8 +208,8 @@ Status: Current / Superseded / Reference / Log / Script / Asset. 'INDEX' column 
 | c/end-lift-by-experience-2026-10-22.md | 10-22 | End lift by number of albums experienced, full history groups (2026-10-22) | Current |  |
 | c/first-album-finish-rate-2026-10-21.md | 10-22 | Finish rate with and without first-album players (2026-10-21) | Current |  |
 | tenure-population-rerun-2026-10-17.md | 10-20 | התפלגות לפי כמות אלבומים — הרצה מחדש לדייס ולדומינו (2026-10-17) | Reference/History (old pack, root) | ✔ |
-| c/albums-seen-october-2026-10-25.md | 10-25 | Revenue share by albums seen, October 2026 (slide 11 for October) | NOT in main — branch claude/albums-seen-october |  |
-| c/cohort-end-lift-pooled-2026-10-25.md | 10-25 | Same players album 1→7: end lift vs rest of album, groups pooled (slide 16) | NOT in main — branch claude/albums-seen-october |  |
+| c/albums-seen-october-2026-10-25.md | 10-25 | Revenue share by albums seen, October 2026 (slide 11 for October) | merged to main (PR #28) |  |
+| c/cohort-end-lift-pooled-2026-10-25.md | 10-25 | Same players album 1→7: end lift vs rest of album, groups pooled (slide 16) | merged to main (PR #28) |  |
 | c/payer-time-to-first-album-2026-10-21.md | 10-21 | Payers: days from install to the first album (v2; v1 superseded) | uncommitted, in worktree paid-player-album-time |  |
 
 ## Benchmarks (old pack)

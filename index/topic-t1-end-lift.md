@@ -7,7 +7,7 @@
 - Dice 65 was flat (+3%), but it was not "too far": revenue within 3 stickers at close−4 was 55% vs 54% in album 63 (c/dice65-end-2026-10-24.md). On the final weekend album 65 had about 11% fewer payers a day, while album 63 had payers spending +17% (c/dice65-pu-trail-2026-10-25.md). The newer version of dice65-pu-trail, with Q5 PU/PAU (−8% vs +7%), exists only in worktree recursing-villani-518ad8.
 - "A short album ends strong" is not supported (c/album-length-end-arpdau-2026-10-18.md).
 - Domino game end lift 18/19/20: revenue +25.3/+7.8/+18.9%, active players −5.0/−6.5/−2.3%; not attributable to the gate (c/domino-dx-end-lift-2026-10-26.md). Easy ARPDAU lift +11/+37/+17/+25% (17–20), no single driver (c/domino-dx-easy-end-decomp-2026-10-26.md). Card dx.
-- **NOT in main — branch claude/albums-seen-october:** c/cohort-end-lift-pooled-2026-10-25.md (slide 16: lift vs REST of album, join groups pooled; album 1: Dice +30%, Domino +27%, Disney +9%). Newer c/dice65-pu-trail-2026-10-25.md adds Q5 PU/PAU: 63 +7%, 65 −8% (main copy lacks Q5).
+- **merged to main (PR #28):** c/cohort-end-lift-pooled-2026-10-25.md (slide 16: lift vs REST of album, join groups pooled; album 1: Dice +30%, Domino +27%, Disney +9%). Newer c/dice65-pu-trail-2026-10-25.md adds Q5 PU/PAU: 63 +7%, 65 −8% (main copy lacks Q5).
 ## Read in order
 c/disney-end-lift-by-album-2026-10-21.md → c/end-lift-by-experience-2026-10-22.md → c/dice-end-lift-65-7plus-2026-10-22.md → c/mix-fixed-arpdau-2026-10-25.md → c/dice65-end-2026-10-24.md → c/dice65-pu-trail-2026-10-25.md → c/disney15-windows-game-revenue-2026-10-24.md
 ## SQL

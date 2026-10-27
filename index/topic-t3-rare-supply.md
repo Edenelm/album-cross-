@@ -9,7 +9,7 @@
 - Domino 20 orange "closing tools" on rare-sources-mix split: Q4 = duplicates 37% + paid 4%, Q3 = 8% + 2%; Market = 0 (c/domino-rare-sources-split-2026-10-26.md). Supersedes the "worktree topic3-reruns" line above.
 - Goldens Split slide, Easy line: Domino Easy ends with 82% of Goldens (75/83/89) vs Hard 90%, Dice 94%, Disney 83% (c/domino-easy-goldens-progression-2026-10-26.md).
 - c/rares_by_time_median_2026-10-26.sql (median/avg % of rares held by % of album time, 3-album set): its results doc rares-by-time-median-2026-10-26.md is NOT in the repo (conflicts C19).
-- **NOT in main — branch claude/albums-seen-october:** c/golden-buy-share-d65-d20-s15-2026-10-25.md (slide rerun on Dice 65 / Domino 20 / Disney 15: Dice 3–5%/day, Disney rises to 5.5% on the last day, Domino 2–4%). Would supersede golden_buy_share_d20_s15_2026-10-23.
+- **merged to main (PR #28):** c/golden-buy-share-d65-d20-s15-2026-10-25.md (slide rerun on Dice 65 / Domino 20 / Disney 15: Dice 3–5%/day, Disney rises to 5.5% on the last day, Domino 2–4%). Would supersede golden_buy_share_d20_s15_2026-10-23.
 ## Read in order
 c/rare-timeline-2026-10-20.md → c/golden-timeline-2026-10-23.md → c/golden-offers-by-day-2026-10-23.md → c/golden-purchase-revenue-2026-10-22.md → c/dice-wild-sources-2026-10-21.md
 ## SQL
