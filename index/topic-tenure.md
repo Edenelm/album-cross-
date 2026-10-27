@@ -7,7 +7,7 @@
 c/albums-all-players-2026-10-21.md → c/first-album-finish-rate-2026-10-21.md → c/end-lift-by-experience-2026-10-22.md → c/cohort-end-lift-2026-10-22.md → c/album-timeline-7plus-end-2026-10-19.md
 ## SQL
 c/albums-all-players-2026-10-21.sql · c/first_album_finish_rate_queries.sql · c/end_lift_by_experience_full_history.sql · c/cohort_end_lift_album1_to_7.sql · root tenure_population_rerun_queries.sql (old)
-## merged to main (PR #28) (pushed, not merged)
+## merged to main (PR #28) (merged 10-27 (PR #28))
 - c/albums-seen-october-2026-10-25.md (slide 11/12 for October): Domino "1 album" falls 12% → 4% of revenue (album-cycle timing, not checked).
 - c/cohort-end-lift-pooled-2026-10-25.md (slide 16, card t1).
 ## Uncommitted, in worktree paid-player-album-time

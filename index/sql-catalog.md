@@ -237,6 +237,6 @@ MCP guardrail: no `SELECT *`; flatten STRUCT fields in a separate CTE (`a.struct
 | c/deck_review_checks_2026-10-20.sql | Di | user_daily_album, fact_user_album_stickers, user_daily_metrics_agg | Deck review checks, 2026-10-20. Results: claude/deck-review-2026-10-20.md | deck-review-2026-10-20 | Current |
 
 ## Not-in-main SQL (see files-catalog §Worktrees)
-- Branch claude/albums-seen-october (pushed, not merged): albums-seen-october, cohort_end_lift_pooled_vs_rest, golden_buy_share_d65_d20_s15, median_missing_at_close (rows above), newer dice65_pu_trail (Q5).
+- Branch claude/albums-seen-october (merged 10-27, PR #28): albums-seen-october, cohort_end_lift_pooled_vs_rest, golden_buy_share_d65_d20_s15, median_missing_at_close (rows above), newer dice65_pu_trail (Q5).
 - Uncommitted: payer-time-to-first-album-2026-10-21.sql (worktree paid-player-album-time); topic3_reruns_2026-10-22.sql (continue-session-20c65f, D-W4).
 - Merged 10-26 (was worktree-only): all domino_dx_* and the other 10-26 Domino SQL, now rows above.
