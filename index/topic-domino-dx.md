@@ -38,3 +38,4 @@ Generators: `python3 c/slide_domino_chapter_2026-10-26.py <dxw|dxsrc|dxfar|dxrec
 ## Open
 - Pixie (topic 5), prizes vs effort (6), Royals/Momentum (7) not done (map §ג). Questions for the Domino team in map §ד.
 - Joker offer funnel needs staging approval (topic 3).
+- **Superseded (10-27):** c/slide_domino_joker19v20_2026-10-27.py (two-panel dxjk) → c/slide_domino_end_wave_2026-10-27.py joker.
