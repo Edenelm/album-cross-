@@ -55,6 +55,14 @@ This repo was moved from the claude.ai Project "Album Analysis Cross Studios" on
 - Style: Eden's Deck Style Guide https://claude.ai/code/artifact/987682ea-ee39-493c-b5f8-4c28be9b2f0a — dark charcoal #212121, Oswald, gold #FFDF85 for the key concept, red #FF0B47 for problems, blue table headers #4285F4, footer "SuperPlay 2026".
 - `claude/deck_v2_*.py` and `claude/deck_gen_x3.py` are the generator scripts used to build earlier versions.
 
+### Slide rules (every slide, every deck, always; check before building or editing any slide)
+1. **One message per slide.** The design highlights that message: the key bar, line or number in gold #FFDF85 (red #FF0B47 for a problem), everything else muted grey.
+2. **Clean, no noise.** The chart carries the message. No paragraphs or bullet lists on the slide; at most a short label or callout on the chart. Detail goes in the speaker notes.
+3. **Title = what you see in the chart**, plainly (e.g. "Finishers pay 3x more in the last 3 days"), not a topic name like "End lift".
+4. **Bottom line = what the slide wants to say**: one short sentence at the bottom with the takeaway or "so what".
+5. **Always show revenue share and % of payers** for every group or segment on the slide (how big the group is and how much it is worth), on the chart or as a small label.
+6. Before finishing, check each slide against rules 1–5 and fix it. If a slide can't meet them, tell Eden why.
+
 ## Docs added from the claude.ai Project (2026-10-20)
 - `claude/claims-register.md` — what is valid / superseded / rejected (updated 2026-10-18). `claude/evidence-recheck-2026-10-18.md` wins where they conflict; its finisher numbers use the old rule (144 before the close day).
 - `claude/album-analysis-v3-2026-10-15.md` — superseded by v4; history only.
