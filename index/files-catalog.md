@@ -98,6 +98,17 @@ Status: Current / Superseded / Reference / Log / Script / Asset. 'INDEX' column 
 | topic5-conclusions-2026-10-13.md | 10-20 | Topic 5 — Conclusions: where new Supers / Royals come from (closed 2026-10-13) | Reference/History (old pack, root) |  |
 | topic5-rare-sources-2026-10-12.md | 10-20 | Topic 5 — Where new Supers / Royals come from over the album (run 2026-10-12) | Reference/History (old pack, root) |  |
 | c/end-status-d19-d20-dice63-2026-10-26.md | 10-26 | End status by spend level: Domino 19 vs 20 vs Dice 63 (t5a_slide rerun) | Current (merged 10-26) |  |
+| c/slide_t5a_domino_2026-10-27.py | 10-27 | Generator for t5ad_slide (Domino deck): copy of t5a with Domino 19 / Domino 20 / Dice 63 | Current (not committed) |  |
+| c/slide_domino_easy_hard_2026-10-27.py | 10-27 | Generator for ehgap/ehlast/ehnear slides (Domino deck): Easy vs Hard splits | Current (not committed) |  |
+| c/slide_domino_royals_line_2026-10-27.py | 10-27 | Generator for ehline_slide (Domino deck): Royals by % of album time, Easy vs Hard | Current (not committed) |  |
+| c/domino-19v20-by-segment-2026-10-27.md | 10-27 | Domino 19 vs 20 by segment: Hard improved with the same gate | Current (not committed) |  |
+| c/domino-chapter-album-rev-base-2026-10-27.md | 10-27 | Domino chapter on one revenue base + Eden correction (puzzle Jokers not free; RV finishers) | Current (not committed) |  |
+| c/domino-easy-missing-by-revenue-2026-10-27.md | 10-27 | Domino 20 Easy: missing at close where the money is (money median 3 = 1 Golden + 2 Royals) | Current (not committed) |  |
+| c/domino-easy-gate-stuck-2026-10-27.md | 10-27 | Easy stuck at the gate: weak by count, but 70% of their money is $2+/day payers; $5–20 who reach the gate close only 27% | Current (not committed) |  |
+| c/domino-easy-gap-by-day-2026-10-27.md | 10-27 | Easy far fall behind from day 1; catch up on commons, Golden gap 18 pts, Royal 48 pts at close | Current (not committed) |  |
+| c/slide_domino_easy_gap_2026-10-27.py | 10-27 | Generator for ehgapday_slide | Current (not committed) |  |
+| c/slide_domino_19v20_changes_v2_2026-10-27.py | 10-27 | dxchg_slide v2 (visual); supersedes v1 table script | Current (not committed) |  |
+| c/slide_domino_19v20_changes_2026-10-27.py | 10-27 | Generator for dxchg_slide | Current (not committed) |  |
 
 ## Topic 6 after the album / payout / events
 | File | Date | Title / docstring | Status | INDEX |
