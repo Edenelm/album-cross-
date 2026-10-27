@@ -161,6 +161,9 @@ MCP guardrail: no `SELECT *`; flatten STRUCT fields in a separate CTE (`a.struct
 | c/domino_royals_by_time_easy_hard_2026-10-27.sql | Do | user_daily_album, user_daily_metrics, int_user_album_stickers | 10-27: avg % of album Royals held by % of album time (10% steps), Easy vs Hard, albums 17/19/20 | domino-easy-hard-splits-2026-10-26 §1b | Current (not committed) |
 | c/domino_19v20_by_segment_2026-10-27.sql | Do | user_daily_album, user_daily_metrics | 10-27: finish / far by segment, albums 19/20 (Hard gate unchanged check) | domino-19v20-by-segment-2026-10-27 | Current (not committed) |
 | c/domino_chapter_album_rev_base_2026-10-27.sql | Do | user_daily_album, user_daily_metrics | 10-27: Domino chapter shares on one base (album revenue of standard-population payers): finishers 17-20, Easy at close-4 and close-7 | domino-chapter-album-rev-base-2026-10-27 | Current (not committed) |
+| c/domino_easy_missing_by_revenue_2026-10-27.sql | Do | user_daily_album, user_daily_metrics, int_user_album_stickers | 10-27: Domino 20 Easy payers by stickers missing at close, revenue-weighted (money median = 3 = gate) | domino-easy-missing-by-revenue-2026-10-27 | Current (not committed) |
+| c/domino_easy_gate_stuck_2026-10-27.sql | Do | user_daily_album, user_daily_metrics, core_mini_collection_tier_completed (empty for album 20) | 10-27: Easy payers at the gate by spend level and timing vs finishers | domino-easy-gate-stuck-2026-10-27 | Current (not committed) |
+| c/domino_easy_gap_by_day_2026-10-27.sql | Do | user_daily_album, user_daily_metrics | 10-27: Domino 20 Easy finishers vs far by album day, by sticker type (gl1 design, Easy only) | domino-easy-gap-by-day-2026-10-27 | Current (not committed) |
 
 ## Domino dx chapter (merged 10-26, PRs #30/#31) → index/topic-domino-dx.md
 | File | Game | Tables | What it computes (header) | Feeds | Status |

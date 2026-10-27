@@ -103,6 +103,10 @@ Status: Current / Superseded / Reference / Log / Script / Asset. 'INDEX' column 
 | c/slide_domino_royals_line_2026-10-27.py | 10-27 | Generator for ehline_slide (Domino deck): Royals by % of album time, Easy vs Hard | Current (not committed) |  |
 | c/domino-19v20-by-segment-2026-10-27.md | 10-27 | Domino 19 vs 20 by segment: Hard improved with the same gate | Current (not committed) |  |
 | c/domino-chapter-album-rev-base-2026-10-27.md | 10-27 | Domino chapter on one revenue base + Eden correction (puzzle Jokers not free; RV finishers) | Current (not committed) |  |
+| c/domino-easy-missing-by-revenue-2026-10-27.md | 10-27 | Domino 20 Easy: missing at close where the money is (money median 3 = 1 Golden + 2 Royals) | Current (not committed) |  |
+| c/domino-easy-gate-stuck-2026-10-27.md | 10-27 | Easy stuck at the gate: weak by count, but 70% of their money is $2+/day payers; $5–20 who reach the gate close only 27% | Current (not committed) |  |
+| c/domino-easy-gap-by-day-2026-10-27.md | 10-27 | Easy far fall behind from day 1; catch up on commons, Golden gap 18 pts, Royal 48 pts at close | Current (not committed) |  |
+| c/slide_domino_easy_gap_2026-10-27.py | 10-27 | Generator for ehgapday_slide | Current (not committed) |  |
 | c/slide_domino_19v20_changes_v2_2026-10-27.py | 10-27 | dxchg_slide v2 (visual); supersedes v1 table script | Current (not committed) |  |
 | c/slide_domino_19v20_changes_2026-10-27.py | 10-27 | Generator for dxchg_slide | Current (not committed) |  |
 
