@@ -160,6 +160,10 @@ MCP guardrail: no `SELECT *`; flatten STRUCT fields in a separate CTE (`a.struct
 | c/domino_easy_hard_splits_2026-10-26.sql | Do | user_daily_album, user_daily_metrics, int_user_album_stickers | 10-26: Easy vs Hard splits of three slides (Royals held at 90%/close; last new Royal day for far P50–95; revenue near by day). Albums 17/19/20 | domino-easy-hard-splits-2026-10-26 | Current (merged 10-26) |
 
 ## Domino dx chapter (merged 10-26, PRs #30/#31) → index/topic-domino-dx.md
+- c/domino_easy_gate_stuck_2026-10-27.sql · Domino 20 Easy std payers: reached FU vs finished by spend level → domino-easy-gate-stuck-2026-10-27 / dxfu_slide · current
+- c/domino_goldenkiosk_std_2026-10-27.sql · Domino 20 GoldenKiosk rares on std payers, by state at close−8 → domino-goldenkiosk-std-2026-10-27 · current
+- c/domino_end_rares_jokers_19v20_2026-10-27.sql · Domino 19 vs 20 std payers: new Golden/Royal (bought/Kiosk/gameplay) + Joker per day, last 10 days → domino-end-rares-jokers-19v20-2026-10-27 · current
+- c/domino_golden_fill_rate_19v20_2026-10-27.sql · Domino 19 vs 20 std payers: % of missing Goldens/Royals filled per day, last 10 days → domino-end-rares-jokers-19v20-2026-10-27 (addendum) · current
 | File | Game | Tables | What it computes (header) | Feeds | Status |
 |---|---|---|---|---|---|
 | c/domino_dx_gate_structure_2026-10-25.sql | Do | user_daily_album, int_user_album_stickers | 10-25 dx topic 2: which Goldens/Royals were Joker-only (locked to the end) per album and Easy/Hard; release = first day with 200+ non-Joker collections. Albums 17–20 | domino-dx-map-2026-10-25 | Current (merged 10-26) |
