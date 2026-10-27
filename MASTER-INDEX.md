@@ -24,8 +24,8 @@ Updated 2026-10-26 (Asia/Jerusalem), patched after the 10-26 main pull (PRs #30/
 | left behind, ≤3 at close−4, spend tiers, end goal / נשארים מאחור, יעד סוף | index/topic-t5-left-behind.md |
 | after the album, week after, payout, stock, post-album events, Deluxe, Legendary / אחרי האלבום, פייאאוט | index/topic-t6-after-album.md |
 | Dice prize, 200K, grand prize, $2K+ / פרס, פרס גדול | index/topic-t7-dice-prize.md |
-| Domino easy/hard, album 19 vs 20, Puzzle Jokers, Domino chapter / דומינו | index/topic-domino-cases.md |
-| Domino diagnosis, dx, gate 3 vs 5, last 3 stickers, SummerFever, Domino deck / אבחון דומינו, שער, 3 חסרים, מצגת דומינו | index/topic-domino-dx.md |
+| Domino easy/hard rule, album 19 vs 20 background, Puzzle Jokers (older case notes) / דומינו רקע | index/topic-domino-cases.md |
+| Domino chapter (current work), Domino diagnosis, dx, dxw/dxsrc/dxfar/dxrec, gate 3 vs 5, last 3 stickers, SummerFever, Domino deck / אבחון דומינו, שער, 3 חסרים, מצגת דומינו, פרק דומינו | index/topic-domino-dx.md |
 | non-payers, RV, ad farming / לא משלמים, RV | index/topic-nonpayers-rv.md |
 | targets, tests, test sizes, recommendations / יעדים, טסט | index/topic-targets-tests.md |
 | VIP, VIP gift | index/topic-vip.md |
