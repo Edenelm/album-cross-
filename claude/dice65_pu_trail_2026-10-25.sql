@@ -87,3 +87,10 @@ first_copy AS (
 SELECT t.album_id, IF(t.dtc >= -3, 'final weekend', 'days 10-4') AS win, t.src, t.typ, t.wild, t.ts = f.ts1 AS is_new, COUNT(*) AS stickers, COUNT(DISTINCT t.user_id) AS players
 FROM tr t JOIN first_copy f USING (album_id, user_id, sticker_id)
 GROUP BY 1,2,3,4,5,6 HAVING stickers >= 500 ORDER BY 1,2,3,4,5,6;
+
+-- ===== Q5 (Eden 2026-10-25): PU / PAU = share of ACTIVE payers who paid that day; days 11-5 vs final weekend (days 3-1). 83 GB =====
+-- Same hist / ud / pop CTEs as Q1; then:
+-- dl AS (SELECT album_id, DATE_DIFF(date_dim, a_end, DAY) AS dtc, COUNTIF(spend > 0) AS pu, COUNTIF(act) AS pau
+--        FROM ud JOIN pop USING (album_id, user_id) WHERE date_dim < a_end AND DATE_DIFF(date_dim, a_end, DAY) >= -11 GROUP BY 1, 2)
+-- SELECT album_id, SUM(pu in -11..-5)/SUM(pau in -11..-5) AS pu_pau_d11_5, SUM(pu in -3..-1)/SUM(pau in -3..-1) AS pu_pau_weekend,
+--        STRING_AGG(dtc:pu/pau) AS by_day FROM dl GROUP BY 1
