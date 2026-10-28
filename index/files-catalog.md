@@ -334,3 +334,6 @@ Status: Current / Superseded / Reference / Log / Script / Asset. 'INDEX' column 
 | continue-session-20c65f | uncommitted topic3-reruns-2026-10-22 (+SQL) | Probably abandoned (D-W4) |
 | 0990b2 | claude/excel/README.md only | Needs decision (D-W5) |
 | fb8c4f, 084dc7, f3d3c4, 692f62, 08d705, bbb29a, f81bfe, 57e8e2, 74c990, eb9da8, d058de, e6e02c, e72d71, f58756, 6bf421, b07b6c, c19416, 58fb22 | Only older copies of main files | Merged, nothing unique |
+| c/domino-19v20-daily-pauses-2026-10-28.md | 10-28 | Domino 19 vs 20 median stickers held per day (m19 slide) | Results | עדכני |
+| c/domino-19-golden-buy-2026-10-28.md | 10-28 | Domino 19 golden-buy share + single-album Goldens deciles | Results | עדכני |
+| c/slide_domino19_copies_2026-10-27.py, slide_domino19_missing / goldbuy / goldens_single_albums_2026-10-28.py | 10-28 | Generators for the Domino 19 copies (deck map §H) | Script | עדכני |

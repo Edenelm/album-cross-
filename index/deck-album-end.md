@@ -103,3 +103,19 @@ Card t6 unless marked. Status "live" means added; which slides Eden has skipped 
 | 30 (h32_*) | Golden buy share rerun on Dice 65 / Domino 20 / Disney 15 | c/golden-buy-share-d65-d20-s15-2026-10-25.md | c/golden_buy_share_d65_d20_s15_2026-10-25.sql |
 | d65t_slide | PU/PAU Q5: 63 +7%, 65 −8% | c/dice65-pu-trail-2026-10-25.md (branch copy) | c/dice65_pu_trail_2026-10-25.sql (branch copy) |
 Also merged 10-26 for topic 6 slides a6s8s / a6s10 / vipa: Domino 19/20 >$20 and VIP after close (c/domino-after-close-20plus-vip-2026-10-26.md); whether a slide uses it is **unv**.
+
+## H. Domino 19 copies under cross-game slides (10-27/28, Eden: "add, don't delete; Domino 19 alone under the relevant slide") — live deck 1bVGI1Sb…
+| # | Code | Title / message | Key numbers | Card | Source doc | SQL | Script | PNG | Status |
+|---|---|---|---|---|---|---|---|---|---|
+| 23 | g19_slide (under grid) | What the average payer still misses, Domino 19 | – | domino-dx | c/domino-end-rares-jokers-19v20-2026-10-27.md | – | c/slide_domino19_copies_2026-10-27.py | – | live |
+| 31 | a19c_slide (under a144) | Stickers collected, Domino 19; gold box day 31→close "+17, ~1 a day" | 121 by day 30 (~4/day); bottom "After day 30 the pace drops to a quarter" | domino-dx | c/domino-19v20-daily-pauses-2026-10-28.md | c/domino_19v20_daily_pauses_2026-10-26.sql | c/slide_domino19_copies_2026-10-27.py | – | live |
+| 32 | m19_slide | Stickers Still Missing, Album 19 vs 20 (day 20→close) | even to day 33; day 38: 16 vs 10; close 6 vs 4 | domino-dx | c/domino-19v20-daily-pauses-2026-10-28.md | c/domino_19v20_daily_pauses_2026-10-26.sql | c/slide_domino19_missing_2026-10-28.py | – | live |
+| 34 | w19_slide (under w144) | New stickers per day, Domino 19 (median of the day → 0 from day 31; see m19) | – | domino-dx | c/domino-19v20-daily-pauses-2026-10-26.md | same | c/slide_domino19_copies_2026-10-27.py | – | live |
+| 36 | gl19_slide (under gl1) | Finishers vs 4+ away, Domino 19 | finishers 4%, 4+ away 83% | domino-dx | – | – | c/slide_domino19_copies_2026-10-27.py | – | live |
+| 40 | g19s_slide (under g32) | Goldens collected, Domino 19 | median missing 6 (3 G + 3 R) | domino-dx | c/golden-timeline-2026-10-23.md | – | c/slide_domino19_copies_2026-10-27.py | – | live |
+| 42 | sg1_slide (under …_2399) | % of Goldens by % of album time, single albums Dice 63 / Domino 20 / Disney 15 | close 93% / Hard 94%, Easy 89% / 83%; original's 82% = Easy avg 17/19/20 | t3 | c/domino-19-golden-buy-2026-10-28.md | c/goldens_decile_d63_s15_2026-10-28.sql | c/slide_goldens_single_albums_2026-10-28.py | – | live |
+| 43 | ge19_slide | Goldens Easy/Hard, Domino 19 | Easy 83% vs Hard 89% | domino-dx | c/domino-easy-goldens-progression-2026-10-26.md | c/domino_easy_goldens_progression_2026-10-26.sql | c/slide_domino19_copies_2026-10-27.py | – | live |
+| 46 | gb19_slide (under …_2520) | Share of active payers who bought a new Golden, Domino 19 | peaks d−8 5.4%, d−3 6.3%; last day 2.3% | domino-dx | c/domino-19-golden-buy-2026-10-28.md | c/golden_buy_share_d65_d20_s15_2026-10-25.sql (album 19) | c/slide_domino19_goldbuy_2026-10-28.py | – | live |
+| – | r19s_slide (under …_2005) | Rare step, Domino 19 | longest wait all 4% / Goldens 10% / Royals 26% | domino-dx | c/rare-timeline-2026-10-20.md | – | c/slide_domino19_copies_2026-10-27.py | – | live |
+| – | wh19_slide (under …_2189) | When did payers finish, Domino 19 | 1–3 at c−4: 39% finished; 20/27/37/16% | domino-dx | – | – | c/slide_domino19_copies_2026-10-27.py | – | live |
+| – | n19_slide (under near7) | Revenue share within 3, Domino 19 | 20% d−7 → 52% d−1 | domino-dx | – | – | c/slide_domino19_copies_2026-10-27.py | – | live |

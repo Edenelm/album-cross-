@@ -41,3 +41,4 @@ Generators: `python3 c/slide_domino_chapter_2026-10-26.py <dxw|dxsrc|dxfar|dxrec
 - **Superseded (10-27):** c/slide_domino_joker19v20_2026-10-27.py (two-panel dxjk) → c/slide_domino_end_wave_2026-10-27.py joker.
 ## Deck order (live, 2026-10-27, Eden approved)
 104 dxdiv_main → 105 dxchg → 106 Eden: Easy rev by missing c−4 19v20 → 107 Eden: finishers per day → 108 dxgold → 109 dxjk → 110 Eden: daily rev vs weekday → 111 dxsrc → 112 Eden: same spend different gate → 113 dxtrans → 114 dxlast (c/slide_domino_far_last_royal_2026-10-27.py) → 115 dxfu → 116 dxrec → 117 thanks → 118 dxdiv_app → appendix: dxw, dxfar, ehlast, ehnear, dxend, dxgate, old divider, dxdist, dxtest, dxmix, ehgap.
+- **10-28:** Domino 19 copies under cross-game slides = deck map §H. Album 19 fell behind 20 only after day 33 (m19). Domino 19 golden-buy share last day 2.3% (gb19).
