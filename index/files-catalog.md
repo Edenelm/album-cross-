@@ -356,3 +356,11 @@ Status: Current / Superseded / Reference / Log / Script / Asset. 'INDEX' column 
 | c/domino-royals-by-distance-19v20-2026-10-28.md | 10-28 | Royals filled per day by distance group, 19 vs 20 | Results | עדכני |
 | c/domino-sources-d20-d11-19v20-2026-10-28.md | 10-28 | New stickers per payer d-20..-1 by source, two waves (wv) | Results | עדכני |
 | c/domino-royal-sources-19v20-2026-10-28.md | 10-28 | Royal sources per day, last 20 days, 19 vs 20 (ry) | Results | עדכני |
+| claude/domino-royals-missing-end-19v20-2026-10-28.md | Royals missing at end, rev share, 19 vs 20 | current |
+| claude/slide_domino_jk19v20_panels_2026-10-28.py | jk1920_slide builder (Joker panels 19 vs 20) | current |
+| claude/chart_domino19_joker_last7_2026-10-28.py | PNG Domino 19 Joker chart | current |
+| claude/domino-prev-spend-tiers-19v20-2026-10-28.md | Domino 19/20 payers + rev by previous-album spend tier | current |
+| claude/rares-by-time-latest-album-2026-10-28.md | rares held by album time, latest album (replaces 3-album average on final deck) | current |
+| claude/slide_domino_daily_mean_19v20_2026-10-28.py | rebuild of final-deck per-day bars as mean | current |
+| claude/slide_rares_by_time_latest_2026-10-28.py | native redraw of final-deck rares-by-time charts (67/68) | current |
+| claude/next-session-prompt-2026-10-28.md | handoff: final-deck Domino review, continue from slide 82 | current |

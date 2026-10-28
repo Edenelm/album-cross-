@@ -255,3 +255,9 @@ MCP guardrail: no `SELECT *`; flatten STRUCT fields in a separate CTE (`a.struct
 - Branch claude/albums-seen-october (merged 10-27, PR #28): albums-seen-october, cohort_end_lift_pooled_vs_rest, golden_buy_share_d65_d20_s15, median_missing_at_close (rows above), newer dice65_pu_trail (Q5).
 - Uncommitted: payer-time-to-first-album-2026-10-21.sql (worktree paid-player-album-time); topic3_reruns_2026-10-22.sql (continue-session-20c65f, D-W4).
 - Merged 10-26 (was worktree-only): all domino_dx_* and the other 10-26 Domino SQL, now rows above.
+| claude/domino_royals_missing_end_19v20_2026-10-28.sql | Domino | user_daily_album, user_daily_metrics | Royals missing at end of close−1 by 0/1/2/3+, payers + rev share, 19 vs 20 | domino-royals-missing-end-19v20-2026-10-28.md, jk1920_slide | current |
+| claude/domino_prev_spend_tiers_19v20_2026-10-28.sql | Domino | user_daily_album, user_daily_metrics | payers + album rev by previous-album spend tier, 19/20 (labels of "Same Spend, Different Gate") | domino-prev-spend-tiers-19v20-2026-10-28.md | current |
+| claude/domino_19v20_daily_mean_2026-10-28.sql | Domino | user_daily_album, int_user_album_stickers | mean new set stickers per payer per album day, 19 vs 20 | final deck "New Stickers per Payer per Day" | current |
+| claude/golden_pick_test_audience_2026-10-28.sql | Domino, Disney | user_daily_album | Pick-your-Golden test audience (all / open Goldens / option C) | final deck gtest_slide notes | current |
+| claude/rares_by_time_latest_album_2026-10-28.sql | Dice, Domino, Disney | daily album + sticker tables | % of album's rares held by 10% of album time, latest album | rares-by-time-latest-album-2026-10-28.md | current |
+| claude/steady_royal_test_audience_2026-10-28.sql | Domino, Disney | user_daily_album | Steady-Royal test audience (wide / option C) | final deck tst_slide, tx_royal | current |

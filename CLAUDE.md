@@ -5,7 +5,7 @@ This repo was moved from the claude.ai Project "Album Analysis Cross Studios" on
 
 ## Start here
 1. Read `MASTER-INDEX.md` first. It is a router of about 4KB. Pick the one topic card that matches the question (`index/topic-<slug>.md`), and open only the files that card lists, in its order. Do not scan `claude/`.
-2. The latest handoff is `claude/next-session-prompt-2026-10-26.md`. Older handoffs, from newest: `-10-25.md`, `-10-24.md`, `-10-23.md`, `-10-21.md`. Both 10-25 and 10-26 were written on 10-24, and no handoff covers the 10-25 work yet.
+2. The latest handoff is `claude/next-session-prompt-2026-10-28.md` (final-deck Domino review, continue from slide 82). Older handoffs, from newest: `-10-26.md`, `-10-25.md`, `-10-24.md`, `-10-23.md`, `-10-21.md`. Both 10-25 and 10-26 were written on 10-24, and no handoff covers the 10-25 work yet.
 3. `decisions-definitions-register.md` is the source of truth for definitions. It wins every conflict. Known conflicts and open decisions are in `index/conflicts-and-decisions.md`.
 4. SQL: find the file in `index/sql-catalog.md` (game, tables, what it computes, which doc it feeds, status) before writing a new query. Reuse it if it exists.
 5. Any file's status (current / superseded / draft / history): `index/files-catalog.md`.
