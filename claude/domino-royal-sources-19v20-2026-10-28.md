@@ -14,3 +14,5 @@ Joker as a Royal source: 0–2.5 per 100 payers a day in 20, 0–1.8 in 19 excep
 - Fact: timing differs. 19 had its Royal wave 10–6 days before close (Blast), then a dip d−5..−4 (7–12). 20 had a wave 18–14 days before close (Trail, Momentum, AdventureWheel), a dry stretch d−10..−7 (7–11), and a level-end push d−4/−3.
 - Fact: the Joker gives few Royals in both albums (mostly 0–2 per 100 payers a day). The "duplicates" exchange is a steady daily source in both.
 - Reading: Royals did not get the extra supply Goldens got in album 20; same total, different days. With the same end result by distance group (domino-royals-by-distance), the Royal gate stays the remaining block. Hypothesis: more Royal supply (or a Royal route via Joker) 10–5 days before close for near payers would convert more; needs a test (= TEST 2 in dxrec).
+
+Slide: ry_slide (copy of wv_slide; lines redrawn as ry_m1..38 because re-scaling copied lines does not work). Script claude/slide_domino_royals_19v20_2026-10-28.py (frame/text part). Chapter order now: dxgold → wv → gw → gsrc → ry → dxjk.
