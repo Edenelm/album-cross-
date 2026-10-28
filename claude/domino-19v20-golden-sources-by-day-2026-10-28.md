@@ -14,3 +14,13 @@ Album 20 top sources: d−7..−5 GoldenKiosk, AlbumColoringBook (95–102K on d
 - Fact: the timing differs. 19's Golden wave peaked 7–8 days before close (40–48%), then ~27% a day in the last 4 days. 20 was low until 7 days out (18–22%) and peaked 6–4 days before close (34–44%); last 4 days average 34% vs 27%.
 - Reading: 20 put its Golden wave closer to the end, when players are counting what is missing; same as the Joker wave (close−3 in 20 vs close−1 in 19). Corrects the earlier assumption that 19 had no big free Golden sources.
 - Hypothesis, not proven: later free supply → more payers near FU at close−4 → bigger end lift. Calendar and event mix also changed.
+
+## Source mix per day (% of the day's new Goldens, all players; 21 GB)
+Categories: Kiosk (GoldenKiosk), ColoringBook, events (rotating events + Trail + area/level/pet), paid (t_Offer/t_Store/purchase/1+N).
+| d | 10 | 9 | 8 | 7 | 6 | 5 | 4 | 3 | 2 | 1 |
+|---|---|---|---|---|---|---|---|---|---|---|
+| 19 events / paid | 97/3 | 97/3 | 98/2 | 99/2 | 98/2 | 98/2 | 96/4 | 95/5 | 97/3 | 99/2 |
+| 20 Kiosk | 0 | 0 | 0 | 18 | 24 | 11 | 0 | 0 | 0 | 0 |
+| 20 ColoringBook | 0 | 0 | 0 | 0 | 18 | 36 | 36 | 13 | 0 | 0 |
+| 20 paid | 6 | 4 | 3 | 2 | 2 | 2 | 2 | 3 | 3 | 2 |
+Slide: gsrc_slide (after gw_slide), script claude/slide_domino_golden_sources_19v20_2026-10-28.py.
