@@ -16,3 +16,9 @@ Joker as a Royal source: 0–2.5 per 100 payers a day in 20, 0–1.8 in 19 excep
 - Reading: Royals did not get the extra supply Goldens got in album 20; same total, different days. With the same end result by distance group (domino-royals-by-distance), the Royal gate stays the remaining block. Hypothesis: more Royal supply (or a Royal route via Joker) 10–5 days before close for near payers would convert more; needs a test (= TEST 2 in dxrec).
 
 Slide: ry_slide (copy of wv_slide; lines redrawn as ry_m1..38 because re-scaling copied lines does not work). Script claude/slide_domino_royals_19v20_2026-10-28.py (frame/text part). Chapter order now: dxgold → wv → gw → gsrc → ry → dxjk.
+
+## Rerun as % of active payers who got ≥1 new Royal that day (slide ry_slide now uses this; 18 GB)
+19: 8.5 4.6 6.6 9.0 6.6 4.2 9.8 10.8 10.3 11.4 25.6 18.8 12.1 20.3 20.2 10.5 5.9 8.1 10.2 13.0 (avg 12%)
+20: 6.3 9.8 15.8 17.3 7.3 18.6 25.5 16.9 11.3 8.5 6.8 6.5 7.6 9.1 12.6 10.7 19.7 18.5 12.6 10.4 (avg 13%)
+(d−20..−1). Per-100 counts above stay valid; % is lower at peaks because some payers got 2+ Royals in a day.
+dxjk updated 10-28: album 19 line red (consistent with wv/gw/ry), bottom line reworded (same wave, 2 days earlier, 3 days left), notes: Jokers gave few Royals.
