@@ -92,6 +92,7 @@ MCP guardrail: no `SELECT *`; flatten STRUCT fields in a separate CTE (`a.struct
 | File | Game | Tables | What it computes (header) | Feeds | Status |
 |---|---|---|---|---|---|
 | c/near_share_last7_2026-10-25.sql | DiDoSn | user_daily_album, user_daily_metrics, solitaire_user_daily_metrics_agg_df | 2026-10-25 (Eden): per game, share of album revenue (and of payers) from payers who are <=3 sti | near-share-last7-2026-10-25 | Current |
+| c/near_share_last7_domino19_2026-10-28.sql | Do | user_daily_album, user_daily_metrics | 2026-10-28: Domino 19 version of near_share_last7 (rev + payer share within 3 stickers, d−7..d−1); confirms n19 slide | near-share-last7-2026-10-25 | Current |
 | c/topic5_end_lift_2026-10-24.sql | DiDoSn | user_daily_album, solitaire_user_daily_metrics_agg_df, user_daily_metrics | Topic 5 end lift on the topic-5 payer population (2026-10-24). Albums Dice 61/63, Domino 19/20, | topic5-end-lift-2026-10-24; data-story-review-2026-10-21 | Current |
 | c/topic5_left_behind_2026-10-23.sql | DiDoSn | user_daily_album, solitaire_user_daily_metrics_agg_df, user_daily_metrics | Topic 5 reruns (Eden 2026-10-23: "run all three"): those left behind, on the fixed populations. | topic5-left-behind-2026-10-23 | Current |
 | c/topic5_sensitivity_2026-10-24.sql | DiDoSn | user_daily_album, solitaire_user_daily_metrics_agg_df, user_daily_metrics | Topic 5 sensitivity (2026-10-24): is "<=3 missing at close-4" the best cut? Same payer populati | data-story-review-2026-10-21; topic5-sensitivity-2026-10-24 | Current |
