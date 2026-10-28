@@ -1,0 +1,5 @@
+-- 2026-10-28 (Eden): albums 17-20, standard-population payers: how many were near FU (141+ of 144 set stickers) at the end of close-4,
+-- and their share of album revenue. Set sticker = any type except joker; held = first receipt <= close-4.
+-- Album revenue = album-table spend from open to close-1 (register). Tests Eden's hypothesis: 18+20 (end lift) had more payers near FU than 17+19.
+-- v2 (used): FU threshold = each album's own total minus 3 (album 18 has 168 set stickers: 127 common, 31 golden, 10 royal). v1 assumed 144 and was wrong for 18.
+-- Full SQL as run: see claude/domino-near-fu-c4-17-20-2026-10-28.md (query text identical to v1 except tot / miss CTEs).
