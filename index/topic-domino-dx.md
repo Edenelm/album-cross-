@@ -12,6 +12,9 @@ Eden's 7-topic Domino diagnosis for product decisions. Albums 19 (Jul 6–Aug 24
 - **Easy ARPDAU end lift decomposition (17–20):** no single component; 17/19/20 = pricier album/Joker offers ($8–13), 18 = July 4 sale (domino-dx-easy-end-decomp-2026-10-26).
 - **Story check:** album 20 = slight ARPDAU recovery from 19, not an improvement; revenue/day keeps falling with DAU (−10%) (domino-dx-t1-story-check-2026-10-26).
 - **Test population (close−7, Easy, album 20):** 3–5 missing = 9,448 (10% of payers, 11.5% rev); 6–8 = 39,931 (41%, 20.7%). The 36,734 on the slide is the close−4 state (domino_dx_test_population_c7 → effort doc).
+- **FU (10-27, dxfu_slide):** Easy payers who reached FU and did not finish = 36,348, 34% of payers, 29% of album revenue; $2–20/day 11,470 / 11% / 20%; finish rate from FU 14/17/27/58% by level (domino-easy-gate-stuck-2026-10-27).
+- **GoldenKiosk (10-27, album 20, 10-05..07):** 34,506 standard payers got a new rare (32% of payers, 34% of album rev). Easy 6–10 missing at close−8: reached FU 68% vs 56%, finished 10% vs 8% (correlation, no control) (domino-goldenkiosk-std-2026-10-27).
+- **19 vs 20 end supply (10-27):** Joker wave close−4/−3 in 20 vs close−2/−1 in 19; bought Goldens same (2–6%/day); album 19 had MORE gameplay rares on days −10..−6 → difference = timing, not amount (domino-end-rares-jokers-19v20-2026-10-27).
 - **Hard check (10-27):** Hard gate 3 in both albums, yet Hard payers finished 22% → 32%, far on close−1 47% → 26%; Easy 4% → 8%, 87% → 57%. Gate size alone does not explain 19→20 (domino-19v20-by-segment-2026-10-27).
 - **Base + correction (10-27):** whole chapter uses % of album revenue (standard-population payers), domino-chapter-album-rev-base-2026-10-27. Eden: puzzle Jokers were not free (very hard last tier, players paid to finish); RV finishers worth little revenue. Slide rules (CLAUDE.md on main) checked on all chapter slides.
 ## Read in order
@@ -32,7 +35,10 @@ Open: dxtest (3–5 missing, 9,448) vs dxrec (6–12 missing, 59,648) test audie
 | dxw_slide | Which End Worked Better? Easy ARPDAU in the Final 4 Days, 17–20 | domino-dx-easy-end-decomp | c/slide_domino_chapter_2026-10-26.py |
 | dxsrc_slide | How Finishers Got Their Last 3 Stickers, 17–20 | domino-dx-last3-sources | same |
 | dxfar_slide | Most Easy Payers Are Still Far 4 Days Before Close: Album 20 | domino-dx-last3-sources §2 | same |
-| dxrec_slide | What to Do in Domino: Keep One Thing, Test One Thing | domino-dx-last3-sources §3 | same |
+| dxfu_slide (before dxrec) | Easy Payers Who Reached FU: % Who Finished, by Spend Level | domino-easy-gate-stuck-2026-10-27 | c/slide_domino_fu_2026-10-27.py |
+| dxjk_slide (after dxchg) | % of Payers Who Got a Joker from Gameplay per Day: Domino 19 vs 20 (one chart, rebuilt 10-27) | domino-end-rares-jokers-19v20-2026-10-27 | c/slide_domino_end_wave_2026-10-27.py joker |
+| dxgold_slide (after dxjk) | % of Missing Goldens Collected per Day, Last 10 Days: Domino 19 vs 20 | same (addendum) | c/slide_domino_end_wave_2026-10-27.py gold |
+| dxrec_slide | What to Do in Domino: Keep One Thing, Test Two (rebuilt 10-27: KEEP Kiosk+Joker route, TEST 1 FU offer, TEST 2 earlier rares) | domino-goldenkiosk-std / domino-easy-gate-stuck 2026-10-27 | c/slide_domino_dxrec_2026-10-27.py |
 | t5ad_slide (right after t5a_slide) | End Status of Payers by Spend Level: Domino 19, Domino 20, Dice 63 | end-status-d19-d20-dice63-2026-10-26 | c/slide_t5a_domino_2026-10-27.py (10-27) |
 | ehgap_slide (after "The Rare Gap Widens in the Last 10%") | Royals Held at 90% of Album Time and at Close: Domino Easy vs Hard | domino-easy-hard-splits-2026-10-26 §1 | c/slide_domino_easy_hard_2026-10-27.py (10-27) |
 | dxchg_slide (after t5ad) | What Changed at the End of the Album: Domino 19 vs 20 | domino-19v20-by-segment-2026-10-27 + map/t4/last3 | c/slide_domino_19v20_changes_2026-10-27.py (10-27) |
@@ -43,3 +49,7 @@ Generators: `python3 c/slide_domino_chapter_2026-10-26.py <dxw|dxsrc|dxfar|dxrec
 ## Open
 - Pixie (topic 5), prizes vs effort (6), Royals/Momentum (7) not done (map §ג). Questions for the Domino team in map §ד.
 - Joker offer funnel needs staging approval (topic 3).
+- **Superseded (10-27):** c/slide_domino_joker19v20_2026-10-27.py (two-panel dxjk) → c/slide_domino_end_wave_2026-10-27.py joker.
+## Deck order (live, 2026-10-27, Eden approved)
+104 dxdiv_main → 105 dxchg → 106 Eden: Easy rev by missing c−4 19v20 → 107 Eden: finishers per day → 108 dxgold → 109 dxjk → 110 Eden: daily rev vs weekday → 111 dxsrc → 112 Eden: same spend different gate → 113 dxtrans → 114 dxlast (c/slide_domino_far_last_royal_2026-10-27.py) → 115 dxfu → 116 dxrec → 117 thanks → 118 dxdiv_app → appendix: dxw, dxfar, ehlast, ehnear, dxend, dxgate, old divider, dxdist, dxtest, dxmix, ehgap.
+- **10-28:** Domino 19 copies under cross-game slides = deck map §H. Album 19 fell behind 20 only after day 33 (m19). Domino 19 golden-buy share last day 2.3% (gb19).

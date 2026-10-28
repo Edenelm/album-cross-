@@ -166,6 +166,10 @@ MCP guardrail: no `SELECT *`; flatten STRUCT fields in a separate CTE (`a.struct
 | c/domino_easy_gap_by_day_2026-10-27.sql | Do | user_daily_album, user_daily_metrics | 10-27: Domino 20 Easy finishers vs far by album day, by sticker type (gl1 design, Easy only) | domino-easy-gap-by-day-2026-10-27 | Current (not committed) |
 
 ## Domino dx chapter (merged 10-26, PRs #30/#31) → index/topic-domino-dx.md
+- c/domino_easy_gate_stuck_2026-10-27.sql · Domino 20 Easy std payers: reached FU vs finished by spend level → domino-easy-gate-stuck-2026-10-27 / dxfu_slide · current
+- c/domino_goldenkiosk_std_2026-10-27.sql · Domino 20 GoldenKiosk rares on std payers, by state at close−8 → domino-goldenkiosk-std-2026-10-27 · current
+- c/domino_end_rares_jokers_19v20_2026-10-27.sql · Domino 19 vs 20 std payers: new Golden/Royal (bought/Kiosk/gameplay) + Joker per day, last 10 days → domino-end-rares-jokers-19v20-2026-10-27 · current
+- c/domino_golden_fill_rate_19v20_2026-10-27.sql · Domino 19 vs 20 std payers: % of missing Goldens/Royals filled per day, last 10 days → domino-end-rares-jokers-19v20-2026-10-27 (addendum) · current
 | File | Game | Tables | What it computes (header) | Feeds | Status |
 |---|---|---|---|---|---|
 | c/domino_dx_gate_structure_2026-10-25.sql | Do | user_daily_album, int_user_album_stickers | 10-25 dx topic 2: which Goldens/Royals were Joker-only (locked to the end) per album and Easy/Hard; release = first day with 200+ non-Joker collections. Albums 17–20 | domino-dx-map-2026-10-25 | Current (merged 10-26) |
@@ -240,6 +244,7 @@ MCP guardrail: no `SELECT *`; flatten STRUCT fields in a separate CTE (`a.struct
 ## Deck checks
 | File | Game | Tables | What it computes (header) | Feeds | Status |
 |---|---|---|---|---|---|
+| c/goldens_decile_d63_s15_2026-10-28.sql | DiSn | user_daily_album, fact_user_album_stickers, dim_user_album_stickers | 10-28: avg % of Goldens held per tenth of album time, Dice 63 / Disney 15 std payers (sg1_slide) | domino-19-golden-buy-2026-10-28 | Current |
 | c/deck_review_checks_2026-10-20.sql | Di | user_daily_album, fact_user_album_stickers, user_daily_metrics_agg | Deck review checks, 2026-10-20. Results: claude/deck-review-2026-10-20.md | deck-review-2026-10-20 | Current |
 
 ## Not-in-main SQL (see files-catalog §Worktrees)
