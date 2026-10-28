@@ -244,6 +244,7 @@ MCP guardrail: no `SELECT *`; flatten STRUCT fields in a separate CTE (`a.struct
 ## Deck checks
 | File | Game | Tables | What it computes (header) | Feeds | Status |
 |---|---|---|---|---|---|
+| c/domino_end_arpdau_weekday_17_20_2026-10-28.sql | Do | user_daily_album, user_daily_metrics | 10-28: ARPDAU index vs same weekday, last 14 days, albums 17-20, std payers (dlw_slide) | domino-end-arpdau-weekday-17-20-2026-10-28 | Current |
 | c/goldens_decile_d63_s15_2026-10-28.sql | DiSn | user_daily_album, fact_user_album_stickers, dim_user_album_stickers | 10-28: avg % of Goldens held per tenth of album time, Dice 63 / Disney 15 std payers (sg1_slide) | domino-19-golden-buy-2026-10-28 | Current |
 | c/deck_review_checks_2026-10-20.sql | Di | user_daily_album, fact_user_album_stickers, user_daily_metrics_agg | Deck review checks, 2026-10-20. Results: claude/deck-review-2026-10-20.md | deck-review-2026-10-20 | Current |
 
