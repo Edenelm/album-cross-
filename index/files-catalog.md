@@ -348,3 +348,19 @@ Status: Current / Superseded / Reference / Log / Script / Asset. 'INDEX' column 
 | c/domino-19v20-daily-pauses-2026-10-28.md | 10-28 | Domino 19 vs 20 median stickers held per day (m19 slide) | Results | עדכני |
 | c/domino-19-golden-buy-2026-10-28.md | 10-28 | Domino 19 golden-buy share + single-album Goldens deciles | Results | עדכני |
 | c/slide_domino19_copies_2026-10-27.py, slide_domino19_missing / goldbuy / goldens_single_albums_2026-10-28.py | 10-28 | Generators for the Domino 19 copies (deck map §H) | Script | עדכני |
+| c/domino-end-arpdau-weekday-17-20-2026-10-28.md | 10-28 | Domino 17-20 ARPDAU vs normal weekday, last 14 days (dlw) | Results | עדכני |
+| c/domino-near-fu-c4-17-20-2026-10-28.md | 10-28 | Payers near FU at close-4 vs end lift, 17-20 (nfu) | Results | עדכני |
+| c/domino-20-golden-sources-by-day-2026-10-28.md | 10-28 | Album 20 top Golden sources per day, last 10 days | Results | עדכני |
+| c/domino-kiosk-cannibal-20-2026-10-28.md | 10-28 | GoldenKiosk vs spend: no sign of cannibalization; who did not use it | Results | עדכני |
+| c/domino-19v20-golden-sources-by-day-2026-10-28.md | 10-28 | Golden share per day + source mix 19 vs 20 (gw, gsrc) | Results | עדכני |
+| c/domino-royals-by-distance-19v20-2026-10-28.md | 10-28 | Royals filled per day by distance group, 19 vs 20 | Results | עדכני |
+| c/domino-sources-d20-d11-19v20-2026-10-28.md | 10-28 | New stickers per payer d-20..-1 by source, two waves (wv) | Results | עדכני |
+| c/domino-royal-sources-19v20-2026-10-28.md | 10-28 | Royal sources per day, last 20 days, 19 vs 20 (ry) | Results | עדכני |
+| claude/domino-royals-missing-end-19v20-2026-10-28.md | Royals missing at end, rev share, 19 vs 20 | current |
+| claude/slide_domino_jk19v20_panels_2026-10-28.py | jk1920_slide builder (Joker panels 19 vs 20) | current |
+| claude/chart_domino19_joker_last7_2026-10-28.py | PNG Domino 19 Joker chart | current |
+| claude/domino-prev-spend-tiers-19v20-2026-10-28.md | Domino 19/20 payers + rev by previous-album spend tier | current |
+| claude/rares-by-time-latest-album-2026-10-28.md | rares held by album time, latest album (replaces 3-album average on final deck) | current |
+| claude/slide_domino_daily_mean_19v20_2026-10-28.py | rebuild of final-deck per-day bars as mean | current |
+| claude/slide_rares_by_time_latest_2026-10-28.py | native redraw of final-deck rares-by-time charts (67/68) | current |
+| claude/next-session-prompt-2026-10-28.md | handoff: final-deck Domino review, continue from slide 82 | current |
