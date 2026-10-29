@@ -54,7 +54,7 @@ rep(c, 'bl', 'The question: does a smaller raise move buyers from cheap puzzle o
 # ---------- 2. album 20: who bought what, spend, finish ----------
 c = 'p91b_slide'; dup(c, 1); dele(c, 'a1', 'a1h', 'a1b', 'ml', 'mb')
 rep(c, 'ti', 'Album 20 Last Week, Control vs Test: Offer Buyers, Spend and Finish Rate')
-text(c, c + '_su', 557784, SUB_Y, 8000000, 220000, 'All 137,670 players at FU (15% of active players, 73% of album-20 revenue) · per assigned player, from entry to Oct 11', 10, LGREY)
+text(c, c + '_su', 557784, SUB_Y, 8000000, 220000, 'All 137,670 players at FU (15% of active players, 73% of album-20 revenue) · per assigned player, from entry to Oct 11\nJoker offer = 1+9 Album, 1+12 Joker card, Buy Them All+, 1PO Joker · puzzle offer = Joker / Golden Puzzle, Sunny Deal Puzzle\nAlbum $ = album spend ÷ all assigned players (payers or not) · finished = 144 stickers by the end of Oct 12', 9, LGREY)  # 3 lines, added 10-29 on Eden's request
 text(c, c + '_lg', 5000000, 1050000, 3600000, 220000, '■ Control (usual raise)   ■ Test (smaller raise)', 10, LGREY, False, 'END')
 pan = [('Bought a Joker offer', [2.88, 3.39], '{:.2f}%', '+18%', True), ('Bought a puzzle offer', [2.81, 2.64], '{:.2f}%', '−6%', True),
        ('Album $ per player', [11.22, 10.94], '${:.2f}', '−1% vs before (±6%)', False), ('Finished album 20', [14.19, 14.18], '{:.2f}%', 'same', False)]
