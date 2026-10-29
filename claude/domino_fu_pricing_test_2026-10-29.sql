@@ -207,3 +207,14 @@ SELECT REPLACE(arm, 'def_Joker_Pricing_', '') AS arm, COUNT(*) AS players,
   ROUND(AVG(LEAST(d14, 500)), 3) AS d14_capped500_pp,
   ROUND(AVG(d14 - pre14), 3) AS diff_pp, ROUND(STDDEV(d14 - pre14), 2) AS diff_sd
 FROM u GROUP BY 1 ORDER BY 1
+;
+-- Q4 (2026-10-29): test segments after close -> only 12.10 (album 20 close day, 1+9 Summer); none 13-25.10.
+SELECT pdate, album_id, LOWER(REGEXP_EXTRACT(mtx_campaign_name, r'^([^|]+)')) AS camp,
+  REGEXP_EXTRACT(mtx_segment_key, r'(Joker_Pricing_FU_\w+|Joker_Test_FU_\w+?__)') AS seg, COUNT(DISTINCT user_id) AS users
+FROM `domino-dreams-dbt.prod_10_staging.stg_mtx_event_triggered_vw`
+WHERE pdate BETWEEN DATE '2026-10-12' AND DATE '2026-10-25' AND REGEXP_CONTAINS(IFNULL(mtx_segment_key,''), r'Joker_Pricing_FU|Joker_Test_FU')
+GROUP BY 1, 2, 3, 4 ORDER BY 1, 3, 4;
+-- Q5: CZ at entry vs album 21 (cz_c in smart_segments, first offer event 5-11.10 / 13-25.10) + album-21 purchases 13-25.10 by arm
+--     (asg CTEs as Q3; cz CTE = ARRAY_AGG(... JSON_VALUE(smart_segments,'$.cz_c') ... ORDER BY timestamp LIMIT 1); p0 = staging purchases dedup by external_order_id).
+-- Q6: per-player (d14 - pre14) by $/day tier before entry (0 / <=2 / 2-5 / 5-20 / 20+) and by bought an FU-priced Joker offer in the window
+--     (asg + ud + u CTEs as Q3; fu = staging purchases of the 4 FU-priced campaigns from entry to 11.10). Results in the doc §6.

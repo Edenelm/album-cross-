@@ -80,6 +80,25 @@ Players: Control 68,155, Test 69,515 = 137,670 = **15% of album-20 players activ
 - **Cause unknown.** Album 20 itself showed no difference (−1%, ±6%). Album 20 window + album 21 days 1–14 together: Test is not higher in any measure.
 - **Meaning for test 1591:** a smaller FU raise does not bring more money, and may bring a little less over album 21's first two weeks. **Keep the usual raise (Control).**
 
+## 6. What could explain the album-21 drop (checks 1, 2, 4; Q4–Q6 in the test SQL, 2026-10-29)
+- **1. Test still running in album 21? Refuted.** Test segments appear only on 12.10 (album 20 close day, 1+9 Summer offer, about 7,900 players per arm). None from 13.10 on.
+- **2. Lower CZ → cheaper offers in album 21? Refuted.**
+  - How CZ was read: `cz_c` inside `smart_segments` (JSON) on each event. CZ at entry = first offer event 5–11.10; CZ in album 21 = first offer event 13–25.10. Price ÷ CZ = `usd_amount` ÷ `cz_c` on the purchase.
+  - Check that `cz_c` is the pricing CZ: "1.6CZ" offers were paid at 1.7× `cz_c` at every distance.
+  - Result: CZ rose the same in both arms (+0.26 vs +0.28; median 2.8 → 3.0 vs 2.72 → 2.9). Price ÷ CZ the same (0.80). Price per purchase −1.7% (the before gap). **The gap = fewer purchases per payer: 6.29 vs 6.48 (−3%)**, same share of payers (40%).
+- **4. Who makes the gap (tiers fixed before the test, $ a day in the 14 days before entry):**
+
+| $ a day before | Players per arm | % of the arms' album-21 revenue (d1–14) | Change vs own before, Control → Test | Test − Control |
+|---|---|---|---|---|
+| none | 38–39K | 2% | +$2.11 → +$2.15 | 0 |
+| ≤$2 | 16–17K | 9% | +$7.33 → +$7.07 | −$0.26 (±0.7) |
+| $2–5 | 6.6–6.8K | 9% | +$2.51 → +$1.86 | −$0.65 (±2.1) |
+| $5–20 | 5.5K | 17% | −$19.34 → −$23.30 | −$3.95 (±4.8) |
+| >$20 | 1.1–1.2K | 12–13% | −$159.72 → −$201.49 | **−$41.8 (±33.5)** |
+- About 70% of the gap per player comes from the >$20 group (1.7% of players). It is the only tier where the gap is outside noise, and only just. That tier had a higher before-spend in Test (+3%), so part may be a pull back to normal after a high pre period.
+- Descriptive only (after the treatment): Joker-offer buyers 1,967 (Control) vs 2,357 (Test). Control buyers spent +$15 vs their before in album 21, Test buyers −$5. The cheaper price brought in more buyers who were less committed.
+- **Reading:** no mechanism found. The drop is concentrated in a small, heavy-spending group with wide noise. Fact: no lift; possible small loss among >$20 payers. Not proven.
+
 ## Open
 - FU definition in the price segments; offer contents (Jokers per offer).
 - SummerFever progress per player is not in the puzzle tables, so "progress before the buy" could not be measured. The route uses a Joker fill after the buy instead.
