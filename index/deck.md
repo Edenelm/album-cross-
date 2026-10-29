@@ -8,9 +8,13 @@ Slide numbers shift, so rows are keyed by the slide objectId or short code (s6a,
 | Part 2 | 1CQVnRMrtzWG_j6MQebUKuErP5TDUYmQJaFG_FUvwJBg | v82 chapter 8, method, appendix (spec §10) | deck-part1.md §Part 2 |
 | Evidence deck v82 (claude.ai artifact, 96 slides) | claude.ai/artifact/6UUb91x2vHULkaM4g73uQr | Appendix / evidence; not updated since the topic review (data-story-review §Topic 2) | deck-part1.md |
 | Decision deck (22 slides) | claude.ai/artifact/F1nbGMJptGsz2LW96TQ2jf · GS 1706frcGaYkX013j2sxSpPaGvCDgMLtfLJqvIKKaA4TY | Eden 10-21: "NOT good yet". Reference only | – |
+| **FINAL deck (Domino)** — Eden 2026-10-29: "the final Domino deck" | 1gHkK8mNPg5pDKwlIe3FdMSqq2UqQx2bPihgu4ve_mks | The deck being presented. Slide 3 = 10-chapter agenda, slide 124 = Recommendations and Test Order (both updated 10-29 to Eden's new order). Chapter map below | topic-domino-dx.md §Final deck |
 | **Domino-focused deck** | 1bVGI1Sb49fJ-a4Cp8AHs5hTOYjrTuQlJbW9vStaJr1o | Domino diagnosis chapter (dxend, dxgate/dxdist/dxmix/dxtest, dxw/dxsrc/dxfar/dxrec). Merged to main 10-26; slide positions **unverified, check live deck** | topic-domino-dx.md §Domino deck map |
 | Style guide / content v1 artifacts | 987682ea-… · 8ffefe07-… | Design reference | – |
 | Stale | HH8Bto7Q… draft deck (stale); CBFJks… end-lift chart (valid) | per INDEX | – |
+
+## FINAL Domino deck chapter map (2026-10-29, Eden's new order; 125 slides)
+1 The three games 5–21 · 2 The album end 22–45 · 3 Golden and Rare stickers (incl. Domino 19 vs 20 Goldens, Royals, Jokers) 46–81 · 4 Who falls behind, by daily spend 82–93 · 5 How the album gets closed (free finishers, RV) 94–99 · 6 After the album 100–109 · 7 VIP 110–112 · 8 Domino tests: Royals and the album 18 FU (tx_royal, fu1, fu2, fu3, fu5, fu6) 113–118 · 9 Post-album event 119–122 · 10 Three lessons + test order 123–124. Dice prize slides are no longer in this deck. Rule: each topic = 3-game slides, then Domino 20 vs 19.
 
 ## Story order (current = data-story-review topic map 0–9)
 0 definitions → 1 where the money is → 2 who finishes / who is far → 3 rare supply → 4 how the album closes → 5 left behind → 6 after the album → 7 three natural cases → 8 targets → 9 recommendations and test order.

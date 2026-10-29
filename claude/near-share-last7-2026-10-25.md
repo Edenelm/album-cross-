@@ -16,6 +16,9 @@ SQL: `claude/near_share_last7_2026-10-25.sql` (Dice 91 GB, Domino 4.6 GB, Disney
 | Dice 63 | 12% (3%) | 19% (6%) | 39% (18%) | 54% (30%) | 71% (50%) | 78% (60%) | 82% (66%) |
 | Domino 20 | 5% (1%) | 12% (2%) | 30% (9%) | 55% (23%) | 69% (34%) | 75% (41%) | 78% (46%) |
 | Disney 15 | 35% (8%) | 37% (9%) | 40% (10%) | 44% (12%) | 48% (14%) | 52% (16%) | 57% (19%) |
+| Domino 19 (added 2026-10-28) | 20% (2%) | 24% (3%) | 27% (4%) | 31% (5%) | 38% (8%) | 44% (12%) | 52% (17%) |
+
+Domino 19 row: `claude/near_share_last7_domino19_2026-10-28.sql` (domino-dreams-dbt, 5.6 GB), same definitions; 119,201 payers, $13.55M album revenue. Matches the n19 slide values (built 10-27 without a saved query).
 
 ## Reading
 - **Fact:** Dice and Domino start low a week out (5–12%) and jump in the last 5 days, to 78–82% of revenue on the day before close.
