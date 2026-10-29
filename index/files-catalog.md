@@ -364,3 +364,8 @@ Status: Current / Superseded / Reference / Log / Script / Asset. 'INDEX' column 
 | claude/slide_domino_daily_mean_19v20_2026-10-28.py | rebuild of final-deck per-day bars as mean | current |
 | claude/slide_rares_by_time_latest_2026-10-28.py | native redraw of final-deck rares-by-time charts (67/68) | current |
 | claude/next-session-prompt-2026-10-28.md | handoff: final-deck Domino review, continue from slide 82 | current |
+| c/domino-fu18-ab-test-2026-10-29.md | 10-29 | FU18 A/B test (Domino album 18, Easy FU 3 vs 5 locked): numbers, methods, queries, caveats, open items (handoff from the work box) | Results | עדכני |
+| c/domino-fu18-cumulative-2026-10-29.md | 10-29 | FU18 cumulative check (−2.7% [−5.6,+0.1], −1.6% net) + who dropped: players at FU before the test −9% (album 19 −13%) | Results | עדכני |
+| c/slide_fu18_story_2026-10-29.py | 10-29 | Generator: FU18 test story fu1–fu6 in the final deck after tx_royal (duplicates tx_end + native bars) | Script | עדכני |
+| c/domino-fu18-checks-2026-10-29.md | 10-29 | FU18 follow-ups: daily gap, Hard, ARPDAU/normalised revenue (14-day pre), who made the gap (at FU · $5–20 a day), finish rates, who the FU rule touches (11% players / 86% end revenue) | Results | עדכני |
+| c/slide_fu18_case_2026-10-29.py | 10-29 | Generator: fucase_slide (one near player, 5 vs 3 locked) | Script | עדכני |
