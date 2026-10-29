@@ -56,3 +56,12 @@ Normalisation: every number is $ per player = group revenue ÷ group size (3 loc
 | 6–10 missing | $21.06 vs $21.77, −3.3% | −1.6% | +1.7% |
 | 11+ missing | $0.82 vs $0.84, −2.4% | −2.7% | −0.2% |
 Same story as the long baseline (−1.6% / −9.0% / +2.0% / −1.2%): no clear overall loss; the lasting drop sits in the players already at FU.
+
+## 6. The ~4% drop in the 2 weeks after album 18 (Jul 7–20), by state before the test (14-day pre)
+| State on 06-27 | Gap Jul 7–20 [95% CI] | Before (14 days) | After removing it | $ per player of the total gap (net) |
+|---|---|---|---|---|
+| All Easy | −5.4% [−8.8, −1.9] | −1.2% | −4.2% | −$0.093 of −$0.121 raw |
+| At FU (1.3%) | −7.6% [−17.9, +2.7] | −1.1% | −6.6% | −$0.026 |
+| 6–10 (4.5%) | −6.0% [−11.4, −0.6] | −3.3% | −2.9% | −$0.020 |
+| 11+ (94%) | −5.4% [−9.6, −1.2] | −2.4% | −3.0% | −$0.033 |
+Reading: the drop is spread over all states, including players far from the FU (11+ missing), whom 3 vs 5 locked barely touched. So the 2-week drop is not explained by the FU mechanic alone; part may be chance (one 14-day window; the same window after album 17 was −0.9%) or another difference between the groups (report caveat C11: a duplicate-bar bug "primarily affected the test group", not visible in marts). Only the near group's drop lasts into album 19.
