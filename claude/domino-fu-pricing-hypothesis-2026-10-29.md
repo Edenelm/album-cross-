@@ -90,12 +90,12 @@ Players: Control 68,155, Test 69,515 = 137,670 = **15% of album-20 players activ
 
 | $ a day before | Players per arm | % of the arms' album-21 revenue (d1–14) | Change vs own before, Control → Test | Test − Control |
 |---|---|---|---|---|
-| none | 38–39K | 2% | +$2.11 → +$2.15 | 0 |
-| ≤$2 | 16–17K | 9% | +$7.33 → +$7.07 | −$0.26 (±0.7) |
-| $2–5 | 6.6–6.8K | 9% | +$2.51 → +$1.86 | −$0.65 (±2.1) |
-| $5–20 | 5.5K | 17% | −$19.34 → −$23.30 | −$3.95 (±4.8) |
-| >$20 | 1.1–1.2K | 12–13% | −$159.72 → −$201.49 | **−$41.8 (±33.5)** |
-- About 70% of the gap per player comes from the >$20 group (1.7% of players). It is the only tier where the gap is outside noise, and only just. That tier had a higher before-spend in Test (+3%), so part may be a pull back to normal after a high pre period.
+| none | 38–39K | 5% | +$2.11 → +$2.15 | 0 |
+| ≤$2 | 16–17K | 17% | +$7.33 → +$7.07 | −$0.26 (±0.7) |
+| $2–5 | 6.6–6.8K | 18% | +$2.51 → +$1.86 | −$0.65 (±2.1) |
+| $5–20 | 5.5K | 35% | −$19.34 → −$23.30 | −$3.95 (±4.8) |
+| >$20 | 1.1–1.2K | 24–26% | −$159.72 → −$201.49 | **−$41.8 (±33.5)** |
+- Most of the gap per player (about 2/3 or more) comes from the >$20 group (1.7% of players). It is the only tier where the gap is outside noise, and only just. That tier had a higher before-spend in Test (+3%), so part may be a pull back to normal after a high pre period.
 - Descriptive only (after the treatment): Joker-offer buyers 1,967 (Control) vs 2,357 (Test). Control buyers spent +$15 vs their before in album 21, Test buyers −$5. The cheaper price brought in more buyers who were less committed.
 - **Reading:** no mechanism found. The drop is concentrated in a small, heavy-spending group with wide noise. Fact: no lift; possible small loss among >$20 payers. Not proven.
 
