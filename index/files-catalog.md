@@ -369,3 +369,4 @@ Status: Current / Superseded / Reference / Log / Script / Asset. 'INDEX' column 
 | c/slide_fu18_story_2026-10-29.py | 10-29 | Generator: FU18 test story fu1–fu6 in the final deck after tx_royal (duplicates tx_end + native bars) | Script | עדכני |
 | c/domino-fu18-checks-2026-10-29.md | 10-29 | FU18 follow-ups: daily gap, Hard, ARPDAU/normalised revenue (14-day pre), who made the gap (at FU · $5–20 a day), finish rates, who the FU rule touches (11% players / 86% end revenue) | Results | עדכני |
 | c/slide_fu18_case_2026-10-29.py | 10-29 | Generator: fucase_slide (one near player, 5 vs 3 locked) | Script | עדכני |
+| c/domino-fu-pricing-hypothesis-2026-10-29.md | 10-29 | FU Joker-offer pricing (album 20 last week): mechanism, randomised FU Pricing Joker Test, puzzle route; higher FU price = fewer Joker buyers, same total, small shift to puzzle offers | Results | עדכני |
