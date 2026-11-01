@@ -38,6 +38,7 @@ The rule is the register (`decisions-definitions-register.md`). It wins every co
 9. **D9:** replace the CLAUDE.md "Start here" with index/CLAUDE.md.proposed-start-here.md, which points to the 10-26 prompt and to MASTER-INDEX instead of INDEX.md.
 10. **D10:** after D9, keep INDEX.md as history or delete it.
 11. **D11:** fix register line 8, the comparison-album row: drop Domino 17/19, or mark it history. Still open after the 10-26 merge.
+12. **D12 (2026-11-01): FU18 (album 18, Easy FU 3 vs 5 locked) before a rollout recommendation.** Result: finish rate 0.68% → 1.80% (2.6×); revenue per player −1.5%, 95% range −4.5% to +1.5% (claude/domino-fu18-cumulative-2026-10-29.md §7). Open: (a) examine the exclusions based on flags measured after assignment (balanced sizes do not rule out bias; not a full ITT); (b) verify the other test settings (offers, prizes, difficulty) against the live config; (c) set the revenue risk the business accepts for the finishing gain.
 
 ## Worktree decisions (.claude/worktrees; never open them for normal work)
 - **D-W1, domino-focused-presentation-090d0d: RESOLVED 10-26.** Merged to main (PRs #30/#31): 35 files + INDEX.md (+9 rows) + register (+1 row). Main kept the 090d0d slide_domino_chapter_2026-10-26.py (14,593 B, same md5). The trove-install-script-c45ac8 variant (15,594 B) was not merged → drop with the worktree.

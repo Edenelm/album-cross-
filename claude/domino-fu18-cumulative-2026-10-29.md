@@ -65,3 +65,23 @@ Same story as the long baseline (−1.6% / −9.0% / +2.0% / −1.2%): no clear 
 | 6–10 (4.5%) | −6.0% [−11.4, −0.6] | −3.3% | −2.9% | −$0.020 |
 | 11+ (94%) | −5.4% [−9.6, −1.2] | −2.4% | −3.0% | −$0.033 |
 Reading: the drop is spread over all states, including players far from the FU (11+ missing), whom 3 vs 5 locked barely touched. So the 2-week drop is not explained by the FU mechanic alone; part may be chance (one 14-day window; the same window after album 17 was −0.9%) or another difference between the groups (report caveat C11: a duplicate-bar bug "primarily affected the test group", not visible in marts). Only the near group's drop lasts into album 19.
+
+## 7. Per-player range and finish rate on all assigned (q31, 2026-11-01)
+Same population as q28–q30 (A/B board definition, all Easy album-18 players): Test = MOD(server_user_id, 997) < 498 = 3 locked, 626,792; Control = 5 locked, 628,564. Unit = player.
+
+| | Control (5 locked) | Test (3 locked) |
+|---|---|---|
+| $ per player, 14 days before (Jun 14–27) | $2.364 | $2.335 (−1.2%) |
+| $ per player, 72 days (Jun 28 – Sep 7) | $10.626 | $10.334 (−2.7%) |
+| Finished album 18 by Jul 5 (exact counts) | 4,301 = 0.68% | 11,306 = 1.80% |
+| Active Jun 28 – Jul 5 at level 35+ | 336,849 = 53.59% | 336,166 = 53.63% |
+| Finish rate among active | 1.28% | 3.36% |
+
+- **After adjusting for the revenue gap in the base period (14 days before): −1.5%, 95% range −4.5% to +1.5%.** Ratio of ratios, not a subtraction: (W_T/W_C)/(P_T/P_C) − 1; range from the delta method on its log, per player, keeping the covariance between the two periods (correlation 0.53 in both arms). The earlier range built by combining the two separate ranges as if independent (−5.9% to +2.8%) is replaced.
+- **Finish rate, all assigned:** 1.80% vs 0.68%, ratio 2.64 (95% range 2.55–2.73). All finishers but one are in the active group, so the active filter does not lose finishers.
+- **Active filter:** 53.63% vs 53.59% of the assigned (difference within noise); it is defined after the test started, so it is a complementary read (equal shares do not rule out a change in who is included).
+- **Arms checked:** Test (bucket < 498) has 498 of 997 buckets and the 3-locked finish rate.
+- **Population check:** every assigned player is included with $0 when there was no activity or purchase (left join from the assigned list; n = 626,792 / 628,564); windows are fixed calendar dates, the same for everyone. Exclusion of special / deactivated users uses flags through Sep 7 (partly after assignment); arm split 49.93% vs the expected 49.95% (498 of 997 buckets), within noise.
+- **What differed:** only Easy FU at 3 vs 5 locked stickers in the last 8 days (Jun 28 – Jul 6) is documented; other differences (offers, prizes, difficulty) were not checked against the live config. If any existed, the result cannot be attributed to the locked count alone.
+- **Business reading (closed 2026-11-01):** with 3 locked stickers instead of 5, the finish rate was 2.6× higher (0.68% → 1.80%). Revenue per player after adjusting for the starting gap: −1.5%, 95% range from −4.5% to +1.5% (the lower end is about −4.5%; the range describes the uncertainty under the analysis assumptions). The finishing gain is clear; the revenue effect is not settled yet, and a revenue loss cannot be ruled out.
+- **Limits before any rollout recommendation (open, see index/conflicts-and-decisions.md D12):** (1) the population is all assigned players *after* exclusions based on flags measured partly after assignment — balanced arm sizes do not prove these exclusions created no bias, so this is not a full ITT without caveat; (2) 3 vs 5 locked is the documented difference, the other settings were not verified against the live config; (3) no acceptable revenue risk was set in advance — a threshold chosen now can help the decision but does not turn this after-the-fact read into proof of safety.
