@@ -120,3 +120,38 @@ SELECT grp, s2 st, COUNT(*) n,
 FROM pu CROSS JOIN UNNEST([st, 'all']) s2
 GROUP BY 1, 2 ORDER BY 2, 1
 
+
+
+-- ===== q31 (2026-11-01, Eden): per-player inputs for a valid range on the 72-day result net of the 14-day before gap,
+-- keeping the dependence between the two periods (same players): sums, sums of squares and the cross-product pre*cum per arm.
+-- Also: finished album 18 (168 stickers by end of 07-05) on ALL assigned, and "active" = any day 06-28..07-05 at level >= 35,
+-- with finishers inside the active group, to check the active filter and the finish rate on all assigned from exact counts.
+-- Unit = player (assignment by MOD(server_user_id, 997)). Same population and revenue rule as q28-q30.
+WITH a AS (
+  SELECT a.user_id, ANY_VALUE(a.server_user_id) AS sid,
+    LOGICAL_OR(LOWER(a.album_segment) LIKE '%easy%') AS easy, LOGICAL_OR(a.special_user_flag) AS sp,
+    MAX(IF(a.date_dim <= DATE '2026-07-05', a.unique_album_stickers_lt, NULL)) AS uq_end
+  FROM `domino-dreams-dbt.prod_40_mart.user_daily_album` a
+  WHERE a.date_dim BETWEEN DATE '2026-05-11' AND DATE '2026-07-06' AND a.album_id = 18
+  GROUP BY 1),
+d AS (
+  SELECT m.user_id, m.date_dim dd, IF(m.level_id_end_day >= 35, m.user_daily_inapp_purchase_amount, 0) amt,
+    m.level_id_end_day >= 35 AS lv35, m.special_user_flag sp, m.deactivated_user_flag de
+  FROM `domino-dreams-dbt.prod_40_mart.user_daily_metrics` m
+  WHERE m.date_dim BETWEEN DATE '2026-04-03' AND DATE '2026-09-07'),
+ex AS (SELECT user_id FROM d GROUP BY 1 HAVING LOGICAL_OR(IFNULL(sp, FALSE) OR IFNULL(de, FALSE))),
+pop AS (
+  SELECT a.user_id, IF(MOD(a.sid, 997) < 498, 'Test', 'Control') AS grp, IFNULL(a.uq_end, 0) >= 168 AS fin
+  FROM a LEFT JOIN ex USING (user_id)
+  WHERE a.sid IS NOT NULL AND a.easy AND NOT IFNULL(a.sp, FALSE) AND ex.user_id IS NULL),
+pu AS (
+  SELECT p.user_id, p.grp, p.fin,
+    SUM(IF(d.dd BETWEEN DATE '2026-06-14' AND DATE '2026-06-27', d.amt, 0)) pre,
+    SUM(IF(d.dd BETWEEN DATE '2026-06-28' AND DATE '2026-09-07', d.amt, 0)) cum,
+    LOGICAL_OR(d.dd BETWEEN DATE '2026-06-28' AND DATE '2026-07-05' AND IFNULL(d.lv35, FALSE)) AS act
+  FROM pop p LEFT JOIN d ON d.user_id = p.user_id
+  GROUP BY 1, 2, 3)
+SELECT grp, COUNT(*) n,
+  SUM(pre) s_pre, SUM(pre*pre) q_pre, SUM(cum) s_cum, SUM(cum*cum) q_cum, SUM(pre*cum) x_pc,
+  COUNTIF(fin) fin_all, COUNTIF(IFNULL(act, FALSE)) n_act, COUNTIF(fin AND IFNULL(act, FALSE)) fin_act
+FROM pu GROUP BY 1 ORDER BY 1
