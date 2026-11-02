@@ -88,3 +88,4 @@ Calibration rule (whole segment vs a capped sub-range like "240–300"): not doc
 - Difficulty = a multiplier per segment, from 0.8 to 2 relative to segment 0_30. (Our data, S6: 30_60 ≈ 1.3x and 60_plus ≈ 1.6x the 0_30 Charm ladder — consistent with that range.)
 - Eden's position: for more segments (current ones too wide); add finish % per segment, not only finisher revshare; against a finisher-revshare target (the extremes cannot be controlled, as Natie said).
 - New segments for next season (gross wins, from Eden 2026-11-02): 0–20 / 20–30 / 30–60 / 60–150 / 150–240 / 240+. Today's 0_30 splits in two, 60_plus splits in three; 240+ is the new open-ended top (Natie's "240+" question).
+- Calibration of the open-ended top segment (240+): by **all players above 240**, not a sub-range (Eden, from the Disney team, 2026-11-02).
