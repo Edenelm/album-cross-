@@ -86,3 +86,21 @@ SELECT pu.season, pu.seg,
 FROM pu JOIN gs ON gs.season = pu.season AND gs.user_id = pu.user_id
 WHERE pu.seg IN (4,5,6)
 GROUP BY 1,2,3 ORDER BY 1,2,3;
+
+-- Q5. Segment check: cookies collected in the previous season (GoldenDog) by Skunk segment -> clean cut-offs (~10.3K / 13.5K / 17K / 21.5K / 28.5K)
+WITH s AS (
+  SELECT user_id, MAX(CAST(REGEXP_EXTRACT(pet_segment_key, r'_(\d+)$') AS INT64)) AS seg
+  FROM `dice-dreams-dbt.50_reporting.user_daily_pet`
+  WHERE date_dim BETWEEN '2026-09-14' AND '2026-10-12' AND pet_season_id = 'Skunk' AND NOT COALESCE(is_excluded, FALSE)
+  GROUP BY 1
+),
+p AS (
+  SELECT user_id, SUM(cookies_received_amount) cookies
+  FROM `dice-dreams-dbt.50_reporting.user_daily_pet`
+  WHERE date_dim BETWEEN '2026-08-24' AND '2026-09-14' AND pet_season_id = 'GoldenDog' AND NOT COALESCE(is_excluded, FALSE)
+  GROUP BY 1
+)
+SELECT seg, COUNT(*) n, COUNTIF(p.user_id IS NULL) no_prev,
+  MIN(p.cookies) mn, APPROX_QUANTILES(p.cookies, 20) q, MAX(p.cookies) mx
+FROM s LEFT JOIN p USING(user_id)
+GROUP BY 1 ORDER BY 1;

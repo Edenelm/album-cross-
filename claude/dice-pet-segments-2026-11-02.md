@@ -38,4 +38,4 @@ Calibration rule (whole segment vs a sub-range): not documented; ask Dice econom
 Not pulled in this pass (cookie requirement per level by segment). Open.
 
 ## Update (Eden, 2026-11-02)
-Segment metric = cookies collected in the previous season (from the Dice team). Not yet checked against the data (Q3 only tested spend).
+Segment metric = cookies collected in the previous season (from the Dice team). **Confirmed by data (Q5):** Skunk segment vs GoldenDog cookies — 5th–95th pct per segment: 1 <~10.1K, 2 ~10.3–14.1K, 3 ~13.5–19K, 4 ~17–25K, 5 ~21.5–34K, 6 ~28.7K+ (open). Implied cut-offs about 10.3K / 13.5K / 17K / 21.5K / 28.5K cookies. Seg 7 = 92% had no previous season (new to pet / did not play it).
