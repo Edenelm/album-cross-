@@ -44,3 +44,11 @@ Segment metric = cookies collected in the previous season (from the Dice team). 
 Order last-season players by cookies (normalised for late starters: × (28 / days since first pet day)^0.3), then cut into 6 tiers so each tier holds 1/6 of last season's pet revenue. Top cookies = tier 6. Players with no last season = 7.
 Fits our data: Skunk revenue share per segment 1–6 is near-equal (22 / 15 / 14 / 13 / 13 / 12%), and the top tier is tiny (0.5% of players).
 Issues seen: no is_excluded filter; the comment says seg 7 users bring 0 revenue, but in Skunk seg 7 brought ~11% of game revenue.
+
+## Difficulty by segment (Q6, Skunk) — median cookies fed to finish a level (proxy for the requirement)
+| Level | 7 | 1 | 2 | 3 | 4 | 5 | 6 |
+|---|---|---|---|---|---|---|---|
+| 1 | 340 | 400 | 480 | 520 | 560 | 600 | 800 |
+| 3 | 400 | 600 | 700 | 700 | 800 | 800–1,085 | 1,100–1,400 |
+| 5 | 600–700 | 900 | 1,100 | 1,200 | 1,300 | 1,400 | 1,800–2,300 |
+Seg 7 (no previous season) gets the easiest ladder (~85% of seg 1 at level 1, ~70% at level 5); seg 6 ≈ 2–2.5x seg 1. Levels 7+ are noisy (fed amounts spread), so not used.

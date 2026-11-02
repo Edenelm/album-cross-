@@ -104,3 +104,14 @@ SELECT seg, COUNT(*) n, COUNTIF(p.user_id IS NULL) no_prev,
   MIN(p.cookies) mn, APPROX_QUANTILES(p.cookies, 20) q, MAX(p.cookies) mx
 FROM s LEFT JOIN p USING(user_id)
 GROUP BY 1 ORDER BY 1;
+
+-- Q6. Difficulty proxy: cookies fed to complete a level (completed levels, no resets) by segment x arm, Skunk.
+--     No requirement column exists; the median fed amount ≈ the level requirement.
+SELECT CAST(REGEXP_EXTRACT(pet_segment_key, r'_(\d+)$') AS INT64) seg,
+  REGEXP_EXTRACT(pet_segment_key, r'_(control|test)_') arm, pet_level_id,
+  COUNT(*) n, APPROX_QUANTILES(recource_fed_amount, 4) q
+FROM `dice-dreams-dbt.50_reporting.user_level_pet`
+WHERE pet_season_id = 'Skunk' AND NOT COALESCE(is_excluded, FALSE)
+  AND pet_end_level_ts IS NOT NULL AND COALESCE(resets_cnt, 0) = 0
+  AND pet_level_id IN (1, 3, 5, 7, 9)
+GROUP BY 1,2,3 ORDER BY 3,1,2;
