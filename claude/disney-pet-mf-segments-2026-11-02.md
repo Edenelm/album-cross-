@@ -82,3 +82,8 @@ Inside each segment, S6 payers by season spend (Q9) — % of segment payers / % 
 | $500+ | 0.4% / 9% / 87% | 1% / 10% / 79% | 9% / 47% / 67% |
 In 60_plus, 9% of payers ($500+) bring 47% of the segment revenue and 67% of them finish; the $100–500 band finishes 28%.
 Calibration rule (whole segment vs a capped sub-range like "240–300"): not documented in any source available. Only the economy team / config sheet can answer.
+
+## Update from the Disney team (Eden, 2026-11-02)
+- Segment metric = **gross wins** ("bw"), 3 bands (0–30 / 30–60 / 60+). Next season they add 3 more segments (6 in total).
+- Difficulty = a multiplier per segment, from 0.8 to 2 relative to segment 0_30. (Our data, S6: 30_60 ≈ 1.3x and 60_plus ≈ 1.6x the 0_30 Charm ladder — consistent with that range.)
+- Eden's position: for more segments (current ones too wide); add finish % per segment, not only finisher revshare; against a finisher-revshare target (the extremes cannot be controlled, as Natie said).

@@ -36,3 +36,6 @@ Calibration rule (whole segment vs a sub-range): not documented; ask Dice econom
 
 ## Difficulty
 Not pulled in this pass (cookie requirement per level by segment). Open.
+
+## Update (Eden, 2026-11-02)
+Segment metric = cookies collected in the previous season (from the Dice team). Not yet checked against the data (Q3 only tested spend).

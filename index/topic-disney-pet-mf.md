@@ -3,6 +3,7 @@ Updated 2026-11-02. Not part of the album story; side question from Eden.
 
 **Conclusion (S6 Pooh, 09-22..10-11, special users out).** 3 segments by `mtx_segment_key`: 0_30 / 30_60 / 60_plus (suffix `_bw`). Players 71 / 21 / 8%; finish (10 tiers) 3 / 4 / 8%; % of payers 58 / 25 / 16%; share of total game revenue in the season 33 / 21 / 42%. Difficulty = own Charm ladder per segment (≈1.0 / 1.3 / 1.6x), plus 4–5 inner levels per tier with no documented rule.
 **Payers only (S6/S5):** finish 14/15/18% (S5 13/14/17%); finishers bring 40/39/49% of their segment revenue (S5 40/39/51%); segments = 33/21/42% of game revenue.
+**Segment metric (teams, 11-02):** Disney = gross wins, 3 bands → 6 next season, difficulty multiplier 0.8–2 vs 0_30; Dice = cookies collected last season.
 **Not available:** what metric "bw" is and its exact cut-offs; feature-attributed revenue; how the open-ended 60_plus ladder was calibrated.
 
 **Dice (Skunk 09-14..10-11):** 7 segment codes (1–2 Easy, 3–4 Medium, 5–6 Hard, 7 default), control/test in each. Finish (all) 3/9/18/27/34/39% for 1–6; finishers bring 31→57% of segment revenue. Segments ordered by recent spend, no clean cut.
