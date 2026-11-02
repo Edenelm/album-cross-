@@ -372,3 +372,4 @@ Status: Current / Superseded / Reference / Log / Script / Asset. 'INDEX' column 
 | c/domino-fu-pricing-hypothesis-2026-10-29.md | 10-29 | FU Joker-offer pricing (album 20 last week): mechanism, randomised FU Pricing Joker Test, puzzle route; higher FU price = fewer Joker buyers, same total, small shift to puzzle offers | Results | עדכני |
 | c/slide_test1591_2026-10-29.py | 10-29 | Generator: test 1591 story p91a–p91d in the final Domino deck after fu6 (duplicates tx_end + native bars) | Script | עדכני |
 | c/disney-pet-mf-segments-2026-11-02.md | 11-02 | Disney PET (Magical Friends) segments: size, finish, revenue share, difficulty; gaps (segment metric, feature revenue, calibration) | Results | עדכני |
+| c/dice-pet-segments-2026-11-02.md | 11-02 | Dice Pet segments (Skunk, GoldenDog): finish %, payer %, finisher revshare by segment; spend bands in top segments | Results | עדכני |
