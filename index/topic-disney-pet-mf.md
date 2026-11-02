@@ -2,6 +2,7 @@
 Updated 2026-11-02. Not part of the album story; side question from Eden.
 
 **Conclusion (S6 Pooh, 09-22..10-11, special users out).** 3 segments by `mtx_segment_key`: 0_30 / 30_60 / 60_plus (suffix `_bw`). Players 71 / 21 / 8%; finish (10 tiers) 3 / 4 / 8%; % of payers 58 / 25 / 16%; share of total game revenue in the season 33 / 21 / 42%. Difficulty = own Charm ladder per segment (≈1.0 / 1.3 / 1.6x), plus 4–5 inner levels per tier with no documented rule.
+**Payers only (S6/S5):** finish 14/15/18% (S5 13/14/17%); finishers bring 40/39/49% of their segment revenue (S5 40/39/51%); segments = 33/21/42% of game revenue.
 **Not available:** what metric "bw" is and its exact cut-offs; feature-attributed revenue; how the open-ended 60_plus ladder was calibrated.
 
 ## Files (read in order)

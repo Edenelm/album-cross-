@@ -28,6 +28,20 @@ Revenue = gross purchases (`bi_entity_prod.fact_user_daily_purchase`) on days 09
 
 Season 5 Simba (13075, no-reset arm only): finish 3% / 4% / 9% — same order.
 
+## Payers only (Q7, added 2026-11-02)
+Payer = paid at least once on season days (S5 08-31..09-21, S6 09-22..10-11). S5 = both A/B arms together (arms differ by ≤1 pt).
+| Season | Segment | Payers | % of all game payers | Share of total game revenue | Finish % (payers) | Finishers' share of segment revenue |
+|---|---|---|---|---|---|---|
+| S6 | 0_30 | 166,798 | 50% | 33% | 14% | 40% |
+| S6 | 30_60 | 72,030 | 22% | 21% | 15% | 39% |
+| S6 | 60_plus | 47,164 | 14% | 42% | 18% | 49% |
+| S6 | All | 285,992 | 87% | 96% | 15% | 44% |
+| S5 | 0_30 | 179,978 | 53% | 33% | 13% | 40% |
+| S5 | 30_60 | 70,306 | 21% | 21% | 14% | 39% |
+| S5 | 60_plus | 56,255 | 17% | 44% | 17% | 51% |
+| S5 | All | 306,539 | 90% | 97% | 14% | 45% |
+Game totals: S5 $23.15M / 340,919 payers; S6 $20.87M / 330,436 payers.
+
 ## Feature revenue — NOT available (fact)
 No column attributes purchases to the feature. `mf_spent_lt` (profile) and `mf_spent_lt_mtx` (cumulative) are ≈ all spend while the season is live (S6: $17.9M and $19.5M vs $19.9M purchases), not purchases of Magical Friends offers. Shares by `mf_spent_lt`: 32% / 23% / 45% — same picture as the column above. Need: offer/SKU → feature mapping (purchase events carry only `purchase_sku`).
 

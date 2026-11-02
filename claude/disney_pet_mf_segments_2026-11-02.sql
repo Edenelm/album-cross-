@@ -135,3 +135,45 @@ SELECT u.seg, t.tier_id,
   COUNT(*) n, ROUND(AVG(t.dr_requirement)) avg_req, APPROX_QUANTILES(t.dr_requirement, 4) q
 FROM t JOIN u USING(user_id) LEFT JOIN pr USING(user_id)
 GROUP BY 1,2,3,4 ORDER BY 1,2,4,3;
+
+-- Q7. Payers only (paid at least once on season days): revenue share of total game revenue, finish rate, finishers' revenue share inside the segment.
+--     S5 includes both A/B arms (resets + no_resets), split by arm in the output.
+WITH u AS (
+  SELECT mtx_campaign_id AS cid, user_id,
+    REGEXP_EXTRACT(mtx_segment_key, r'def_mf_(.*)_bw') AS seg,
+    IF(mtx_segment_key LIKE '%no_resets', 'no_resets', 'resets') AS arm,
+    mtx_campaign_start_date AS cs, mtx_campaign_end_date AS ce
+  FROM `solitaire-dreams-411507.bi_entity_prod.mf_activation_season_ids`
+  WHERE mtx_campaign_id IN (13785, 13075) AND mtx_campaign_end_date IN ('2026-10-12','2026-09-22')
+    AND NOT COALESCE(special_user_flag, FALSE)
+),
+pr AS (
+  SELECT mtx_campaign_id AS cid, user_id, MAX(tiers_completed_lt) AS tiers
+  FROM `solitaire-dreams-411507.bi_prod.magical_friend_user_profile`
+  WHERE date_dim BETWEEN '2026-08-31' AND '2026-10-31' AND mtx_campaign_id IN (13785, 13075)
+  GROUP BY 1,2
+),
+p AS (
+  SELECT user_id, date_dim, user_daily_purchase_amount AS amt
+  FROM `solitaire-dreams-411507.bi_entity_prod.fact_user_daily_purchase`
+  WHERE date_dim BETWEEN '2026-08-31' AND '2026-10-11'
+),
+tot AS (
+  SELECT IF(date_dim <= '2026-09-21', 13075, 13785) AS cid, SUM(amt) AS game_rev_all,
+    COUNT(DISTINCT IF(amt > 0, user_id, NULL)) AS game_payers_all
+  FROM p GROUP BY 1
+),
+ug AS (
+  SELECT u.cid, u.user_id, SUM(p.amt) AS rev
+  FROM u JOIN p ON p.user_id = u.user_id AND p.date_dim BETWEEN u.cs AND DATE_SUB(u.ce, INTERVAL 1 DAY)
+  GROUP BY 1,2
+  HAVING SUM(p.amt) > 0
+)
+SELECT u.cid, u.seg, u.arm,
+  COUNT(*) payers, COUNTIF(COALESCE(pr.tiers,0) >= 10) fin_payers,
+  ROUND(SUM(ug.rev)) rev, ROUND(SUM(IF(COALESCE(pr.tiers,0) >= 10, ug.rev, 0))) fin_rev,
+  ROUND(ANY_VALUE(tot.game_rev_all)) game_rev_all, ANY_VALUE(tot.game_payers_all) game_payers_all
+FROM u JOIN ug ON ug.cid = u.cid AND ug.user_id = u.user_id
+LEFT JOIN pr ON pr.cid = u.cid AND pr.user_id = u.user_id
+JOIN tot ON tot.cid = u.cid
+GROUP BY 1,2,3 ORDER BY 1,2,3;
