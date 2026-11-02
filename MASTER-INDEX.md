@@ -33,3 +33,4 @@ Updated 2026-10-26 (Asia/Jerusalem), patched after the 10-26 main pull (PRs #30/
 | tenure, albums seen, new vs veteran, cohort / ותק | index/topic-tenure.md |
 | benchmarks, old pack, knowledge bases, dbt | index/topic-benchmarks-reference.md |
 | deck, slide, story order (ALBUM END, Part 1, Domino deck) / מצגת, שקף | index/deck.md |
+| Disney PET, Magical Friends, mf segments, Charms / פט, פיצ'ר PET, מג'יקל פרנדס | index/topic-disney-pet-mf.md |
