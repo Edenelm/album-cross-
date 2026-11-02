@@ -64,3 +64,21 @@ Inside each segment there are 4–5 fixed levels per tier (e.g. 60_plus tier 3: 
 ## Sources
 BQ: `bi_entity_prod.mf_activation_season_ids`, `bi_prod.magical_friend_user_profile`, `bi_entity_prod.magical_friend_metrics_cumulative`, `bi_prod.magical_friend_tier`, `bi_entity_prod.fact_user_daily_purchase`.
 Confluence: DS "Magical Friends – One-Pager for roadmap" (4038983681); "Magical Friends" PRD (4410277889); DSC "Magical Friends" (5266800643).
+
+## Follow-up for Natie (2026-11-02): finish %, payer %, finisher revshare by segment
+Context: Disney economists want a finisher-revshare target that rises with segment difficulty; Natie expected the reverse for finish %.
+S6 (S5 in brackets). All players: finish 3 / 4 / 8% (3 / 4 / 9%); payer rate 17 / 24 / 43%.
+Payers: finish 14 / 15 / 18% (13 / 14 / 17%); finishers' share of segment revenue 40 / 39 / 49% (40 / 39 / 51%).
+Revenue per finisher vs share of payers: about 2.7–2.9x in every segment → the top segment's higher finisher revshare comes from more finishers, not from finishers paying relatively more.
+
+Segment meaning (Q8): higher segment = more Charms collected per active day in the previous season (median about 50 / 108 / 145), but no clean 30/60 cut; 14% of 0_30 had no previous season. Definition still needed from BO.
+
+Inside each segment, S6 payers by season spend (Q9) — % of segment payers / % of segment revenue / finish %:
+| Band | 0_30 | 30_60 | 60_plus |
+|---|---|---|---|
+| <$20 | 57% / 11% / 4% | 45% / 6% / 3% | 23% / 1% / 1% |
+| $20–100 | 33% / 38% / 19% | 37% / 30% / 14% | 34% / 10% / 7% |
+| $100–500 | 9% / 43% / 50% | 17% / 54% / 42% | 34% / 42% / 28% |
+| $500+ | 0.4% / 9% / 87% | 1% / 10% / 79% | 9% / 47% / 67% |
+In 60_plus, 9% of payers ($500+) bring 47% of the segment revenue and 67% of them finish; the $100–500 band finishes 28%.
+Calibration rule (whole segment vs a capped sub-range like "240–300"): not documented in any source available. Only the economy team / config sheet can answer.

@@ -177,3 +177,48 @@ FROM u JOIN ug ON ug.cid = u.cid AND ug.user_id = u.user_id
 LEFT JOIN pr ON pr.cid = u.cid AND pr.user_id = u.user_id
 JOIN tot ON tot.cid = u.cid
 GROUP BY 1,2,3 ORDER BY 1,2,3;
+
+-- Q8. Segment meaning test: Charms collected per day in the previous season (S5) by S6 segment -> ordered, but no clean 30/60 cut.
+WITH u AS (
+  SELECT user_id, REGEXP_EXTRACT(mtx_segment_key, r'def_mf_(.*)_bw') AS seg
+  FROM `solitaire-dreams-411507.bi_entity_prod.mf_activation_season_ids`
+  WHERE mtx_campaign_id = 13785 AND mtx_campaign_end_date = '2026-10-12' AND NOT COALESCE(special_user_flag, FALSE)
+),
+prev AS (
+  SELECT user_id, MAX(dr_collected_lt) dr, MAX(active_days_in_mf) ad
+  FROM `solitaire-dreams-411507.bi_prod.magical_friend_user_profile`
+  WHERE date_dim BETWEEN '2026-08-31' AND '2026-09-30' AND mtx_campaign_id = 13075
+  GROUP BY 1
+),
+x AS (
+  SELECT seg, SAFE_DIVIDE(dr, NULLIF(ad,0)) dpd, prev.user_id IS NOT NULL inprev
+  FROM u LEFT JOIN prev USING(user_id)
+)
+SELECT seg, COUNT(*) n, COUNTIF(inprev) inprev, APPROX_QUANTILES(dpd, 20) q_per_active_day,
+  COUNTIF(dpd < 30) lt30, COUNTIF(dpd >= 30 AND dpd < 60) b30_60, COUNTIF(dpd >= 60) ge60
+FROM x GROUP BY 1 ORDER BY 1;
+
+-- Q9. Inside each segment (S6 payers): finish rate and revenue by season spend band — who does one ladder fit?
+WITH u AS (
+  SELECT user_id, REGEXP_EXTRACT(mtx_segment_key, r'def_mf_(.*)_bw') AS seg
+  FROM `solitaire-dreams-411507.bi_entity_prod.mf_activation_season_ids`
+  WHERE mtx_campaign_id = 13785 AND mtx_campaign_end_date = '2026-10-12' AND NOT COALESCE(special_user_flag, FALSE)
+),
+pr AS (
+  SELECT user_id, MAX(tiers_completed_lt) AS tiers
+  FROM `solitaire-dreams-411507.bi_prod.magical_friend_user_profile`
+  WHERE date_dim BETWEEN '2026-09-22' AND '2026-10-31' AND mtx_campaign_id = 13785
+  GROUP BY 1
+),
+ug AS (
+  SELECT user_id, SUM(user_daily_purchase_amount) AS rev
+  FROM `solitaire-dreams-411507.bi_entity_prod.fact_user_daily_purchase`
+  WHERE date_dim BETWEEN '2026-09-22' AND '2026-10-11'
+  GROUP BY 1 HAVING SUM(user_daily_purchase_amount) > 0
+)
+SELECT seg,
+  CASE WHEN rev < 20 THEN 'a_<20' WHEN rev < 100 THEN 'b_20-100' WHEN rev < 500 THEN 'c_100-500' ELSE 'd_500+' END band,
+  COUNT(*) payers, COUNTIF(COALESCE(tiers,0) >= 10) fin, ROUND(SUM(rev)) rev,
+  ROUND(SUM(IF(COALESCE(tiers,0) >= 10, rev, 0))) fin_rev
+FROM u JOIN ug USING(user_id) LEFT JOIN pr USING(user_id)
+GROUP BY 1,2 ORDER BY 1,2;
