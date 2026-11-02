@@ -39,3 +39,8 @@ Not pulled in this pass (cookie requirement per level by segment). Open.
 
 ## Update (Eden, 2026-11-02)
 Segment metric = cookies collected in the previous season (from the Dice team). **Confirmed by data (Q5):** Skunk segment vs GoldenDog cookies — 5th–95th pct per segment: 1 <~10.1K, 2 ~10.3–14.1K, 3 ~13.5–19K, 4 ~17–25K, 5 ~21.5–34K, 6 ~28.7K+ (open). Implied cut-offs about 10.3K / 13.5K / 17K / 21.5K / 28.5K cookies. Seg 7 = 92% had no previous season (new to pet / did not play it).
+
+## How Dice builds pet segments (query from the Dice team, `claude/dice_pet_segmentation_logic_2026-11-02.sql`)
+Order last-season players by cookies (normalised for late starters: × (28 / days since first pet day)^0.3), then cut into 6 tiers so each tier holds 1/6 of last season's pet revenue. Top cookies = tier 6. Players with no last season = 7.
+Fits our data: Skunk revenue share per segment 1–6 is near-equal (22 / 15 / 14 / 13 / 13 / 12%), and the top tier is tiny (0.5% of players).
+Issues seen: no is_excluded filter; the comment says seg 7 users bring 0 revenue, but in Skunk seg 7 brought ~11% of game revenue.
