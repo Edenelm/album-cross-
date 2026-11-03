@@ -1,79 +1,84 @@
-# Topic 1 — First-album experience: focused plan (2026-11-03)
-Status: plan only. No queries run. Open definitions in §8 need Eden's answer before step S2.
+# Topic 1: First-album experience, focused plan (v2, 2026-11-03)
+Status: definitions agreed with Eden (`DECISIONS.md` D-005); data sources checked (S1 done). Next: S2 base table.
 
 ## 1. Business question
-What does a Dice player experience in their first album, especially when entering in its final third, and what happens in their next album? The decision it feeds: does the first album need its own design (start path, catch-up level, early goal), or is the current one working, and for whom?
+What does a Dice player experience in their first album, especially when entering late, and what happens in their next album? Decision it feeds: does the first album need its own design (start path, catch-up level, early goal), or is the current one working, and for whom?
 
-**What we already have (to re-check, not to reuse as-is):** first-album players are 19–22% of players and 10–15% of album revenue; players new to album history who start in the first third finish least (6–8% of payers) and only 28–32% of their payers pay in the next album; last-third joiners get strong catch-up (10–11 new stickers per active day) and 1,171 of them finished album 63 in about 7 days; at every first-7-days spend level these "new" players stop 2–4x more than veterans (`claude/dice-entry-dups-rolls-2026-11-02.md`). "New" there means first album, not new to the game (`DECISIONS.md` C-002).
+**Earlier inputs (re-checked, not reused as-is):** first-album players = 19–22% of players, 10–15% of album revenue; those starting in the first third finish least (6–8% of payers) and 28–32% of their payers pay next album; last-third joiners get strong catch-up; at every first-7-days spend level first-album players stop 2–4x more than veterans (`claude/dice-entry-dups-rolls-2026-11-02.md`, albums 59/61/63).
 
-## 2. Populations
-| Group | Rule | Why |
+## 2. Population (Eden, D-005)
+- **First-album player** = a player whose first album is this one: no record in any earlier album (`30_intermediate.album_pop`, history from 2023-11; all 2026 albums are far above the floor). No split by install date.
+- **Entry** = `user_album_start_ts` in `album_pop` (first album event: started, sticker or pack). `user_daily_album` keeps only players with at least one sticker. *Claude's choice:* base = `album_pop` (does not lose players who opened and left), with a flag for "got a sticker". S2 reports how many lack a sticker.
+- **Reference group** = veterans (record in the previous album, id − 2), same entry band and early spend.
+- Excluded users removed (`is_excluded`). No login-ratio or close−1 filter.
+- **Albums:** focus first albums **57, 59, 61, 63, 65** (all started in 2026; 55, started 2026-02-02, as extra context if needed). Next album = 59, 61, 63, 65, **67**. Album 67 is open until 11-30, so next-album outcomes use a **fixed window from the next album's start** (first 14 days, available for all cohorts) plus the full album where it has closed. Album 65 is the atypical flat-end album: shown, not used alone for a conclusion.
+
+| Album | Dates | Days (incl. close day) |
 |---|---|---|
-| **A. New to the game, first album** | no row in an earlier album **and** install date ≤ N days before album entry (N proposed 14; options 7 / 14 / 30, §8) | the experience of a real newcomer |
-| **B. First album, not new** | no row in an earlier album **and** installed > N days before entry | slow progress to Kingdom 8 or long-dormant players: a different story |
-| **C. Veterans (reference)** | row in the previous album (id − 2) | own-game comparison at the same entry timing and early spend |
-| Excluded from A/B | install before 2023-11-07 (history floor: we cannot know their album past) | avoids false "first album" |
+| 57 | 03-23..05-04 | 43 |
+| 59 | 05-04..06-22 | 50 |
+| 61 | 06-22..07-27 | 36 |
+| 63 | 07-27..09-07 | 43 |
+| 65 | 09-07..10-19 | 43 |
+| 67 | 10-19..11-30 (open) | 43 |
+Source: `20_core.dim_album_season` (queried 2026-11-03).
 
-All players with at least one row in the album, `is_excluded` = false. **No login-ratio or close−1 filter**: the standard population drops players who joined and left, which is the group in question.
-**Albums:** first album = 59, 61, 63. Next album = 61, 63, 65. Note: 65 is the atypical flat-end album, so the 63 → 65 transition is shown separately and the main read rests on 59 → 61 and 61 → 63. Not 65 or 67 as first albums (67 is open; 65's next album is not finished).
-**Unit:** player × first album; player × day for trajectories.
+## 3. Entry timing and exposure
+- **Entry band A (album period):** first / second / final third by share of album days at entry.
+- **Entry band B (Eden):** started in the **last 14 days before close** vs earlier.
+- **Days left** = album end date − entry date. Reported in every table.
+- **Equal windows:** per active day, and fixed windows from entry (first 3 and 7 days, capped at close−1). Whole-album totals only within the same entry band.
+- **Unit:** player × first album; player × day for trajectories.
 
-## 3. Time and exposure
-- **Entry day** = `user_album_start_date` (first sticker). Check against the first sticker timestamp and the install date (§6).
-- **Days left** = close − entry. Entry third by share of album length; final third also as days-left bands (e.g. ≤7 / 8–14 days), because albums differ in length (35–49 days).
-- **Equal windows:** per active day, and fixed windows from entry (first 3 and 7 days, capped at close−1). Whole-album totals only within the same days-left band.
-- **Next album:** present (any row), active days, payer, spend in the first 14 days and the whole album (start..close−1), finisher.
-- **Time to next purchase:** from the first-album close, survival curve with censoring at the data end date; never "share who bought" over unequal follow-up.
-
-## 4. Measures and sources (`dice-dreams-dbt`)
-| Measure | Source | Status |
+## 4. Measures and sources (`dice-dreams-dbt`, checked 2026-11-03)
+| Measure | Source | Notes |
 |---|---|---|
-| Install date | `50_reporting.user_daily_metrics_agg.install_date` | used before (cohort work); check one value per user |
-| Entry, activity, spend, stickers (unique / total → new vs duplicate), sets, packs count, Wild received, kingdom | `50_reporting.user_daily_album` | known |
-| Pack types and sources | `10_staging.stg_album_pack_received_vw` | staging layer: needs Eden's OK; fallback = `sticker_pack_key` / `sticker_source` on new stickers only (no duplicates) |
-| Sticker sources, first Super, first Wild fill | `30_intermediate.fact_user_album_stickers` | known (new stickers only) |
-| Rolls in by source (album vs rest of game), rolls out, balance | `30_intermediate.user_daily_rolls_by_source`, `user_daily_rolls_in_out` | used before; album-source mapping to verify in S1 |
-| Purchases, time to next purchase | `20_core.purchase_completed_vw` | known |
-| Game revenue (denominator) | as in `decisions-definitions-register.md` | known |
+| Population, entry ts, segment, reward code, LTV before album, album spend | `30_intermediate.album_pop` | user × album; `user_past_album_count` not used (login ≥ 0.15 rule) |
+| Daily activity, gross spend, new / total stickers (→ duplicates), stickers by type, sets, Wild received, kingdom, packs count, finish | `50_reporting.user_daily_album` | partition `date_dim`; rows from first sticker; close-day stickers not updated |
+| Packs by source and type, new vs duplicate per pack, Wild in pack | `10_staging.stg_album_pack_received_vw` (Eden OK) | `source` (e.g. "Trail - Chest", "new kingdom", "Dream Pass"), `pack_key`, `total_stickers_in_pack`, `number_of_new_stickers` (+ common/golden/super), `is_wild`, `mtx_campaign_id`; partition `pdate`; event doc marks some fields "Investigate", so check against the daily table |
+| Rolls in by source: album vs rest of game, bought vs free | `30_intermediate.user_daily_rolls_by_source` | `source_rolls_group = 'album'` = set completed (± Pixie), album completed, Pixies, duplication exchange (checked on 09-01..07); `source_purchase_group` for bought rolls; rolls out = `roll_type = 'rolls_out'` |
+| Roll balance | `30_intermediate.user_daily_rolls_in_out` (`rolls_balance`) | identity check in S2 |
+| First Super / first Wild fill, sticker sources | `30_intermediate.fact_user_album_stickers` | new stickers only |
+| Game activity and gross revenue outside the album (retention, next purchase) | `50_reporting.user_daily_metrics_agg`, `20_core.purchase_completed_vw` | |
+| Denominator: game revenue during the album | as in `decisions-definitions-register.md` | |
 
-## 5. What would support each explanation
+## 5. Next-album outcomes (Eden: retention, gross revenue, engagement)
+- **Retention:** active in the game on days 1–14 of the next album; entered the next album; active in the game 7 / 14 / 30 days after first-album close (only where the window has passed).
+- **Gross revenue:** next album, first 14 days and full album (closed albums only); payer rate; revenue per player and per payer.
+- **Engagement:** active days, rolls out per active day, new stickers and sets by day 14, finish (closed albums).
+- **Time to next purchase:** from first-album close, survival curve with censoring at the data end date.
+
+## 6. Competing explanations and the evidence for each
 | Explanation | Supporting pattern | Against it |
 |---|---|---|
-| H1 Generous rewards delay buying | late joiners (high catch-up) hold larger roll balances, buy later or less in album 1 **at the same activity**, and catch up in album 2 (spend moved, not lost) | same time-to-first-purchase and same album-2 spend regardless of catch-up |
-| H2 Too little progress discourages | players who stop had fewer new stickers / more duplicates in the days before stopping than similar players at the same sticker count and day who stayed | no difference in progress before stopping (11-03 first look found none in new-sticker pace) |
-| H3 Generous early rewards build value | more progress in a fixed early window, at the same entry timing and early spend, goes with more return and spend in album 2 (dose-response) | no gradient, or the gradient disappears once early spend and activity are held fixed |
-| H4 General newcomer drop-off | drop-off by days since install is the same whatever the album phase at install | newcomers who install at different album phases (start vs final third) diverge at the same days since install |
-| H5 Artefacts | results move when the entry rule, history floor or window changes | results stable across these checks |
+| H1 Generous rewards delay buying | late joiners (more catch-up) hold larger roll balances and buy later or less in album 1 at the same activity, then catch up in album 2 (spend moved, not lost) | same time to first purchase and same album-2 revenue whatever the catch-up |
+| H2 Too little progress discourages | players who stop had fewer new stickers / more duplicates before stopping than similar players at the same sticker count and day who stayed | no difference before stopping (11-03 first look: none in new-sticker pace) |
+| H3 Generous early rewards build value | more progress in a fixed early window, at the same entry band and early spend, goes with more retention and revenue in album 2 (dose-response) | no gradient, or it disappears once early spend and activity are held fixed |
+| H4 General newcomer drop-off | drop-off by days since first entry is the same whatever the album phase at entry | first-album players entering at different album phases diverge at the same days since entry |
+| H5 Artefacts | results move when the entry rule, window or base table changes | stable across these checks |
 
-**Strongest available comparison (H4 vs album effect):** install date is close to random relative to the album calendar. Newcomers who install in an album's first third vs its last third meet different album states at the same days since install. Comparing them at equal days since install separates album effects from general drop-off. Check first that install volume and UA mix do not shift across the album (calendar / campaign confound). Still observational: it gives a test hypothesis, not proof.
+All of these are observational. A pattern that fits an explanation gives a test hypothesis, not proof.
 
-## 6. Checks before any conclusion
-- One row per user × album × day; one install date per user; no fan-out when joining rolls and purchases (row counts before/after each join).
-- Entry date vs first sticker timestamp vs install date (entry before install = data issue).
-- Close day: stickers from the sticker table; spend start..close−1 for revenue.
-- Rolls: balance(t) ≈ balance(t−1) + in − out; impossible values (negative balance, rolls far above the known max) flagged.
-- Reconcile: album revenue $24.2M / $19.8M / $24.6M (59/61/63); first-album share of players 19–22% and revenue 10–15% from the 11-02 entry-third table.
-- Small cells flagged (final-third newcomers by spend level may be small).
+## 7. Checks before any conclusion
+- One row per user × album (album_pop) and per user × album × day (daily); no fan-out on joins (row counts before/after).
+- Entry ts vs first sticker vs first pack; entry after close = data issue.
+- Packs: sum of `total_stickers_in_pack` vs daily `total_stickers_today` for the same player-days.
+- Rolls: balance(t) ≈ balance(t−1) + in − out; impossible values flagged.
+- Revenue: reconcile album revenue with known totals (59 / 61 / 63 = $24.2M / $19.8M / $24.6M) and first-album shares with the 11-02 table.
+- Close day: stickers from the sticker table; revenue start..close−1.
+- Small cells flagged (late entrants by spend level).
 
-## 7. Steps
+## 8. Steps
 | Step | What | Output |
 |---|---|---|
-| S0 | Eden answers §8 | `DECISIONS.md` |
-| S1 | Schema check of the 5 sources (describe + dry runs, no heavy runs): rolls-by-source labels, pack event fields, install date | `CONTEXT.md` §3 updated |
-| S2 | One base table per first album: group A/B/C, entry, days left, install age; sizes with players, % of players, % of game revenue; reconcile | `queries/t1_s2_base.sql`, `results/`, `findings.md` |
-| S3 | First-album experience by entry band: active days, packs per active day (types/sources), new vs duplicate, sets, speed, first Super / first Wild, rolls in (album vs other) / out / balance, spend, finish | `queries/t1_s3_*.sql` |
-| S4 | Next album and time to next purchase (survival, censored) | `queries/t1_s4_*.sql` |
-| S5 | Test the explanations (§5), incl. install-phase comparison and stoppers vs stayers at the same state | `queries/t1_s5_*.sql` |
+| S1 | Sources and schemas | done (this file §4) |
+| S2 | Base table per first album 57–65: entry band A/B, days left, sticker flag; sizes with players, % of players, % of game revenue; reconcile | `queries/t1_s2_base.sql`, `results/`, `findings.md` |
+| S3 | First-album experience by entry band: active days, packs per active day by source/type, new vs duplicate, sets, speed, first Super / Wild, rolls in (album / other / bought), out, balance, spend, finish | `queries/t1_s3_*.sql` |
+| S4 | Next album: retention, gross revenue, engagement; time to next purchase | `queries/t1_s4_*.sql` |
+| S5 | Test H1–H5 (stoppers vs stayers at the same state; entry-phase comparison) | `queries/t1_s5_*.sql` |
 | S6 | Findings: observed (N, %, revenue share) / meaning / supported vs uncertain / recommendation or next check | `findings.md` |
 
-Large results stay in BigQuery or in the session scratchpad; the repo keeps the query plus a pointer and the aggregated CSV. No player IDs in the repo.
+Large results stay in BigQuery or the session scratchpad; the repo keeps the query, a pointer and the aggregated CSV. No player IDs in the repo.
 
-## 8. Open questions for Eden (needed before S2)
-1. **"New to the game"**: installed at most 7 / 14 / 30 days before entering the album? (proposed 14: covers the time most payers need to reach Kingdom 8; Claude's choice, to confirm)
-2. **Albums**: first albums 59/61/63, next albums 61/63/65, with 63 → 65 shown separately because 65 is atypical. OK?
-3. **"Returned for the second album"**: any row in the next album, or at least N active days, or paid?
-4. **Staging pack events** (`10_staging.stg_album_pack_received_vw`) for pack types and sources: may I use it?
-5. **Final third**: by share of album length, or by days left (e.g. ≤14 days)? Proposed: both.
-
-## 9. Questions for the Dice team (would change what we can claim)
-Catch-up rule for late joiners (what exactly is boosted, and when); pack type catalogue and which are album rewards; roll sources that count as "from the album"; whether first-album players get anything special (starter packs, onboarding gifts).
+## 9. Questions for the Dice team (not blocking)
+The exact catch-up rule for late joiners; the pack catalogue (which packs are album rewards); whether first-album players get anything special (starter packs, onboarding gifts).

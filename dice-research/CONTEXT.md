@@ -5,7 +5,7 @@ Each line says how we know it: **[data]** measured in BigQuery (doc named), **[E
 - 144 set stickers per album; Pixie stickers are outside the 144 [doc] `decisions-definitions-register.md`.
 - The album opens at Kingdom 8. Of payers who paid in their first 7 days (installs Mar–Jun 2026), 70% reached the album by day 7, 84% by day 90 [data] `cross-game-comparison-framework.md` A2.
 - Album IDs jump by 2 (…59, 61, 63, 65, 67); previous album = id − 2 [data].
-- Album dates: 59 = 05-04..06-22 (49 days), 61 = 06-22..07-27 (35), 63 = 07-27..09-07 (42), 65 = 09-07..10-19 (42), 67 open to 11-30 [data] `index/topic-dice-chapter.md`.
+- Album dates (2026): 55 = 02-02..03-23, 57 = 03-23..05-04, 59 = 05-04..06-22, 61 = 06-22..07-27, 63 = 07-27..09-07, 65 = 09-07..10-19, 67 = 10-19..11-30 (open) [data] `20_core.dim_album_season`, 2026-11-03. Its `days_in_album` counts the close day (59 = 50; earlier docs say 49 without it).
 - Typical albums = 59/61/63. Album 65 is the only flat end since April 2025: a case, never the base [Eden 2026-11-02].
 - Three stickers are locked until the end (2 Supers + 1 Golden). They reach 1% of holders only 3–6 days before close: 59 S143/S108/G141, 61 S143/S120/G142, 63 S143/S132/G129 [data] `claude/dice-completion-path-2026-11-02.md`. Locking is by design [Eden 2026-10-21].
 - Stopping at 10 of 12 Supers is by design: the album brings players to 2 missing Supers [Eden 2026-10-17].
@@ -23,27 +23,34 @@ Shared definitions live in `decisions-definitions-register.md`. Dice-specific po
 - **Payer** = paid on any album day, close day included. **Album revenue** = daily-table spend, album start..close−1.
 - **Revenue share denominator** = all in-game purchase revenue during the album (start..close−1), all players, exclusions removed. RV revenue separate.
 - **First album** = no row in any earlier album in `user_daily_album` (history from 2023-11-07). Not `user_past_album_count` = 0 (it marks 19–22K returning payers as first-album) [Eden 2026-10-21].
-- **New to the game** ≠ first album. Not yet defined; proposed in `topics/t1-first-album/PLAN.md` §2.
+- **First-album player (Topic 1)** = no record in any earlier album; not split by install date (Eden 2026-11-03, D-005).
 - **Purchase-delivered sticker** = `sticker_source` = `purchase.source` and `sticker_mtx_campaign_id` = `campaign_id`, purchase ≤10 min before (94–98% match for offers, placebo 0–2%, album 63) [data] `claude/dice-sticker-source-vs-purchase-2026-11-02.md`. Replaces the `Pricing%` pack rule.
 - Exclusions: `is_excluded`.
 
-## 3. Data sources (project `dice-dreams-dbt`)
+## 3. Data sources (project `dice-dreams-dbt`, checked 2026-11-03)
 | Table | Grain | Use | Notes |
 |---|---|---|---|
-| `50_reporting.user_daily_album` | user × album × day | entry date (`user_album_start_date`), activity, spend, unique/total stickers, packs (`packs_received_today`), sets, Wild received, segments | Rows only from the first sticker; close-day stickers not updated |
+| `20_core.dim_album_season` | album | album dates | album 63 end date hard-coded (client sent year 2027) |
+| `30_intermediate.album_pop` | user × album | population incl. players with album events but no sticker; entry ts; segment; reward code; LTV before album; album spend | `user_past_album_count` counts only albums with login ratio ≥ 0.15, so it is not a first-album flag |
+| `50_reporting.user_daily_album` | user × album × day | activity, gross spend, unique / total stickers (by type), sets, Wild received, kingdom, packs count, finish | partition `date_dim`; rows only from the first sticker; close-day stickers not updated |
+| `50_reporting.user_daily_album_progression` | user × album × day, **spined** (active or not) | stickers remaining, revenue | excluded users absent |
+| `10_staging.stg_album_pack_received_vw` | pack event | pack `source`, `pack_key`, stickers per pack, new stickers per pack (by type), `is_wild`, `mtx_campaign_id` | staging (Eden OK 2026-11-03); partition `pdate`; several fields marked "Investigate" in the event doc |
 | `30_intermediate.fact_user_album_stickers` | new sticker (first copy) | source, pack key, Wild fill, timestamp | ~1.9 TB; partition `sticker_collected_date`; no duplicates |
-| `30_intermediate.album_pop` | user × album | population incl. players with album events but no sticker | used once for population |
-| `30_intermediate.user_daily_rolls_in_out`, `user_daily_rolls_by_source` | user × day | rolls in by source, out, balance | used in earlier docs; album-source mapping to verify |
+| `30_intermediate.fact_user_daily_set_progression` / `40_mart.fact_user_set_progression` | user × album × set (× day) | set progress, FU flags | |
+| `30_intermediate.user_daily_rolls_by_source` | user × day × roll type × source × campaign | rolls in by source; `source_rolls_group = 'album'` = set / album completed (± Pixie), Pixies, duplication exchange; `source_purchase_group` for bought rolls | partition `date_dim` |
+| `30_intermediate.user_daily_rolls_in_out` | user × day | rolls in / out, balance | |
 | `40_mart.fact_dynamic_resource_given` | resource grant | candidate for Wild receipt | not verified |
-| `20_core.purchase_completed_vw` | purchase | purchase time, source, campaign | |
-| `50_reporting.user_daily_metrics_agg` | user × day (view) | `install_date`, game revenue | |
-| `10_staging.stg_album_pack_received_vw` | pack event | pack types and sources | staging: ask Eden before use |
-| Offer exposure log | — | offers shown | **not found** for Dice |
+| `40_mart.user_daily_trail`, `50_reporting.fact_user_campaign_trail`, `20_core.dim_trail_campaign_event` | trail | Topic 3 | |
+| `20_core.purchase_completed_vw` | purchase | time, gross amount, source, campaign | |
+| `50_reporting.user_daily_metrics_agg` | user × day (view) | game activity, revenue, `install_date` | |
+| `20_core.fact_user_installation` | user | install ts, attribution | |
+| Offer exposure log | | offers shown | **not found** for Dice |
 
-Access: the BigQuery connector lists `dice-dreams-dbt` with `can_query: true` (checked 2026-11-03).
+Access: BigQuery connector, `dice-dreams-dbt` can be queried (checked 2026-11-03).
 
 ## 4. Source log
 For each source: what it adds, topic, effect on definitions or conclusions.
 | Date | Source | Adds | Topic | Changes a definition / conclusion? |
 |---|---|---|---|---|
 | 2026-11-03 | Existing repo material (list in `topics/*/README.md` and §1–3 above) | Baseline knowledge | all | No; conflicts listed in `DECISIONS.md` |
+| 2026-11-03 | Dice dbt catalogue (50/40/30/20 + pack staging view), `dim_album_season` | Album tables, pack-event fields, album roll sources, 2026 album dates | 1 (also 2, 3) | Adds sources; `days_in_album` includes the close day (no change to conclusions) |

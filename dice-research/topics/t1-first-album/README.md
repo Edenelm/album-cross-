@@ -2,7 +2,7 @@
 Read `PLAN.md` first. `queries/` holds every SQL (one file per step), `results/` the aggregated CSVs (no player IDs), `findings.md` the results doc (created at S2).
 
 ## Status
-- 2026-11-03: plan written; waiting for Eden's answers (`PLAN.md` §8). Next step: S1 schema check.
+- 2026-11-03: plan v2 with Eden's definitions; S1 (sources) done. Next: S2 base table.
 
 ## Earlier material used as input
 1. `claude/dice-entry-dups-rolls-2026-11-02.md` + `claude/dice_entry_dups_rolls_2026-11-02.sql` (Q1, Q1b, Q4) — entry third, duplicates, where new players stop. "New" = first album (C-002).
