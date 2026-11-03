@@ -31,13 +31,13 @@ Shared definitions live in `decisions-definitions-register.md`. Dice-specific po
 | Table | Grain | Use | Notes |
 |---|---|---|---|
 | `20_core.dim_album_season` | album | album dates | album 63 end date hard-coded (client sent year 2027) |
-| `30_intermediate.album_pop` | user × album | population incl. players with album events but no sticker; entry ts; segment; reward code; LTV before album; album spend | `user_past_album_count` counts only albums with login ratio ≥ 0.15, so it is not a first-album flag |
+| `30_intermediate.album_pop` | user × album | album presence (first-album history), segment, reward code, LTV before album | `user_past_album_count` counts only albums with login ratio ≥ 0.15 (not a first-album flag). **`user_album_start_date` unreliable**: overwritten to the close day for 25–31% of rows in 63 / 65 (C-005); use `user_daily_album` for entry |
 | `50_reporting.user_daily_album` | user × album × day | activity, gross spend, unique / total stickers (by type), sets, Wild received, kingdom, packs count, finish | partition `date_dim`; rows only from the first sticker; close-day stickers not updated |
 | `50_reporting.user_daily_album_progression` | user × album × day, **spined** (active or not) | stickers remaining, revenue | excluded users absent |
 | `10_staging.stg_album_pack_received_vw` | pack event | pack `source`, `pack_key`, stickers per pack, new stickers per pack (by type), `is_wild`, `mtx_campaign_id` | staging (Eden OK 2026-11-03); partition `pdate`; several fields marked "Investigate" in the event doc |
 | `30_intermediate.fact_user_album_stickers` | new sticker (first copy) | source, pack key, Wild fill, timestamp | ~1.9 TB; partition `sticker_collected_date`; no duplicates |
 | `30_intermediate.fact_user_daily_set_progression` / `40_mart.fact_user_set_progression` | user × album × set (× day) | set progress, FU flags | |
-| `30_intermediate.user_daily_rolls_by_source` | user × day × roll type × source × campaign | rolls in by source; `source_rolls_group = 'album'` = set / album completed (± Pixie), Pixies, duplication exchange; `source_purchase_group` for bought rolls | partition `date_dim` |
+| `30_intermediate.user_daily_rolls_by_source` | user × day × roll type × source × campaign | rolls in by source; `source_rolls_group = 'album'` = set / album completed (± Pixie), Pixies, duplication exchange; `source_purchase_group` ≠ 'others' reaches 95–99% of players incl. non-payers, so it is **not** a payment marker; 'core wager' = rolls won back while rolling | partition `date_dim` |
 | `30_intermediate.user_daily_rolls_in_out` | user × day | rolls in / out, balance | |
 | `40_mart.fact_dynamic_resource_given` | resource grant | candidate for Wild receipt | not verified |
 | `40_mart.user_daily_trail`, `50_reporting.fact_user_campaign_trail`, `20_core.dim_trail_campaign_event` | trail | Topic 3 | |
@@ -54,3 +54,4 @@ For each source: what it adds, topic, effect on definitions or conclusions.
 |---|---|---|---|---|
 | 2026-11-03 | Existing repo material (list in `topics/*/README.md` and §1–3 above) | Baseline knowledge | all | No; conflicts listed in `DECISIONS.md` |
 | 2026-11-03 | Dice dbt catalogue (50/40/30/20 + pack staging view), `dim_album_season` | Album tables, pack-event fields, album roll sources, 2026 album dates | 1 (also 2, 3) | Adds sources; `days_in_album` includes the close day (no change to conclusions) |
+| 2026-11-03 | Topic 1 queries (album_pop vs daily table; rolls by source; install age) | album_pop start-date bug; roll-source groups; first-album players are ~70% installed ≤7 days before entry, kingdom 5–6 at entry | 1 | Entry definition moved to `user_daily_album` (C-005); Kingdom-8 unlock in docs questioned (C-006) |

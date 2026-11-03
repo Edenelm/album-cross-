@@ -1,5 +1,5 @@
 # Topic 1: First-album experience, focused plan (v2, 2026-11-03)
-Status: definitions agreed with Eden (`DECISIONS.md` D-005); data sources checked (S1 done). Next: S2 base table.
+Status: S1–S5 done (2026-11-03); results in `findings.md`. Entry date comes from `user_daily_album`, not `album_pop` (C-005).
 
 ## 1. Business question
 What does a Dice player experience in their first album, especially when entering late, and what happens in their next album? Decision it feeds: does the first album need its own design (start path, catch-up level, early goal), or is the current one working, and for whom?
