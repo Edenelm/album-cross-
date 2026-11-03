@@ -15,7 +15,7 @@ Each line says how we know it: **[data]** measured in BigQuery (doc named), **[E
 - "Album segment" in Eden's words = final-prize code `album_reward_code` 1–7 (top = 200K rolls), not Easy..Extreme [Eden 2026-10-19]. The code steps up after finishing or reaching a spend bar [doc].
 - After 144: Fortune Wheel + Lava Quest ("Momentum Quest") [Eden 2026-10-19].
 - About 20 stickers per active day all album; from 50 stickers on, 77–89% are duplicates [data] `claude/dice-entry-dups-rolls-2026-11-02.md` §3.
-- Late joiners get catch-up: new stickers per active day rise with entry timing (new players 5–6 in the first third, 10–11 in the last third); "new kingdom" is the largest source for last-third joiners who finish (21%) [data] same doc §1–2. The catch-up rule itself is not documented.
+- Late joiners get more new stickers: at the same collection size and pack source, a late entrant's pack holds ~2x the new stickers (same stickers per pack) [data] `topics/t1-first-album/findings.md` 0-B. Pack event field `progression_balance_factor_value_golden/super` is much lower for them. No documented catch-up rule; field meaning unknown (Dice team question). Pity counter never fired in week 1.
 
 ## 2. Definitions (Dice)
 Shared definitions live in `decisions-definitions-register.md`. Dice-specific points:
@@ -55,3 +55,4 @@ For each source: what it adds, topic, effect on definitions or conclusions.
 | 2026-11-03 | Existing repo material (list in `topics/*/README.md` and §1–3 above) | Baseline knowledge | all | No; conflicts listed in `DECISIONS.md` |
 | 2026-11-03 | Dice dbt catalogue (50/40/30/20 + pack staging view), `dim_album_season` | Album tables, pack-event fields, album roll sources, 2026 album dates | 1 (also 2, 3) | Adds sources; `days_in_album` includes the close day (no change to conclusions) |
 | 2026-11-03 | Topic 1 queries (album_pop vs daily table; rolls by source; install age) | album_pop start-date bug; roll-source groups; first-album players are ~70% installed ≤7 days before entry, kingdom 5–6 at entry | 1 | Entry definition moved to `user_daily_album` (C-005); Kingdom-8 unlock in docs questioned (C-006) |
+| 2026-11-03 | Pack event fields (`progression_balance_factor_*`, `is_pity_counter_triggered`, `unique_stickers`) | Pack content differs by entry timing at equal collection | 1 | Catch-up = hypothesis, not documented (C-006-style question for the Dice team) |
