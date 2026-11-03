@@ -373,3 +373,18 @@ Status: Current / Superseded / Reference / Log / Script / Asset. 'INDEX' column 
 | c/slide_test1591_2026-10-29.py | 10-29 | Generator: test 1591 story p91a–p91d in the final Domino deck after fu6 (duplicates tx_end + native bars) | Script | עדכני |
 | c/disney-pet-mf-segments-2026-11-02.md | 11-02 | Disney PET (Magical Friends) segments: size, finish, revenue share, difficulty; gaps (segment metric, feature revenue, calibration) | Results | עדכני |
 | c/dice-pet-segments-2026-11-02.md | 11-02 | Dice Pet segments (Skunk, GoldenDog): finish %, payer %, finisher revshare by segment; spend bands in top segments | Results | עדכני |
+
+## Dice chapter 11-02/03 (copied 2026-11-03 from uncommitted worktree daze-completion-analysis-eae481) → index/topic-dice-chapter.md
+| c/dice-research-map-2026-11-02.md | 11-02 | Research map: journey stages, what is known / missing, linkage table, order | Plan | עדכני (input) |
+| c/dice-chapter-2026-11-02.md | 11-02 | Status map, gaps A–E, potential scenario, dc1–dc4 | Results | עדכני (input) |
+| c/dice-completion-path-2026-11-02.md + c/dice_completion_path_2026-11-02.sql | 11-02 | Completion path 59/61/63/65; "bought" uses superseded pack rule | Results / SQL | עדכני, rerun "bought" |
+| c/dice-sticker-source-vs-purchase-2026-11-02.md + .sql | 11-02 | Purchase → sticker link (source + campaign + ≤10 min) | Results / SQL | עדכני |
+| c/dice-entry-dups-rolls-2026-11-02.md + c/dice_entry_dups_rolls_2026-11-02.sql | 11-02/03 | Entry third, duplicates, rolls before finish, prize, where new players stop | Results / SQL | עדכני; "new" = first album (C-002) |
+| c/dice_chapter_charts_2026-11-02.py → c/slides/dice/dc1–dc4.png | 11-02 | Draft charts, not in any deck | Script / PNG | טיוטה |
+| c/next-session-prompt-2026-11-02-dice.md | 11-02 | Handoff of the Dice chapter | Handoff | superseded by dice-research/INDEX.md |
+| c/results/dice_*_2026-11-0*.csv (8 files) | 11-02/03 | Aggregated results, no player IDs | Data | עדכני |
+
+## Dice research (from 2026-11-03) → dice-research/INDEX.md
+| dice-research/INDEX.md, CONTEXT.md, RESEARCH_PLAN.md, DECISIONS.md | 11-03 | Entry point, verified context, plan, decisions | Index | עדכני |
+| dice-research/topics/t1-first-album/PLAN.md | 11-03 | Topic 1 focused plan; open questions §8 | Plan | עדכני |
+| dice-research/topics/t2-completion-path/README.md, t3-trail-difficulty/README.md | 11-03 | Inputs and gaps for topics 2–3 | Index | עדכני |

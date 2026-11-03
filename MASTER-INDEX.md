@@ -33,4 +33,6 @@ Updated 2026-10-26 (Asia/Jerusalem), patched after the 10-26 main pull (PRs #30/
 | tenure, albums seen, new vs veteran, cohort / ותק | index/topic-tenure.md |
 | benchmarks, old pack, knowledge bases, dbt | index/topic-benchmarks-reference.md |
 | deck, slide, story order (ALBUM END, Part 1, Domino deck) / מצגת, שקף | index/deck.md |
+| **Dice research (current, from 2026-11-03)**: first album, path to completion, Trail difficulty, Dice journeys / מחקר דייס, אלבום ראשון, מסלול לסיום, טרייל | dice-research/INDEX.md |
+| Dice chapter 2026-11-02/03 (inputs to the Dice research): completion path, entry third, duplicates, rolls before finish / פרק דייס | index/topic-dice-chapter.md |
 | Disney PET, Magical Friends, mf segments, Charms, Dice Pets, pet segments / פט, פיצ'ר PET, מג'יקל פרנדס, פט דייס | index/topic-disney-pet-mf.md |
