@@ -11,7 +11,7 @@ What does a Dice player experience in their first album, especially when enterin
 - **Entry** = `user_album_start_ts` in `album_pop` (first album event: started, sticker or pack). `user_daily_album` keeps only players with at least one sticker. *Claude's choice:* base = `album_pop` (does not lose players who opened and left), with a flag for "got a sticker". S2 reports how many lack a sticker.
 - **Reference group** = veterans (record in the previous album, id − 2), same entry band and early spend.
 - Excluded users removed (`is_excluded`). No login-ratio or close−1 filter.
-- **Albums:** focus first albums **57, 59, 61, 63, 65** (all started in 2026; 55, started 2026-02-02, as extra context if needed). Next album = 59, 61, 63, 65, **67**. Album 67 is open until 11-30, so next-album outcomes use a **fixed window from the next album's start** (first 14 days, available for all cohorts) plus the full album where it has closed. Album 65 is the atypical flat-end album: shown, not used alone for a conclusion.
+- **Albums:** focus first albums **57, 59, 61, 63, 65** (all started in 2026; 55, started 2026-02-02, as extra context if needed). Next album = 59, 61, 63, 65, **67**. Album 67 is open until 11-30, so next-album outcomes use a **fixed window from the next album's start** (first 14 days, available for all cohorts) plus the full album where it has closed. Album 65 is a regular cohort like the others (D-006: only its end was lower).
 
 | Album | Dates | Days (incl. close day) |
 |---|---|---|

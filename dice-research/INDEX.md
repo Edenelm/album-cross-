@@ -20,5 +20,6 @@ Started 2026-11-03. Read this first every session, then load only the active top
 - Earlier Dice chapter (2026-11-02/03, inputs to this research): `../index/topic-dice-chapter.md`.
 
 ## Session log (latest first)
+- **2026-11-03 (c)**: Album 65 = regular album; only its end was lower (D-006). Eden chose to push to the public repo (D-001). Next: S2.
 - **2026-11-03 (b)**: Eden's Topic 1 definitions recorded (D-005): first album only, albums 57–65 (since 2026), next-album retention / gross revenue / engagement, staging pack events OK, late entry = final third and last 14 days. Dice dbt album tables checked; plan v2. Still not pushed (D-001 open). Next: S2.
 - **2026-11-03** — Mapped existing material; created this structure; Topic 1 plan. Copied the uncommitted 11-02/03 Dice chapter files from worktree `daze-completion-analysis-eae481` into this branch. **Not pushed:** GitHub repo `Edenelm/album-cross-` is public (see `DECISIONS.md` D-001). Next: Eden answers the questions in the Topic 1 plan §8, then step S1.

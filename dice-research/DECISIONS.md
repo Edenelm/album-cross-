@@ -4,10 +4,11 @@ Newest first. Each entry: decision, who, when, why, what it changes. Open confli
 ## Decisions
 | ID | Date | Decision | By | Why / effect |
 |---|---|---|---|---|
+| D-006 | 2026-11-03 | **Album 65 is a regular album.** Only its end was lower than other albums; overall it is fine. In Topic 1 it is a full cohort like 57–63 (first album 65, next album 67). The "65 = case" rule (D-003) applies only to end-of-album measures (final days, end lift). | Eden | Narrows D-003 |
 | D-005 | 2026-11-03 | **Topic 1 definitions (Eden):** (1) population = players who start their **first album** (no earlier album row); no "new to the game" split. (2) Albums that started in 2026, focus on **57, 59, 61, 63, 65**. (3) Next-album outcomes widened: retention, gross revenue, engagement in the next album. (4) Staging pack events allowed; also search the Dice dbt album tables. (5) Late entry read both ways: final third of the album period **and** entry in the last 14 days before close. | Eden | Replaces PLAN §2 groups A/B; C-002 closes as "not split by install" |
-| D-001 | 2026-11-03 | **Open:** where to push. `Edenelm/album-cross-` is **public** (checked with `gh api`); `superplay-ab-data` is public too. Superplay revenue and player-behaviour numbers should not go to a public repo. Options: (a) make `album-cross-` private, (b) new private repo for Dice research. Until decided, work is committed locally only. | Eden to decide | Blocks every push |
+| D-001 | 2026-11-03 | **Decided (Eden, 2026-11-03): push to the public `Edenelm/album-cross-` repo.** Context at the time: `Edenelm/album-cross-` is **public** (checked with `gh api`); `superplay-ab-data` is public too. Superplay revenue and player-behaviour numbers should not go to a public repo. Options: (a) make `album-cross-` private, (b) new private repo for Dice research. Only aggregated results, no player IDs. | Eden | Pushes go to `album-cross-` |
 | D-002 | 2026-11-03 | Research lives in `dice-research/` inside the album repo; earlier Dice files stay in `claude/` and are linked, not moved. | Claude (structure choice) | Keeps the repo's index conventions and the history of earlier docs |
-| D-003 | 2026-11-02 | Typical albums 59/61/63 are the base; 65 is shown only as a case. | Eden | 65 is the only flat end since April 2025 |
+| D-003 | 2026-11-02 | Typical albums 59/61/63 are the base; 65 is shown only as a case. | Eden | 65 is the only flat end since April 2025. **Narrowed by D-006:** applies to end-of-album measures only |
 | D-004 | 2026-10-21 | First album = no row in any earlier album (not `user_past_album_count`). | Eden | The column marks returning payers as first-album |
 
 ## Open conflicts and cautions

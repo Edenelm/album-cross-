@@ -6,7 +6,7 @@ Each line says how we know it: **[data]** measured in BigQuery (doc named), **[E
 - The album opens at Kingdom 8. Of payers who paid in their first 7 days (installs Mar–Jun 2026), 70% reached the album by day 7, 84% by day 90 [data] `cross-game-comparison-framework.md` A2.
 - Album IDs jump by 2 (…59, 61, 63, 65, 67); previous album = id − 2 [data].
 - Album dates (2026): 55 = 02-02..03-23, 57 = 03-23..05-04, 59 = 05-04..06-22, 61 = 06-22..07-27, 63 = 07-27..09-07, 65 = 09-07..10-19, 67 = 10-19..11-30 (open) [data] `20_core.dim_album_season`, 2026-11-03. Its `days_in_album` counts the close day (59 = 50; earlier docs say 49 without it).
-- Typical albums = 59/61/63. Album 65 is the only flat end since April 2025: a case, never the base [Eden 2026-11-02].
+- Album 65 had the only flat end since April 2025; overall it is a regular album [Eden 2026-11-03]. Only end-of-album measures treat 65 as a case (base 59/61/63) [Eden 2026-11-02, narrowed 2026-11-03].
 - Three stickers are locked until the end (2 Supers + 1 Golden). They reach 1% of holders only 3–6 days before close: 59 S143/S108/G141, 61 S143/S120/G142, 63 S143/S132/G129 [data] `claude/dice-completion-path-2026-11-02.md`. Locking is by design [Eden 2026-10-21].
 - Stopping at 10 of 12 Supers is by design: the album brings players to 2 missing Supers [Eden 2026-10-17].
 - Wild fills any sticker, including a locked one. Wild is sold from about 7 days before close [Eden 2026-10-15]. Free Wilds in the last week come in two bursts: Bonus Wheel close−8/−7 and Trail final reward from close−3; on close−6..−4 only a paid Wild exists [data] `claude/dice-wild-sources-2026-10-21.md`.
