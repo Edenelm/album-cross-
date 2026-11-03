@@ -6,6 +6,126 @@ Revenue = game gross revenue; revenue share = of all game revenue on album days 
 SQL: `queries/t1_s2_s4_core.sql`, `queries/t1_s3b_rolls_7d.sql`, `queries/t1_s5_composition.sql`; journey (2026-11-03, second pass): `queries/t1_j1_daily_journey.sql`, `t1_j2_close_status_types.sql`, `t1_j3` (packs; SQL text in this doc's appendix), `t1_j4_early_vs_later.sql`. Results: `results/*.csv` (J4 CSV holds the key cells; rerun the query for every cell).
 The journey section (J1–J4) comes first; the earlier baseline findings F1–F6 follow it.
 
+# Part R. Reopened Topic 1: comparable players → first-album experience by entry timing → the same players in their next album (2026-11-03)
+**This part answers the reopened brief and comes first.** It keeps the decision section below (D-1 to D-4) and Part 0; nothing there is withdrawn. New definitions: `../../DECISIONS.md` D-010.
+**Population:** players whose first album is 57, 59, 61, 63 or 65 (no earlier album record), first sticker day = entry, excluded users removed. Entry group by days left D = close date − entry date:
+
+| Group | D | Players | Share of game revenue* |
+|---|---|---|---|
+| Start | 29+ | 393,350 | 5.9% |
+| Middle | 15–28 | 392,830 | 4.3% |
+| Late | 8–14 | 213,162 | 1.4% |
+| Final week | 4–7 | 129,096 | 0.5% |
+| Last days | 1–3 | 93,560 | 0.2% |
+| Close day | 0 | 11,095 | 0.003% |
+
+\*Group players' revenue on album days start..close−1 ÷ all game revenue on those days, pooled over albums 57–65.
+**Windows:** first album = entry..close−1 (the close day is left out for everyone: Dice daily rows do not update stickers on the close day, so close-day entrants have no first-album window). The full first week (7 complete days, D ≥ 7) is Part 0 (EARLY ≈ Start, LATE ≈ Late + part of Middle); it is not repeated here. No first-album window includes next-album days.
+
+## R-1. The groups are comparable before entry (fact)
+Query `queries/t1_r1_overlap.sql` → `results/t1_r1_overlap_2026-11-03.csv`.
+- Share of players in common support (a cell of age × prior pay × kingdom × roll balance × activity with ≥ 20 players in both the group and Start): 99.4–99.8% for Start..Last days; 95% for Close day.
+- Paid before entry: 7.7–8.3% in every group (Close day 10.8%). Roll balance under 50 at entry: 77–78%. Kingdom 7+ at entry: 37–44%. Organic installs: 10–13%.
+- Small difference: later groups are a little newer to the game (installed 0–2 days before entry: 37% Start → 46% Last days) and were a little less active in the 7 days before (4+ active days: 22% → 15%).
+- **Check that guards against player mix:** R2 results re-weighted to the Start mix of cells move by ≤ 0.12 sets, ≤ 2 points of payer share and ≤ $0.70 of revenue (std_* columns in the R2 CSV). The differences below are not explained by who entered when.
+- **Limit:** only pre-entry traits are controlled. Activity and spend after entry are outcomes, so they are not matched (by design).
+
+## R-2. First-album experience to close: time left shapes everything (fact)
+Query `queries/t1_r2_experience_to_close.sql` → `results/t1_r2_experience_to_close_2026-11-03.csv` (medians validated by `t1_r2b_roll_medians.sql`).
+
+| Per player, entry..close−1 | Start | Middle | Late | Final week | Last days |
+|---|---|---|---|---|---|
+| Days in window (mean) | 36 | 22 | 11 | 6 | 2 |
+| Active days · share of window | 14.1 · 39% | 10.4 · 48% | 6.6 · 60% | 3.9 · 71% | 1.7 · 87% |
+| Packs · per active day | 140 · 9.9 | 103 · 10.0 | 64 · 9.7 | 32 · 8.2 | 11 · 6.4 |
+| New stickers · duplicates share | 73 · 74% | 76 · 65% | 69 · 53% | 48 · 39% | 22 · 24% |
+| New stickers per active day | 5.2 | 7.4 | 10.4 | 12.2 | 12.5 |
+| Stickers at close (median) | 71 | 78 | 68 | 40 | 13 |
+| Sets · ≥ 1 set · 4+ sets | 3.5 · 55% · 40% | 3.6 · 57% · 43% | 2.9 · 55% · 35% | 1.4 · 35% · 16% | 0.4 · 11% · 3% |
+| First set, day since entry (median) | 7 | 6 | 4 | 2 | 1 |
+| Finish rate (144 by close−1) | 2.0% | 2.9% | 2.7% | 1.2% | 0.2% |
+| Album rolls: any · median · p90 | 55% · 600 · 19,550 | 58% · 800 · 14,400 | 55% · 450 · 6,250 | 35% · 0 · 2,100 | 11% · 0 · 450 |
+| Rolls spent (median) · per active day | 18,196 · 1,841 | 15,400 · 1,804 | 9,250 · 1,540 | 2,933 · 922 | 1,437 · 954 |
+| Album rolls, typical player's share of non-wager inflow (mean of player shares) | 5.1% | 6.3% | 5.5% | 3.0% | 0.7% |
+| Roll balance at close (median) | 50 | 40 | 25 | 10 | 4 |
+| Active days out of rolls | 54% | 57% | 63% | 68% | 74% |
+| Revenue · payer share · revenue per active day | $21.28 · 28% · $1.51 | $15.50 · 27% · $1.50 | $9.44 · 26% · $1.43 | $4.93 · 22% · $1.25 | $2.26 · 18% · $1.31 |
+| First purchase, day since entry (median, payers) | 0 | 0 | 0 | 0 | 0 |
+
+- **Fact:** the later a player enters, the faster each active day progresses (new stickers per active day 5.2 → 12.5; duplicates 74% → 24%) and the sooner the first set comes (day 7 → day 1). Packs per active day do not rise (≈ 10, lower in the last days). The speed comes from richer packs, not more packs, matching D-1.
+- **Fact:** total progress, album rewards and spend fall with less time. Final-week and last-days entrants finish the album with 40 and 13 stickers (median) and 1.4 and 0.4 sets.
+- **Fact:** revenue per active day is about the same in every group ($1.25–1.51); payer share falls only from 28% to 18% over far fewer days.
+- **Data note (validation):** per-player means of feature rolls and rolls spent are hundreds of thousands to millions. A few very heavy players drive them (p90 of rolls spent: 231,197 for Start). Use medians. The pooled album share of inflow (0.0–0.9%) is also driven by those players; the typical player's share is the row above.
+- **Limit:** close-day entrants (11,095) have no first-album window. Finish rate uses the in-game finish date ≤ close; Eden's finisher rule (144 by the end of close day, from the sticker table) would add close-day finishers.
+
+## R-3. Payout: near-close entrants complete sets faster per day but do not get more rolls (fact; mechanism partly hypothesis)
+Queries `t1_r2_experience_to_close.sql`, `t1_r3_reward_days.sql` → `results/t1_r3_reward_days_2026-11-03.csv`.
+- **Rolls in total:** fewer for later entrants. Median album rolls 600 / 800 / 450 / 0 / 0; payout in days of own play (album rolls ÷ rolls spent per active day, mean) 1.10 / 1.02 / 0.52 / 0.25 / 0.05. Players with album rewards worth ≥ 1 day of play: 34% / 35% / 16% / 0.8% / 0%.
+- **Rolls per set:** the same. A reward day gives a median 800–1,050 album rolls in every group.
+- **Size next to the economy:** on a reward day, album rolls are a median 12% (Start) to 6% (Last days) of the rolls the player spends that day (8,000–14,000). Over the whole first album, album rolls are about 5–6% of a typical Start/Middle/Late player's roll inflow outside wagers; 94% comes from other features.
+- **Reward days vs the same players' other days:** reward days are heavy-play days (median rolls spent 7,780–13,931 vs 823–2,428) and paying days (paid 18–45% vs 8–33%). Next-day activity is only 1–2 points higher (Start 86.5% vs 84.7%; Late 89.4% vs 88.2%) and lower in the last days (89% vs 96%). Out-of-rolls share is similar (51–71% vs 55–78%).
+- **Direct purchase vs purchase-enabled rewards:** direct purchases explain 2% of the week-1 sticker gap (D-2). Purchases and set rewards fall on the same days (reward days are paying days), so the album reward partly sits on top of bought play. Per-roll tracing (did bought rolls produce the set?) is not possible in the daily tables.
+- **Meaning:** album rewards are small next to a player's daily roll use. They do not change balances (median balance at close 4–50 rolls) or out-of-rolls frequency. Near-close entrants get their first set sooner but a smaller total payout, so the hypothesis that near-close entrants get substantially more rolls is **refuted**. That the reward extends play is **not supported**: next-day activity barely moves, and reward days are chosen by play itself (selection, not removed).
+- **Limit:** album rolls come from `source_rolls_group = 'album'` (sets, album completion, final prize). Wager rolls and the bet multiplier are inside "rolls spent", so payout in days uses the player's real consumption.
+
+## R-4. The same players in their next album: two clocks (fact)
+Query `queries/t1_r4_next_album.sql` → `results/t1_r4_next_album_2026-11-03.csv`. The next album (A+2) starts on the first album's close day, so the wait from entry to next start = D: 36 days for Start, 2 for Last days, 0 for Close day. Album 67 is open: its 14-day window (10-19..11-01) is complete.
+
+**Clock 1: equal time since first entry (days 0–41, both albums together; cohorts with entry + 41 ≤ 2026-11-02).**
+
+| Days 0–41 since entry | Start | Middle | Late | Final week | Last days | Close day |
+|---|---|---|---|---|---|---|
+| Players with full window | 393,350 | 330,359 | 152,544 | 90,957 | 67,261 | 8,307 |
+| Active days | 15.5 | 15.4 | 15.3 | 15.5 | 15.7 | 15.3 |
+| Revenue per player | $23.43 | $23.97 | $24.79 | $25.47 | $28.80 | $29.23 |
+| Payer share | 28.3% | 28.8% | 29.3% | 29.4% | 30.4% | 30.2% |
+
+**Clock 2: equal time since next-album start (14 days), whole cohort.**
+
+| Next album, first 14 days | Start | Middle | Late | Final week | Last days | Close day |
+|---|---|---|---|---|---|---|
+| Wait from entry (days) | 36 | 22 | 11 | 6 | 2 | 0 |
+| In next album | 33% | 44% | 58% | 70% | 81% | 88% |
+| Active days (whole cohort) | 2.9 | 3.8 | 5.0 | 6.0 | 7.0 | 7.7 |
+| Revenue per player · payer share | $4.41 · 7.4% | $6.64 · 10.3% | $9.14 · 14.1% | $10.16 · 17.3% | $12.11 · 21.1% | $15.12 · 28.7% |
+
+**Returners only (in the next album within 14 days):** the experience is the same in every group.
+
+| Returners, first 14 days | Start | Middle | Late | Final week | Last days | Close day |
+|---|---|---|---|---|---|---|
+| Players | 129,673 | 173,279 | 123,478 | 90,278 | 75,784 | 9,779 |
+| Active days | 8.6 | 8.6 | 8.6 | 8.6 | 8.5 | 8.6 |
+| Starting roll balance (median) | 58 | 40 | 26 | 9 | 4 | 1 |
+| Packs · new stickers · per active day | 85 · 62 · 7.2 | 87 · 61 · 7.1 | 92 · 61 · 7.1 | 94 · 60 · 7.0 | 91 · 58 · 6.8 | 87 · 56 · 6.6 |
+| Sets · any set · album rolls (median) | 1.8 · 66% · 550 | 1.7 · 64% · 550 | 1.7 · 63% · 550 | 1.7 · 62% · 500 | 1.6 · 59% · 450 | 1.6 · 56% · 250 |
+| Revenue · payer share | $13.38 · 22% | $15.04 · 23% | $15.78 · 24% | $14.52 · 25% | $14.95 · 26% | $17.08 · 32% |
+| Paid before next start · new payer rate · repeat payer rate | 44% · 3% · 47% | 40% · 5% · 51% | 36% · 7% · 55% | 29% · 10% · 59% | 25% · 14% · 62% | 11% · 27% · 68% |
+| First purchase in window, day (median) | 2 | 2 | 2 | 2 | 2 | 0 |
+
+- **Fact:** on clock 2 return falls with the wait. Start entrants had 36 days to drop out before the next album opened; Last-days entrants had 2. This is the elapsed-time artefact already found (F5, 0-F), now shown for all groups.
+- **Fact:** on clock 1 the groups are the same in play (15.3–15.7 active days in 42 days). Revenue and payer share are a little higher for the latest entrants ($28.80 vs $23.43, +23%; 30.4% vs 28.3%, +2 points), who got the **least** first-album reward.
+- **Fact:** close-day entrants, who had no first-album experience at all, play as much as Start entrants on clock 1 (15.3 days) and pay a little more ($29.23, 30.2%).
+- **Fact:** returners start the next album with almost no rolls in every group (median 1–58). Their next-album experience is the same: 8.6 active days of 14, about 7 new stickers per active day, 1.6–1.8 sets. The Start group's larger payout and longer first album did not make their next album faster or richer.
+- **Association only (set_yes / set_no rows in the CSV):** players who completed a set in the first album return far more (Start 55% vs 5%). Completing a set needs play, so this mostly sorts engaged from disengaged players. The Last-days group shows this: 89% of them had no set (2 days were too short), and 80% of them still returned.
+- **Limit:** clock 1 drops album 65's Late..Last-days entrants (window not complete), so groups mix albums slightly differently. Calendar effects (the new album's launch inside the 42 days for later groups) are not removed. Hypothesis: a fresh album start explains the small revenue gain for the latest entrants (also seen in Part II for 0–2 days left).
+
+## R-5. Answer: does a more rewarding first album build a better player, or only give resources?
+"Better" (D-010) = more engaged without lower revenue, read on three measures: (1) return and active days, (2) progression, (3) paying.
+
+| Measure | What the data shows | Status |
+|---|---|---|
+| Return and active days | Equal at equal time since entry (15.3–15.7 active days in 42 days), whatever the first-album reward. Clock-2 return gaps follow the wait. | Fact |
+| Progression | Next-album progress per active day is the same for returners in all groups (6.6–7.2 new stickers); first-album payout does not carry over (starting balance 1–58 rolls). | Fact |
+| Paying | Equal or slightly higher for groups with the smallest first-album reward ($23–29 per player in 42 days; 28–30% payers). | Fact |
+| A more rewarding first album causes a better player | Not supported. The groups with the most album rewards (Start, Middle) are not more engaged, faster or more valuable later than groups with almost none (Last days, Close day). | Not supported (observational) |
+| Album rewards are only a resource | Partly supported: they are small (5–6% of a typical player's roll inflow, about 12% of a reward day's own roll use) and are spent at once. | Hypothesis consistent with data |
+
+- **Association vs causation:** entry timing gives groups that were the same before entry (R-1) but got very different first albums. That helps, but it is not a test: calendar, album position and wait differ with entry timing too.
+- **Recommendation: do not adopt** a richer first-album payout (more rolls per set or bigger set rewards) for new players. The evidence does not point to a gain, and album rolls are a small part of the roll economy, so a change has little room to matter.
+- **Test justified?** Not for roll payout. If the team still wants to test the first album, keep the existing test design (D-4: richer new-sticker rate in days 0–6 for first-third entrants), which changes the mechanism that actually differs between groups (pack content, R-2 and D-1). Report it by the three measures, on clock 1 (days 0–41 since entry) and for the whole randomised group.
+- **What would change this answer:** a test or natural experiment where set rewards change while entry timing and calendar stay fixed (for example an album with a changed reward table). None was found in albums 57–65.
+
+---
 # Decision: should every first-album player get the faster progression late entrants have? (2026-11-03)
 **Population:** the eligible first-album entrants of Part 0 (D-009):
 - **LATE:** 235,686 players, 1.5% of game revenue.

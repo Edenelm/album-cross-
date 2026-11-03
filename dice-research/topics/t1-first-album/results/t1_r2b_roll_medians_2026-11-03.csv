@@ -1,0 +1,6 @@
+grp,players,med_rolls_in_by_source,med_rolls_in_daily_table,med_rolls_out,med_album,med_features,med_wager,med_bought,share_with_bought_rolls,p90_rolls_in,p90_rolls_out,mean_player_album_share_excl_wager,p90_player_album_share,mean_player_feature_share,mean_player_bought_share,med_rolls_out_per_day,med_inflow_excl_wager_per_day
+a_start,393350,17782,17782,17392,500,14398,2904,0,0.251,232298,231197,0.051,0.153,0.940,0.008,1782,1516
+b_middle,392830,16208,16208,15763,800,12614,2596,0,0.246,143906,143400,0.063,0.166,0.929,0.008,1813,1570
+c_late,213162,9266,9266,8901,450,6927,1329,0,0.229,66955,66641,0.055,0.144,0.939,0.007,1504,1308
+d_final_week,129096,2965,2965,2902,0,2441,502,0,0.185,32642,32261,0.030,0.107,0.964,0.006,920,775
+e_last_days,93560,1493,1493,1456,0,1199,272,0,0.133,10627,10362,0.007,0.027,0.987,0.006,958,782
