@@ -2,7 +2,7 @@
 Read `PLAN.md` first. `queries/` holds every SQL (one file per step), `results/` the aggregated CSVs (no player IDs), `findings.md` the results doc (created at S2).
 
 ## Status
-- 2026-11-03: core v3 on the eligible population (Part 0 of `findings.md`, queries t1_e1..e4). Part I (J1–J4) superseded for core claims. Waiting for Eden's review.
+- 2026-11-03: decision section D-1..D-4 (queries t1_f1..f3) + core Part 0 (t1_e1..e4). Part I superseded for core claims. Slides: build from `PRESENTATION_NOTES.md`. Waiting for Eden's review.
 
 ## Earlier material used as input
 1. `claude/dice-entry-dups-rolls-2026-11-02.md` + `claude/dice_entry_dups_rolls_2026-11-02.sql` (Q1, Q1b, Q4) — entry third, duplicates, where new players stop. "New" = first album (C-002).

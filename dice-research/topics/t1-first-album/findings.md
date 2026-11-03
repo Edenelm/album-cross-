@@ -6,6 +6,66 @@ Revenue = game gross revenue; revenue share = of all game revenue on album days 
 SQL: `queries/t1_s2_s4_core.sql`, `queries/t1_s3b_rolls_7d.sql`, `queries/t1_s5_composition.sql`; journey (2026-11-03, second pass): `queries/t1_j1_daily_journey.sql`, `t1_j2_close_status_types.sql`, `t1_j3` (packs; SQL text in this doc's appendix), `t1_j4_early_vs_later.sql`. Results: `results/*.csv` (J4 CSV holds the key cells; rerun the query for every cell).
 The journey section (J1–J4) comes first; the earlier baseline findings F1–F6 follow it.
 
+# Decision: should every first-album player get the faster progression late entrants have? (2026-11-03)
+**Population:** the eligible first-album entrants of Part 0 (D-009):
+- **LATE:** 235,686 players, 1.5% of game revenue.
+- **EARLY:** 401,974 players, 5.9% of game revenue.
+
+Shares are of all game revenue on album days start..close−1, pooled over albums 57–65.
+SQL: `queries/t1_f1_env_vs_treatment.sql`, `t1_f2_gap_by_source.sql`, `t1_f3_purchase_timing.sql`. Results: `results/t1_f1..f3_*_2026-11-03.csv`.
+
+## D-1. Why late entrants get more new stickers
+| Explanation | Verdict | Evidence |
+|---|---|---|
+| Different players | **Not supported** | Pre-entry: install 3 vs 4 days before entry (median), 7.8% vs 7.9% paid before, kingdom 6 vs 6, 2.6 vs 2.8 active days in the 60 days before. Week-1 activity 4.75 vs 4.63 days. Non-payers with the same active days show the same gap (D-2). |
+| End-of-album environment | **Main explanation** | At the same collection size, new stickers per pack rise from the album's first third to its last third **for everyone**: early entrants 0.45 → 0.92, veterans 0.48 → 1.00 (50–74 stickers held); 0.97 → 1.51 vs 1.01 → 1.66 (25–49). Late entrants in the last third get the same as early entrants and veterans in the last third: 0.97 vs 0.92 / 1.00; 1.69 vs 1.51 / 1.66. |
+| Late-entry treatment | **Small, only at larger collections** | At 75–99 stickers held: late 0.77 vs early 0.59 / veterans 0.63; at 100–124: 0.64 vs 0.43 / 0.39. Below 75 stickers, no extra. The pack field `progression_balance_factor` falls with album calendar for all groups (meaning not documented). |
+- **Meaning:** late entrants are not treated as a special group for most of their first week; they arrive when pack content is richer for everyone. Giving early entrants the same experience means changing pack content at the start of the album, a different design from what late entrants receive.
+- **Limit:** collection buckets are 25 stickers wide. Veterans are a 10% random sample. The pack-content rule itself is not documented (ask the Dice team).
+
+## D-2. Where the extra stickers come from (week 1, first album)
+Late entrants collect about 16 more new stickers in week 1 (55.0 vs 38.6 per player).
+| Source family (from `sticker_source`) | Early per player | Late per player | Gap | Share of gap |
+|---|---|---|---|---|
+| New kingdom | 7.5 | 13.0 | +5.5 | 33% |
+| Tournament (chest / final reward) | 1.3 | 4.9 | +3.5 | 22% |
+| Progress bar | 5.0 | 7.2 | +2.2 | 13% |
+| Trail | 5.6 | 7.6 | +2.0 | 12% |
+| Home makeover, pets, calendar, other, wheel, pass | 18.5 | 21.2 | +2.8 | 17% |
+| **Direct purchase** (same source ≤10 min) | 0.7 | 1.1 | +0.3 | **2%** |
+- **Non-payers with 5–7 active days** (158K early, 95K late) show the same pattern: new kingdom +6.3, tournament +5.1, progress bar +2.5, Trail +2.3.
+- **Meaning:** the gap comes from gameplay and feature rewards, mainly new kingdom (richer packs late in the album) and tournaments (3.7x more stickers). It does not come from direct purchases.
+- **Limit:** these are gameplay/feature rewards, not proven free. Rolls or passes bought earlier can fuel them, and that indirect link cannot be traced per sticker.
+
+## D-3. When do they pay? (first purchase since entry, by cell; post-close windows as noted)
+| Cell (players) | First purchase in album 1 (before first set · first set→close) | Close → +7 days | +7–14 days | +14–28 days (albums 57–63) | No purchase by close + 28 days (57–63) | Repeat (2+) in album 1 |
+|---|---|---|---|---|---|---|
+| LATE rapid, new payers (41,045) | 54% (40% · 14%) | 3.2% | 1.2% | 1.0% | 41% | 46% |
+| LATE rapid, paid before entry (5,225) | 90% | 1.7% | 0.3% | 0.5% | 8% | 81% |
+| LATE not rapid, new (173,447) | 16% | 1.7% | 0.9% | 1.0% | 82% | 9% |
+| EARLY rapid, new payers (11,221) | 75% (59% · 16%) | 0.4% | 0.2% | 0.3% | 24% | 72% |
+| EARLY not rapid, new (353,452) | 23% | 0.4% | 0.2% | 0.4% | 76% | 18% |
+- **Fact:** players who pay, pay early. The median first purchase is on the entry day (Part 0-A). For most rapid payers the first purchase comes before the first set.
+- **Fact:** few start paying after close. Among late rapid players who bought nothing in album 1, 9.8% buy within 14 days after close (median 103 hours after close); 41% of late rapid new payers buy nothing by close + 28 days.
+- **Fact:** late rapid players who bought in album 1 keep buying: 60% buy again within 14 days of close (median 35 hours after close).
+- **Time since entry (equal windows, Part 0-E):** by day 29 late and early entrants have the same payer share (28%) and revenue ($19.75 vs $18.76 per player).
+- **Meaning:** no sign of a long period without purchasing after fast progress. Fast progressors who pay start in the first album, mostly at once. Those who don't, mostly never start within a month.
+
+## D-4. Answer to the decision
+- **Reflects player differences?** No: same pre-entry profile, same activity.
+- **Comes from late-entry treatment?** Only a small part, at larger collections.
+- **Comes from the end-of-album environment?** Mostly: everyone's packs carry more new stickers late in the album, and tournament stickers are more common then.
+- **Linked to later purchasing, or to a long gap without purchasing?** Neither, at the group level. Late entrants progress about 3x faster in sets, yet activity, payer share and revenue at days 6, 13 and 29 match early entrants (Part 0-E). Within groups, fast progress and paying go together, with no direction shown.
+- **Is faster progression a better experience?** Not shown. More stickers did not come with more play or more spending at equal time since entry.
+- **Recommendation: do not adopt** faster first-week progression for all first-album players on this evidence. If the team wants to try it, run **one controlled test** on the mechanism found:
+  - **Who:** first-album players entering in the first third, randomised 50/50.
+  - **Change:** for days 0–6, give packs the new-sticker rate seen in the album's last third at the same collection size. Same pack count, same sources.
+  - **Primary metric:** active on days 14–27 since entry.
+  - **Guardrails:** revenue days 0–29 and days 30–59 since entry; payer share by day 29; finish rate.
+  - **Watch for:** spend moving later in time, not only in level.
+  - **Size:** 51,000–108,000 eligible first-third entrants per album.
+
+---
 # Part 0. Core answer: eligible first-album entrants (v3, 2026-11-03)
 **This part replaces Part I for every core claim.** Part I mixed albums: for entrants with fewer than 7 days left, its "first 7 days" included second-album days (checked: J2/J3/J4 used rows of any album; S2–S4 did not).
 

@@ -1,7 +1,7 @@
 # Dice album research — RESEARCH PLAN
 Working order. One active topic at a time; the next topic starts only when Eden asks.
 
-## Topic 1 — First-album experience (active)
+## Topic 1 — First-album experience (active; decision answered 2026-11-03, see findings top)
 **Question.** What does a player experience in their first album, especially when entering in its final third, and what happens in their next album?
 **Competing explanations** (none assumed):
 - H1 Generous rewards (catch-up, free packs and rolls) delay the need to buy.
